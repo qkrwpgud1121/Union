@@ -9,6 +9,8 @@ import UIKit
 
 class Temp: UIViewController {
 
+    @IBOutlet weak var email: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,4 +28,11 @@ class Temp: UIViewController {
     }
     */
 
+    @IBAction func temp(_ sender: UIButton) {
+        
+        let sendEmail = email.text!
+        
+        print(sendEmail)
+        
+    }
 }
