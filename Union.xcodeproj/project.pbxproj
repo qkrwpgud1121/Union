@@ -14,7 +14,7 @@
 		F8B2B31B2A86219800CAD9A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8B2B3192A86219800CAD9A7 /* Main.storyboard */; };
 		F8B2B31D2A86219900CAD9A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8B2B31C2A86219900CAD9A7 /* Assets.xcassets */; };
 		F8B2B3202A86219900CAD9A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8B2B31E2A86219900CAD9A7 /* LaunchScreen.storyboard */; };
-		F8DEC4FC2A8B163B00820B35 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DEC4FB2A8B163B00820B35 /* Register.swift */; };
+		F8DEC4FE2A8B47FD00820B35 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DEC4FD2A8B47FD00820B35 /* Register.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +27,7 @@
 		F8B2B31C2A86219900CAD9A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8B2B31F2A86219900CAD9A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8B2B3212A86219900CAD9A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F8DEC4FB2A8B163B00820B35 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		F8DEC4FD2A8B47FD00820B35 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +68,7 @@
 				F8B2B31E2A86219900CAD9A7 /* LaunchScreen.storyboard */,
 				F8B2B3212A86219900CAD9A7 /* Info.plist */,
 				F80E38D72A8B13D70014529C /* Temp.swift */,
-				F8DEC4FB2A8B163B00820B35 /* Register.swift */,
+				F8DEC4FD2A8B47FD00820B35 /* Register.swift */,
 			);
 			path = Union;
 			sourceTree = "<group>";
@@ -148,7 +148,7 @@
 				F8B2B3142A86219800CAD9A7 /* AppDelegate.swift in Sources */,
 				F80E38D82A8B13D70014529C /* Temp.swift in Sources */,
 				F8B2B3162A86219800CAD9A7 /* SceneDelegate.swift in Sources */,
-				F8DEC4FC2A8B163B00820B35 /* Register.swift in Sources */,
+				F8DEC4FE2A8B47FD00820B35 /* Register.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
