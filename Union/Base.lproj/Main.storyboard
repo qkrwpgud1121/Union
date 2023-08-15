@@ -178,22 +178,38 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z4p-dy-IHc">
-                                <rect key="frame" x="148" y="233" width="97" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z4p-dy-IHc">
+                                <rect key="frame" x="16" y="199.66666666666666" width="361" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x3f-8Q-4ZI">
+                                <rect key="frame" x="16" y="257.66666666666669" width="361" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="발급"/>
+                                <connections>
+                                    <action selector="temp:" destination="BS5-JQ-b9n" eventType="touchUpInside" id="xIf-ei-lyf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="59v-0Y-Jod"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Z4p-dy-IHc" firstAttribute="leading" secondItem="59v-0Y-Jod" secondAttribute="leading" constant="16" id="0k7-c3-PSQ"/>
+                            <constraint firstItem="Z4p-dy-IHc" firstAttribute="top" secondItem="a8U-Zd-4Lq" secondAttribute="bottom" constant="32" id="3zX-Ib-Pql"/>
                             <constraint firstItem="a8U-Zd-4Lq" firstAttribute="leading" secondItem="59v-0Y-Jod" secondAttribute="leading" constant="24" id="91l-c7-QV4"/>
                             <constraint firstItem="a8U-Zd-4Lq" firstAttribute="top" secondItem="59v-0Y-Jod" secondAttribute="top" constant="24" id="A2z-Cr-jbC"/>
+                            <constraint firstItem="x3f-8Q-4ZI" firstAttribute="leading" secondItem="59v-0Y-Jod" secondAttribute="leading" constant="16" id="NYL-4n-sPe"/>
+                            <constraint firstItem="x3f-8Q-4ZI" firstAttribute="top" secondItem="Z4p-dy-IHc" secondAttribute="bottom" constant="24" id="NYw-R2-4AU"/>
+                            <constraint firstItem="59v-0Y-Jod" firstAttribute="trailing" secondItem="Z4p-dy-IHc" secondAttribute="trailing" constant="16" id="foX-Qk-HRm"/>
+                            <constraint firstItem="59v-0Y-Jod" firstAttribute="trailing" secondItem="x3f-8Q-4ZI" secondAttribute="trailing" constant="16" id="gRy-Bx-2my"/>
                             <constraint firstItem="59v-0Y-Jod" firstAttribute="trailing" secondItem="a8U-Zd-4Lq" secondAttribute="trailing" constant="24" id="vvH-Dp-Awh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Temp" id="e0a-mb-Y4Y"/>
+                    <connections>
+                        <outlet property="email" destination="Z4p-dy-IHc" id="0UF-vp-12q"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jPG-DM-WBF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -206,10 +222,63 @@
                     <view key="view" contentMode="scaleToFill" id="yfu-IW-Kwg">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u0N-3Z-ekc">
+                                <rect key="frame" x="16" y="127" width="361" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PqL-Eb-8Ef">
+                                <rect key="frame" x="16" y="185" width="361" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2l5-qM-qh3">
+                                <rect key="frame" x="16" y="243" width="361" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wig-yr-Orh">
+                                <rect key="frame" x="16" y="301" width="361" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRO-02-tQJ">
+                                <rect key="frame" x="16" y="367" width="361" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="가입하기"/>
+                                <connections>
+                                    <action selector="btn_register:" destination="KgS-6p-zlA" eventType="touchUpInside" id="DfE-UU-asY"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="NAG-EL-MXf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="u0N-3Z-ekc" firstAttribute="leading" secondItem="NAG-EL-MXf" secondAttribute="leading" constant="16" id="65P-UO-dZg"/>
+                            <constraint firstItem="NAG-EL-MXf" firstAttribute="trailing" secondItem="PqL-Eb-8Ef" secondAttribute="trailing" constant="16" id="DVC-3c-jHq"/>
+                            <constraint firstItem="u0N-3Z-ekc" firstAttribute="top" secondItem="NAG-EL-MXf" secondAttribute="top" constant="24" id="FYe-ld-IQf"/>
+                            <constraint firstItem="NAG-EL-MXf" firstAttribute="trailing" secondItem="u0N-3Z-ekc" secondAttribute="trailing" constant="16" id="Ftl-oX-bjQ"/>
+                            <constraint firstItem="wig-yr-Orh" firstAttribute="top" secondItem="2l5-qM-qh3" secondAttribute="bottom" constant="24" id="IcW-UJ-dZJ"/>
+                            <constraint firstItem="NAG-EL-MXf" firstAttribute="trailing" secondItem="wig-yr-Orh" secondAttribute="trailing" constant="16" id="LJm-EB-Cjv"/>
+                            <constraint firstItem="PqL-Eb-8Ef" firstAttribute="leading" secondItem="NAG-EL-MXf" secondAttribute="leading" constant="16" id="NpJ-Ye-09C"/>
+                            <constraint firstItem="2l5-qM-qh3" firstAttribute="top" secondItem="PqL-Eb-8Ef" secondAttribute="bottom" constant="24" id="PGw-p8-3Tw"/>
+                            <constraint firstItem="NAG-EL-MXf" firstAttribute="trailing" secondItem="uRO-02-tQJ" secondAttribute="trailing" constant="16" id="UDy-DF-yUA"/>
+                            <constraint firstItem="uRO-02-tQJ" firstAttribute="leading" secondItem="NAG-EL-MXf" secondAttribute="leading" constant="16" id="XCt-bm-9lU"/>
+                            <constraint firstItem="uRO-02-tQJ" firstAttribute="top" secondItem="wig-yr-Orh" secondAttribute="bottom" constant="32" id="d21-II-k2u"/>
+                            <constraint firstItem="2l5-qM-qh3" firstAttribute="leading" secondItem="NAG-EL-MXf" secondAttribute="leading" constant="16" id="dCL-ew-6mX"/>
+                            <constraint firstItem="PqL-Eb-8Ef" firstAttribute="top" secondItem="u0N-3Z-ekc" secondAttribute="bottom" constant="24" id="eWY-Rd-87B"/>
+                            <constraint firstItem="wig-yr-Orh" firstAttribute="leading" secondItem="NAG-EL-MXf" secondAttribute="leading" constant="16" id="g7Q-zK-a1E"/>
+                            <constraint firstItem="NAG-EL-MXf" firstAttribute="trailing" secondItem="2l5-qM-qh3" secondAttribute="trailing" constant="16" id="udR-ai-4fo"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Register" id="ujC-v0-D8R"/>
+                    <connections>
+                        <outlet property="chk_password" destination="wig-yr-Orh" id="kdH-MD-VIB"/>
+                        <outlet property="email" destination="PqL-Eb-8Ef" id="7Lu-dV-KBt"/>
+                        <outlet property="password" destination="2l5-qM-qh3" id="ofi-x7-H1m"/>
+                        <outlet property="userName" destination="u0N-3Z-ekc" id="869-pP-dQj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kpL-Ug-N3W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
