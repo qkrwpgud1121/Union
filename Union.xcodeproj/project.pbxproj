@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F80E38D82A8B13D70014529C /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80E38D72A8B13D70014529C /* Temp.swift */; };
+		F87C66C52A90DE23002B66C9 /* MainList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87C66C42A90DE23002B66C9 /* MainList.swift */; };
 		F8B2B3142A86219800CAD9A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2B3132A86219800CAD9A7 /* AppDelegate.swift */; };
 		F8B2B3162A86219800CAD9A7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2B3152A86219800CAD9A7 /* SceneDelegate.swift */; };
 		F8B2B3182A86219800CAD9A7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2B3172A86219800CAD9A7 /* ViewController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		F80E38D72A8B13D70014529C /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
+		F87C66C42A90DE23002B66C9 /* MainList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainList.swift; sourceTree = "<group>"; };
 		F8B2B3102A86219800CAD9A7 /* Union.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Union.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8B2B3132A86219800CAD9A7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8B2B3152A86219800CAD9A7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				F8B2B3212A86219900CAD9A7 /* Info.plist */,
 				F80E38D72A8B13D70014529C /* Temp.swift */,
 				F8DEC4FD2A8B47FD00820B35 /* Register.swift */,
+				F87C66C42A90DE23002B66C9 /* MainList.swift */,
 			);
 			path = Union;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				F8B2B3182A86219800CAD9A7 /* ViewController.swift in Sources */,
 				F8B2B3142A86219800CAD9A7 /* AppDelegate.swift in Sources */,
 				F80E38D82A8B13D70014529C /* Temp.swift in Sources */,
+				F87C66C52A90DE23002B66C9 /* MainList.swift in Sources */,
 				F8B2B3162A86219800CAD9A7 /* SceneDelegate.swift in Sources */,
 				F8DEC4FE2A8B47FD00820B35 /* Register.swift in Sources */,
 			);

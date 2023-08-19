@@ -20,7 +20,6 @@ class Temp: UIViewController {
     @IBAction func temp(_ sender: UIButton) {
         
         let email = email.text!
-        
         let param = ["email" : email]
         let paramData = try! JSONSerialization.data(withJSONObject: param)
         
@@ -34,7 +33,7 @@ class Temp: UIViewController {
         
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+        let tempTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let e = error {
                 NSLog("An error has occured: \(e.localizedDescription)")
                 return
@@ -45,11 +44,11 @@ class Temp: UIViewController {
                     let object = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
                     guard let jsonObject = object else {return}
                     
-                    let resultCode = jsonObject["resultCode"] as? String
-                    let resultMessage = jsonObject["resultMessage"] as? String
-                    let tempPwd = jsonObject["password"] as? String
+                    let tempResultCode = jsonObject["resultCode"] as? String
+                    let tempResultMessage = jsonObject["resultMessage"] as? String
+                    let Pwd = jsonObject["password"] as? String
                     
-                    if resultMessage == "SUCCESS" {
+                    if tempResultMessage == "SUCCESS" {
                         NSLog("result", jsonObject)
                     }
                     

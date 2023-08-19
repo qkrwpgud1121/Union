@@ -17,45 +17,52 @@ class ViewController: UIViewController {
     }
 
     @IBAction func btn_login(_ sender: Any) {
-        let Email = email.text!
-        let pwd = password.text!
-        let param = ["email" : Email, "password" : pwd]
-        let paramData = try! JSONSerialization.data(withJSONObject: param)
         
-        print(param)
-        
-        let url = URL(string: "http://211.204.106.46/union/api/user/login")
-        
-        var request = URLRequest(url: url!)
-        request.httpMethod = "POST"
-        request.httpBody = paramData
-        
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            if let e = error {
-                NSLog("An error has occured: \(e.localizedDescription)")
-                return
-            }
-            
-            DispatchQueue.main.async {
-                do{
-                    let object = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-                    guard let jsonObject = object else {return}
-                    
-                    let resultMessage = jsonObject["resultMessage"] as? String
-                    let resultCode = jsonObject["resultCode"] as? String
-                    let token = jsonObject["token"] as? String
-                    
-                    if resultMessage == "SUCCESS" {
-                        NSLog("result", jsonObject)
-                    }
-                    
-                } catch let e as NSError {
-                    print("An error has occured while parsing JSONObject: \(e.localizedDescription)")
-                }
-            }
-        }
+//        let Email = email.text!
+//        let pwd = password.text!
+//        let param = ["email" : Email, "password" : pwd]
+//        let paramData = try! JSONSerialization.data(withJSONObject: param)
+//
+//        print(param)
+//
+//        let url = URL(string: "http://211.204.106.46/union/api/user/login")
+//
+//        var request = URLRequest(url: url!)
+//        request.httpMethod = "POST"
+//        request.httpBody = paramData
+//
+//        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//
+//        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+//            if let e = error {
+//                NSLog("An error has occured: \(e.localizedDescription)")
+//                return
+//            }
+//
+//            DispatchQueue.main.async {
+//                do{
+//                    let object = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+//                    guard let jsonObject = object else {return}
+//
+//                    let resultMessage = jsonObject["resultMessage"] as? String
+//                    let resultCode = jsonObject["resultCode"] as? String
+//                    let token = jsonObject["token"] as? String
+//
+//                    if resultMessage == "SUCCESS" {
+//                        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//                        let mainView = storyboard.instantiateViewController(identifier: "MainList")
+//                        mainView.modalPresentationStyle = .fullScreen
+//                        self.navigationController?.show(mainView, sender: nil)
+//                    }
+//                } catch let e as NSError {
+//                    print("An error has occured while parsing JSONObject: \(e.localizedDescription)")
+//                }
+//            }
+//        }
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        let mainView = storyboard.instantiateViewController(identifier: "MainList")
+        mainView.modalPresentationStyle = .fullScreen
+        self.navigationController?.show(mainView, sender: nil)
     }
     
 }
