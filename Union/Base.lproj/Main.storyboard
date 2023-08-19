@@ -58,7 +58,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYv-9b-B5u" customClass="btn_remamber">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYv-9b-B5u">
                                 <rect key="frame" x="16" y="227" width="361" height="22"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -91,7 +91,6 @@
                                             <color key="baseForegroundColor" red="0.89735513929999999" green="0.2212501466" blue="0.33556646109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="temp:" destination="k9N-nb-ecN" eventType="touchUpInside" id="eaS-Cw-tbd"/>
                                             <segue destination="BS5-JQ-b9n" kind="show" id="YqB-Xc-bE0"/>
                                         </connections>
                                     </button>
@@ -115,7 +114,6 @@
                                             <color key="baseForegroundColor" red="0.89735513929999999" green="0.2212501466" blue="0.33556646109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <action selector="register:" destination="k9N-nb-ecN" eventType="touchUpInside" id="BsH-zW-aTr"/>
                                             <segue destination="KgS-6p-zlA" kind="show" id="MD1-0Z-g0i"/>
                                         </connections>
                                     </button>
@@ -252,7 +250,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="가입하기"/>
                                 <connections>
-                                    <action selector="btn_register:" destination="KgS-6p-zlA" eventType="touchUpInside" id="DfE-UU-asY"/>
+                                    <action selector="signIn:" destination="KgS-6p-zlA" eventType="touchUpInside" id="z1z-nI-F0L"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -278,10 +276,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="Register" id="ujC-v0-D8R"/>
                     <connections>
-                        <outlet property="chk_password" destination="wig-yr-Orh" id="kdH-MD-VIB"/>
-                        <outlet property="email" destination="PqL-Eb-8Ef" id="7Lu-dV-KBt"/>
-                        <outlet property="password" destination="2l5-qM-qh3" id="ofi-x7-H1m"/>
-                        <outlet property="userName" destination="u0N-3Z-ekc" id="869-pP-dQj"/>
+                        <outlet property="chkPwd" destination="wig-yr-Orh" id="PDq-R7-qlh"/>
+                        <outlet property="email" destination="PqL-Eb-8Ef" id="eZ4-Sj-O7n"/>
+                        <outlet property="pwd" destination="2l5-qM-qh3" id="lvK-iQ-AEa"/>
+                        <outlet property="userName" destination="u0N-3Z-ekc" id="w3H-G9-bPj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kpL-Ug-N3W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

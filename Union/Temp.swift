@@ -16,23 +16,48 @@ class Temp: UIViewController {
 
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     @IBAction func temp(_ sender: UIButton) {
         
-        let sendEmail = email.text!
+        let email = email.text!
         
-        print(sendEmail)
+        let param = ["email" : email]
+        let paramData = try! JSONSerialization.data(withJSONObject: param)
+        
+        print(param)
+        
+        let url = URL(string: "http://211.204.106.46/union/api/user/issue/temporary-password")
+        
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        request.httpBody = paramData
+        
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let e = error {
+                NSLog("An error has occured: \(e.localizedDescription)")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                do{
+                    let object = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+                    guard let jsonObject = object else {return}
+                    
+                    let resultCode = jsonObject["resultCode"] as? String
+                    let resultMessage = jsonObject["resultMessage"] as? String
+                    let tempPwd = jsonObject["password"] as? String
+                    
+                    if resultMessage == "SUCCESS" {
+                        NSLog("result", jsonObject)
+                    }
+                    
+                } catch let e as NSError {
+                    print("An error has occured while parsing JSONObject: \(e.localizedDescription)")
+                }
+            }
+        }
         
     }
 }
