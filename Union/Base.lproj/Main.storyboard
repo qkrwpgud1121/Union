@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -218,19 +219,97 @@
             <point key="canvasLocation" x="498" y="-49"/>
         </scene>
         <!--Main List-->
-        <scene sceneID="Wtk-OC-dsd">
+        <scene sceneID="tfU-3H-kp7">
             <objects>
-                <viewController storyboardIdentifier="MainList" id="xcu-N4-CEa" customClass="MainList" customModule="Union" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="XjA-5q-fSa">
+                <viewController storyboardIdentifier="MainList" id="TQC-eC-tWo" customClass="MainList" customModule="Union" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9aF-JF-RSL">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Gqk-FB-Wpr"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="스크린샷 2023-08-19 오후 9.13.13" translatesAutoresizingMaskIntoConstraints="NO" id="exw-zo-ali">
+                                <rect key="frame" x="16" y="59" width="80" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="QQF-v9-ynR"/>
+                                    <constraint firstAttribute="height" constant="44" id="wIl-Rs-GL3"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2h6-HK-cHG">
+                                <rect key="frame" x="333" y="59" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="5R8-Ri-Db9"/>
+                                    <constraint firstAttribute="width" constant="44" id="dwH-2R-yed"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="P"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIR-jm-tF8">
+                                <rect key="frame" x="289" y="59" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="1LP-mX-DLL"/>
+                                    <constraint firstAttribute="width" constant="44" id="rKR-SS-hdc"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="bell.fill" catalog="system"/>
+                            </button>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="S6x-uw-OkV">
+                                <rect key="frame" x="0.0" y="103" width="393" height="200"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="KEy-a2-q8l"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Tmt-a7-rCc">
+                                    <size key="itemSize" width="128" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BannerCell" id="pAf-ex-p7S" customClass="BannerCell" customModule="Union" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="36" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="tPY-ux-vXs">
+                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="I7t-ws-6BH">
+                                                    <rect key="frame" x="10" y="10" width="108" height="108"/>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="I7t-ws-6BH" firstAttribute="top" secondItem="tPY-ux-vXs" secondAttribute="top" constant="10" id="D9V-wM-ebq"/>
+                                                <constraint firstAttribute="bottom" secondItem="I7t-ws-6BH" secondAttribute="bottom" constant="10" id="Dyy-1c-i6V"/>
+                                                <constraint firstItem="I7t-ws-6BH" firstAttribute="leading" secondItem="tPY-ux-vXs" secondAttribute="leading" constant="10" id="Rq4-dO-Ncu"/>
+                                                <constraint firstAttribute="trailing" secondItem="I7t-ws-6BH" secondAttribute="trailing" constant="10" id="Yc9-PY-V6X"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="imgView" destination="I7t-ws-6BH" id="cFG-bJ-aP6"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dMy-KP-7Fy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="S6x-uw-OkV" firstAttribute="leading" secondItem="dMy-KP-7Fy" secondAttribute="leading" id="6SG-Xo-U6G"/>
+                            <constraint firstItem="S6x-uw-OkV" firstAttribute="top" secondItem="exw-zo-ali" secondAttribute="bottom" id="P4A-HS-9ww"/>
+                            <constraint firstItem="exw-zo-ali" firstAttribute="top" secondItem="dMy-KP-7Fy" secondAttribute="top" id="Rs6-Zh-jAZ"/>
+                            <constraint firstItem="2h6-HK-cHG" firstAttribute="top" secondItem="dMy-KP-7Fy" secondAttribute="top" id="WVf-WT-cBF"/>
+                            <constraint firstItem="dMy-KP-7Fy" firstAttribute="trailing" secondItem="S6x-uw-OkV" secondAttribute="trailing" id="ZlX-UY-TYP"/>
+                            <constraint firstItem="2h6-HK-cHG" firstAttribute="leading" secondItem="hIR-jm-tF8" secondAttribute="trailing" id="ety-iz-0DL"/>
+                            <constraint firstItem="exw-zo-ali" firstAttribute="leading" secondItem="dMy-KP-7Fy" secondAttribute="leading" constant="16" id="jmL-G0-xIW"/>
+                            <constraint firstItem="hIR-jm-tF8" firstAttribute="top" secondItem="dMy-KP-7Fy" secondAttribute="top" id="rpp-yb-tU1"/>
+                            <constraint firstItem="dMy-KP-7Fy" firstAttribute="trailing" secondItem="2h6-HK-cHG" secondAttribute="trailing" constant="16" id="wmY-K4-po6"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="bannerCollectionView" destination="S6x-uw-OkV" id="S5N-x8-9a6"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SMJ-DU-M3Y" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HgW-bs-j9g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1331" y="-49"/>
+            <point key="canvasLocation" x="1313.7404580152672" y="-49.295774647887328"/>
         </scene>
         <!--Register-->
         <scene sceneID="5oe-y7-OWD">
@@ -303,7 +382,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bell.fill" catalog="system" width="123" height="128"/>
         <image name="square" catalog="system" width="128" height="114"/>
+        <image name="스크린샷 2023-08-19 오후 9.13.13" width="728" height="290"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
