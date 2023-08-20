@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		F80E38D82A8B13D70014529C /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80E38D72A8B13D70014529C /* Temp.swift */; };
+		F8582FE22A92761600478181 /* CustomSideMenuNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8582FE12A92761600478181 /* CustomSideMenuNavigation.swift */; };
+		F8582FE42A92766C00478181 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8582FE32A92766C00478181 /* SideMenuViewController.swift */; };
 		F87809FC2A90EC8B004CB0D8 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87809FB2A90EC8B004CB0D8 /* BannerCell.swift */; };
 		F87C66C52A90DE23002B66C9 /* MainList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87C66C42A90DE23002B66C9 /* MainList.swift */; };
 		F8B2B3142A86219800CAD9A7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B2B3132A86219800CAD9A7 /* AppDelegate.swift */; };
@@ -23,6 +25,8 @@
 		4A8FC9B93CCBAFFBE757333D /* Pods-Union.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Union.release.xcconfig"; path = "Target Support Files/Pods-Union/Pods-Union.release.xcconfig"; sourceTree = "<group>"; };
 		62E7502B64DBC861E7B957BF /* Pods-Union.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Union.debug.xcconfig"; path = "Target Support Files/Pods-Union/Pods-Union.debug.xcconfig"; sourceTree = "<group>"; };
 		F80E38D72A8B13D70014529C /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
+		F8582FE12A92761600478181 /* CustomSideMenuNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSideMenuNavigation.swift; sourceTree = "<group>"; };
+		F8582FE32A92766C00478181 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		F87809FB2A90EC8B004CB0D8 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 		F87C66C42A90DE23002B66C9 /* MainList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainList.swift; sourceTree = "<group>"; };
 		F8B2B3102A86219800CAD9A7 /* Union.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Union.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +99,8 @@
 				F8DEC4FD2A8B47FD00820B35 /* Register.swift */,
 				F87C66C42A90DE23002B66C9 /* MainList.swift */,
 				F87809FB2A90EC8B004CB0D8 /* BannerCell.swift */,
+				F8582FE12A92761600478181 /* CustomSideMenuNavigation.swift */,
+				F8582FE32A92766C00478181 /* SideMenuViewController.swift */,
 			);
 			path = Union;
 			sourceTree = "<group>";
@@ -220,6 +226,8 @@
 				F80E38D82A8B13D70014529C /* Temp.swift in Sources */,
 				F87C66C52A90DE23002B66C9 /* MainList.swift in Sources */,
 				F8B2B3162A86219800CAD9A7 /* SceneDelegate.swift in Sources */,
+				F8582FE22A92761600478181 /* CustomSideMenuNavigation.swift in Sources */,
+				F8582FE42A92766C00478181 /* SideMenuViewController.swift in Sources */,
 				F8DEC4FE2A8B47FD00820B35 /* Register.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

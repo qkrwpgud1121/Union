@@ -241,6 +241,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="P"/>
+                                <connections>
+                                    <segue destination="ysW-xC-wfa" kind="show" id="cPg-VR-aER"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hIR-jm-tF8">
                                 <rect key="frame" x="289" y="59" width="44" height="44"/>
@@ -310,6 +313,77 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HgW-bs-j9g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1313.7404580152672" y="-49.295774647887328"/>
+        </scene>
+        <!--Custom Side Menu Navigation-->
+        <scene sceneID="7ZB-XW-a3k">
+            <objects>
+                <navigationController id="ysW-xC-wfa" customClass="CustomSideMenuNavigation" customModule="Union" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="Lt8-hk-XNf"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="eBA-5o-Ywk">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="2GJ-MI-osB" kind="relationship" relationship="rootViewController" id="Nsy-ic-8uH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7ez-fq-96N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2160" y="-49"/>
+        </scene>
+        <!--Side Menu View Controller-->
+        <scene sceneID="huq-1k-wfJ">
+            <objects>
+                <viewController id="2GJ-MI-osB" customClass="SideMenuViewController" customModule="Union" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6mI-5R-vxJ">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iWB-QW-L7I">
+                                <rect key="frame" x="0.0" y="56" width="393" height="786"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LxY-8y-iCb">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="190.66666666666666"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vaf-lV-3sd">
+                                        <rect key="frame" x="0.0" y="198.66666666666663" width="393" height="190.33333333333337"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sy-k6-v21">
+                                        <rect key="frame" x="0.0" y="397" width="393" height="190.66666666666663"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="tinted" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQ9-4A-iPG">
+                                        <rect key="frame" x="0.0" y="595.66666666666663" width="393" height="190.33333333333337"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="TQ9-4A-iPG" secondAttribute="bottom" id="S9z-pS-AQu"/>
+                                    <constraint firstItem="LxY-8y-iCb" firstAttribute="top" secondItem="iWB-QW-L7I" secondAttribute="top" id="aPN-CC-OUj"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vVM-56-KXr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iWB-QW-L7I" firstAttribute="leading" secondItem="vVM-56-KXr" secondAttribute="leading" id="GWb-WG-Ehd"/>
+                            <constraint firstItem="vVM-56-KXr" firstAttribute="trailing" secondItem="iWB-QW-L7I" secondAttribute="trailing" id="Kuo-P2-mMZ"/>
+                            <constraint firstItem="iWB-QW-L7I" firstAttribute="centerX" secondItem="6mI-5R-vxJ" secondAttribute="centerX" id="Tqc-ra-vxE"/>
+                            <constraint firstItem="vVM-56-KXr" firstAttribute="bottom" secondItem="iWB-QW-L7I" secondAttribute="bottom" id="X1s-RT-Qrd"/>
+                            <constraint firstItem="iWB-QW-L7I" firstAttribute="top" secondItem="vVM-56-KXr" secondAttribute="top" id="fBE-zA-8VO"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="onb-cW-BbI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rGA-bo-JDq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2999" y="-49"/>
         </scene>
         <!--Register-->
         <scene sceneID="5oe-y7-OWD">
