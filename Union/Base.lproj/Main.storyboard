@@ -291,6 +291,10 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="XJc-u8-XuV">
+                                <rect key="frame" x="16" y="303" width="361" height="515"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dMy-KP-7Fy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -300,10 +304,14 @@
                             <constraint firstItem="exw-zo-ali" firstAttribute="top" secondItem="dMy-KP-7Fy" secondAttribute="top" id="Rs6-Zh-jAZ"/>
                             <constraint firstItem="2h6-HK-cHG" firstAttribute="top" secondItem="dMy-KP-7Fy" secondAttribute="top" id="WVf-WT-cBF"/>
                             <constraint firstItem="dMy-KP-7Fy" firstAttribute="trailing" secondItem="S6x-uw-OkV" secondAttribute="trailing" id="ZlX-UY-TYP"/>
+                            <constraint firstItem="dMy-KP-7Fy" firstAttribute="bottom" secondItem="XJc-u8-XuV" secondAttribute="bottom" id="b89-IE-dnC"/>
                             <constraint firstItem="2h6-HK-cHG" firstAttribute="leading" secondItem="hIR-jm-tF8" secondAttribute="trailing" id="ety-iz-0DL"/>
                             <constraint firstItem="exw-zo-ali" firstAttribute="leading" secondItem="dMy-KP-7Fy" secondAttribute="leading" constant="16" id="jmL-G0-xIW"/>
                             <constraint firstItem="hIR-jm-tF8" firstAttribute="top" secondItem="dMy-KP-7Fy" secondAttribute="top" id="rpp-yb-tU1"/>
+                            <constraint firstItem="dMy-KP-7Fy" firstAttribute="trailing" secondItem="XJc-u8-XuV" secondAttribute="trailing" constant="16" id="tiI-HC-X0g"/>
                             <constraint firstItem="dMy-KP-7Fy" firstAttribute="trailing" secondItem="2h6-HK-cHG" secondAttribute="trailing" constant="16" id="wmY-K4-po6"/>
+                            <constraint firstItem="XJc-u8-XuV" firstAttribute="leading" secondItem="dMy-KP-7Fy" secondAttribute="leading" constant="16" id="yUh-mR-z4f"/>
+                            <constraint firstItem="XJc-u8-XuV" firstAttribute="top" secondItem="S6x-uw-OkV" secondAttribute="bottom" id="zKo-30-IFf"/>
                         </constraints>
                     </view>
                     <connections>
@@ -339,47 +347,88 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iWB-QW-L7I">
-                                <rect key="frame" x="0.0" y="56" width="393" height="786"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xp8-nq-Wi0">
+                                <rect key="frame" x="16" y="56" width="361" height="44"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LxY-8y-iCb">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="190.66666666666666"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vaf-lV-3sd">
-                                        <rect key="frame" x="0.0" y="198.66666666666663" width="393" height="190.33333333333337"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="gray" title="Button"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sy-k6-v21">
-                                        <rect key="frame" x="0.0" y="397" width="393" height="190.66666666666663"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="tinted" title="Button"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TQ9-4A-iPG">
-                                        <rect key="frame" x="0.0" y="595.66666666666663" width="393" height="190.33333333333337"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Button"/>
-                                    </button>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Profile" translatesAutoresizingMaskIntoConstraints="NO" id="egy-yM-aOJ">
+                                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="44" id="UAC-ne-9Ja"/>
+                                            <constraint firstAttribute="height" constant="44" id="zd6-fT-wBJ"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="qkrwpgud1121" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xfk-SP-Ulm">
+                                        <rect key="frame" x="60" y="0.0" width="301" height="44"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="TQ9-4A-iPG" secondAttribute="bottom" id="S9z-pS-AQu"/>
-                                    <constraint firstItem="LxY-8y-iCb" firstAttribute="top" secondItem="iWB-QW-L7I" secondAttribute="top" id="aPN-CC-OUj"/>
+                                    <constraint firstAttribute="height" constant="44" id="PGp-aB-eRi"/>
                                 </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="mZS-PL-Gp3">
+                                <rect key="frame" x="16" y="116" width="361" height="284"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esv-8x-wqH">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="oHI-Y8-yxP"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="새 글 작성"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lVb-hU-YCO">
+                                        <rect key="frame" x="0.0" y="60" width="361" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="5zl-JA-SQr"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="내 작성글"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgR-is-BL8">
+                                        <rect key="frame" x="0.0" y="120" width="361" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="C3W-Gb-069"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="내 관심글"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Se5-bZ-RZW">
+                                        <rect key="frame" x="0.0" y="180" width="361" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="tI9-zD-e6j"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="내 정보"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LWF-o7-vvb">
+                                        <rect key="frame" x="0.0" y="240" width="361" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="Mfh-7L-kcS"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="로그 아웃"/>
+                                    </button>
+                                </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vVM-56-KXr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="iWB-QW-L7I" firstAttribute="leading" secondItem="vVM-56-KXr" secondAttribute="leading" id="GWb-WG-Ehd"/>
-                            <constraint firstItem="vVM-56-KXr" firstAttribute="trailing" secondItem="iWB-QW-L7I" secondAttribute="trailing" id="Kuo-P2-mMZ"/>
-                            <constraint firstItem="iWB-QW-L7I" firstAttribute="centerX" secondItem="6mI-5R-vxJ" secondAttribute="centerX" id="Tqc-ra-vxE"/>
-                            <constraint firstItem="vVM-56-KXr" firstAttribute="bottom" secondItem="iWB-QW-L7I" secondAttribute="bottom" id="X1s-RT-Qrd"/>
-                            <constraint firstItem="iWB-QW-L7I" firstAttribute="top" secondItem="vVM-56-KXr" secondAttribute="top" id="fBE-zA-8VO"/>
+                            <constraint firstItem="mZS-PL-Gp3" firstAttribute="top" secondItem="xp8-nq-Wi0" secondAttribute="bottom" constant="16" id="2hF-zr-eVD"/>
+                            <constraint firstItem="xp8-nq-Wi0" firstAttribute="top" secondItem="vVM-56-KXr" secondAttribute="top" id="DMg-o9-UIi"/>
+                            <constraint firstItem="mZS-PL-Gp3" firstAttribute="leading" secondItem="vVM-56-KXr" secondAttribute="leading" constant="16" id="Vds-Y7-tiA"/>
+                            <constraint firstItem="xp8-nq-Wi0" firstAttribute="leading" secondItem="vVM-56-KXr" secondAttribute="leading" constant="16" id="WSX-xd-uwR"/>
+                            <constraint firstItem="vVM-56-KXr" firstAttribute="trailing" secondItem="mZS-PL-Gp3" secondAttribute="trailing" constant="16" id="ia2-X8-m8D"/>
+                            <constraint firstItem="vVM-56-KXr" firstAttribute="trailing" secondItem="xp8-nq-Wi0" secondAttribute="trailing" constant="16" id="mdC-w6-ole"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="onb-cW-BbI"/>
+                    <connections>
+                        <outlet property="profile" destination="egy-yM-aOJ" id="0jn-z0-Iya"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGA-bo-JDq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -456,6 +505,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Profile" width="44" height="44"/>
         <image name="bell.fill" catalog="system" width="123" height="128"/>
         <image name="square" catalog="system" width="128" height="114"/>
         <image name="스크린샷 2023-08-19 오후 9.13.13" width="728" height="290"/>
