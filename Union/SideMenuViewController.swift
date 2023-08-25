@@ -20,4 +20,7 @@ class SideMenuViewController: UIViewController {
         profile.clipsToBounds = true
     }
 
+    @IBAction func logOut(_ sender: UIButton) {
+        
+    }
 }

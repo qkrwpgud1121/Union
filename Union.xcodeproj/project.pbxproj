@@ -18,7 +18,9 @@
 		F8B2B31B2A86219800CAD9A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8B2B3192A86219800CAD9A7 /* Main.storyboard */; };
 		F8B2B31D2A86219900CAD9A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8B2B31C2A86219900CAD9A7 /* Assets.xcassets */; };
 		F8B2B3202A86219900CAD9A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8B2B31E2A86219900CAD9A7 /* LaunchScreen.storyboard */; };
+		F8DADACD2A96055300E0A643 /* MyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DADACC2A96055300E0A643 /* MyProfile.swift */; };
 		F8DEC4FE2A8B47FD00820B35 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DEC4FD2A8B47FD00820B35 /* Register.swift */; };
+		F8F2496F2A98330000E13B60 /* NewPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F2496E2A98330000E13B60 /* NewPost.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +39,9 @@
 		F8B2B31C2A86219900CAD9A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8B2B31F2A86219900CAD9A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8B2B3212A86219900CAD9A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8DADACC2A96055300E0A643 /* MyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfile.swift; sourceTree = "<group>"; };
 		F8DEC4FD2A8B47FD00820B35 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		F8F2496E2A98330000E13B60 /* NewPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPost.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,8 @@
 				F87809FB2A90EC8B004CB0D8 /* BannerCell.swift */,
 				F8582FE12A92761600478181 /* CustomSideMenuNavigation.swift */,
 				F8582FE32A92766C00478181 /* SideMenuViewController.swift */,
+				F8DADACC2A96055300E0A643 /* MyProfile.swift */,
+				F8F2496E2A98330000E13B60 /* NewPost.swift */,
 			);
 			path = Union;
 			sourceTree = "<group>";
@@ -221,12 +227,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F87809FC2A90EC8B004CB0D8 /* BannerCell.swift in Sources */,
+				F8DADACD2A96055300E0A643 /* MyProfile.swift in Sources */,
 				F8B2B3182A86219800CAD9A7 /* ViewController.swift in Sources */,
 				F8B2B3142A86219800CAD9A7 /* AppDelegate.swift in Sources */,
 				F80E38D82A8B13D70014529C /* Temp.swift in Sources */,
 				F87C66C52A90DE23002B66C9 /* MainList.swift in Sources */,
 				F8B2B3162A86219800CAD9A7 /* SceneDelegate.swift in Sources */,
 				F8582FE22A92761600478181 /* CustomSideMenuNavigation.swift in Sources */,
+				F8F2496F2A98330000E13B60 /* NewPost.swift in Sources */,
 				F8582FE42A92766C00478181 /* SideMenuViewController.swift in Sources */,
 				F8DEC4FE2A8B47FD00820B35 /* Register.swift in Sources */,
 			);
