@@ -15,7 +15,10 @@ class NewPost: UIViewController {
         super.viewDidLoad()
         
         self.hideKeyboar()
+        self.setKeyboardObserver()
     }
     
-
+    @IBAction func saveNewPost(_ sender: UIBarButtonItem) {
+        
+    }
 }

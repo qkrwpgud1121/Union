@@ -703,7 +703,13 @@
                             <constraint firstItem="IF3-bg-knh" firstAttribute="top" secondItem="d82-Ef-Hoa" secondAttribute="top" id="ss8-c3-H8m"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="QA9-x1-Rln"/>
+                    <navigationItem key="navigationItem" id="QA9-x1-Rln">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="gfu-cy-2YA">
+                            <connections>
+                                <action selector="saveNewPost:" destination="DkA-zb-IMM" id="L8k-6j-pKK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <size key="freeformSize" width="393" height="1100"/>
                     <connections>
                         <outlet property="content" destination="XLL-91-pnY" id="W0q-KS-Kii"/>
@@ -820,10 +826,20 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="+ 링크 추가"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fGT-At-tg5">
-                                <rect key="frame" x="16" y="758" width="361" height="35"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HF0-09-X5D">
+                                <rect key="frame" x="234" y="190" width="30" height="30"/>
+                                <color key="backgroundColor" red="0.59607843140000005" green="0.81960784310000001" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="8dL-Nw-VCs"/>
+                                    <constraint firstAttribute="height" constant="30" id="XWt-gD-hnL"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="프로필 저장"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system">
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="addBtnClick:" destination="ufI-s2-jQ3" eventType="touchUpInside" id="dA5-tb-Egs"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="S34-kG-N6K"/>
@@ -835,7 +851,6 @@
                             <constraint firstItem="9Qb-b0-WkP" firstAttribute="leading" secondItem="S34-kG-N6K" secondAttribute="leading" constant="16" id="8zJ-vS-dGh"/>
                             <constraint firstItem="S34-kG-N6K" firstAttribute="trailing" secondItem="zuS-QM-dp9" secondAttribute="trailing" constant="16" id="APQ-0v-g6H"/>
                             <constraint firstItem="S34-kG-N6K" firstAttribute="trailing" secondItem="ZXq-fn-ngh" secondAttribute="trailing" constant="16" id="CQh-xU-yda"/>
-                            <constraint firstItem="S34-kG-N6K" firstAttribute="trailing" secondItem="fGT-At-tg5" secondAttribute="trailing" constant="16" id="EtC-fa-rYa"/>
                             <constraint firstItem="lxW-rR-HXJ" firstAttribute="top" secondItem="0ad-Wa-Vet" secondAttribute="bottom" constant="16" id="Feo-JQ-RBq"/>
                             <constraint firstItem="22u-c5-TLz" firstAttribute="top" secondItem="S34-kG-N6K" secondAttribute="top" constant="44" id="Jqj-14-am5"/>
                             <constraint firstItem="ZXq-fn-ngh" firstAttribute="leading" secondItem="S34-kG-N6K" secondAttribute="leading" constant="16" id="M3w-sk-DQZ"/>
@@ -847,17 +862,17 @@
                             <constraint firstItem="lxW-rR-HXJ" firstAttribute="leading" secondItem="S34-kG-N6K" secondAttribute="leading" constant="16" id="Ss0-ku-Kwy"/>
                             <constraint firstItem="uhV-nd-CNX" firstAttribute="top" secondItem="zuS-QM-dp9" secondAttribute="bottom" constant="16" id="TUO-b4-5EP"/>
                             <constraint firstItem="ZXq-fn-ngh" firstAttribute="top" secondItem="4qb-H3-5NH" secondAttribute="bottom" constant="8" id="V9j-SM-UoY"/>
-                            <constraint firstItem="fGT-At-tg5" firstAttribute="leading" secondItem="S34-kG-N6K" secondAttribute="leading" constant="16" id="Vqq-Li-6BV"/>
-                            <constraint firstItem="fGT-At-tg5" firstAttribute="top" secondItem="QKP-8k-5Y2" secondAttribute="bottom" constant="16" id="Wow-9S-LzS"/>
                             <constraint firstItem="QKP-8k-5Y2" firstAttribute="top" secondItem="G2G-Mq-BC8" secondAttribute="bottom" constant="8" id="YED-i7-bFP"/>
                             <constraint firstItem="zuS-QM-dp9" firstAttribute="top" secondItem="gUm-ZJ-EDd" secondAttribute="bottom" constant="8" id="ZER-vl-It7"/>
                             <constraint firstItem="9Qb-b0-WkP" firstAttribute="top" secondItem="lxW-rR-HXJ" secondAttribute="bottom" constant="8" id="a1B-zU-sKO"/>
                             <constraint firstItem="0ad-Wa-Vet" firstAttribute="leading" secondItem="S34-kG-N6K" secondAttribute="leading" constant="16" id="aCn-py-umt"/>
+                            <constraint firstItem="HF0-09-X5D" firstAttribute="bottom" secondItem="22u-c5-TLz" secondAttribute="bottom" id="c0o-qM-vwm"/>
                             <constraint firstItem="QKP-8k-5Y2" firstAttribute="leading" secondItem="S34-kG-N6K" secondAttribute="leading" constant="16" id="chC-QZ-O09"/>
                             <constraint firstItem="0ad-Wa-Vet" firstAttribute="top" secondItem="uhV-nd-CNX" secondAttribute="bottom" constant="8" id="cqM-zg-ZVN"/>
                             <constraint firstItem="S34-kG-N6K" firstAttribute="trailing" secondItem="4qb-H3-5NH" secondAttribute="trailing" constant="16" id="d8y-Cv-lgr"/>
                             <constraint firstItem="S34-kG-N6K" firstAttribute="trailing" secondItem="gUm-ZJ-EDd" secondAttribute="trailing" constant="16" id="g73-S0-hyf"/>
                             <constraint firstItem="G2G-Mq-BC8" firstAttribute="leading" secondItem="S34-kG-N6K" secondAttribute="leading" constant="16" id="gRa-G2-Fk5"/>
+                            <constraint firstItem="S34-kG-N6K" firstAttribute="trailing" secondItem="HF0-09-X5D" secondAttribute="trailing" constant="129" id="h4i-lf-oCa"/>
                             <constraint firstItem="4ZD-9V-6tH" firstAttribute="top" secondItem="22u-c5-TLz" secondAttribute="bottom" constant="16" id="heu-HX-ZPM"/>
                             <constraint firstItem="4qb-H3-5NH" firstAttribute="top" secondItem="4ZD-9V-6tH" secondAttribute="bottom" constant="16" id="hfw-Zt-6Em"/>
                             <constraint firstItem="gUm-ZJ-EDd" firstAttribute="top" secondItem="ZXq-fn-ngh" secondAttribute="bottom" constant="16" id="j5u-UQ-OtP"/>
@@ -868,9 +883,17 @@
                             <constraint firstItem="S34-kG-N6K" firstAttribute="trailing" secondItem="9Qb-b0-WkP" secondAttribute="trailing" constant="16" id="uxC-86-Ypp"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Oxf-jc-F2N"/>
+                    <navigationItem key="navigationItem" id="Oxf-jc-F2N">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="42z-xf-QJU">
+                            <connections>
+                                <action selector="profileSave:" destination="ufI-s2-jQ3" id="qxc-8d-XnR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
-                        <outlet property="profileImg" destination="22u-c5-TLz" id="qvt-nR-ECL"/>
+                        <outlet property="imgSetting" destination="HF0-09-X5D" id="F0J-3S-15r"/>
+                        <outlet property="imgView" destination="22u-c5-TLz" id="p7k-NB-e0p"/>
+                        <outlet property="nickName" destination="ZXq-fn-ngh" id="lrq-mS-ZXu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="naz-8J-51s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -950,6 +973,7 @@
     <resources>
         <image name="Profile" width="240" height="240"/>
         <image name="bell.fill" catalog="system" width="123" height="128"/>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <image name="square" catalog="system" width="128" height="114"/>
         <image name="스크린샷 2023-08-19 오후 9.13.13" width="728" height="290"/>
         <systemColor name="labelColor">
