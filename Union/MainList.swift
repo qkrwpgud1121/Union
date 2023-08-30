@@ -18,6 +18,9 @@ class MainList: UIViewController {
     // 데이터 배열
     let dataArray: Array<UIImage> = [UIImage(named: "img1.png")!, UIImage(named: "img2.png")!, UIImage(named: "img3.png")!]
     
+    let list = List.data
+    let cellSpacingHeight: CGFloat = 1
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
