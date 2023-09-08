@@ -8,9 +8,10 @@
 import UIKit
 import SideMenu
 
-class MainList: UIViewController {
+class MainList: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var bannerCollectionView: UICollectionView!
+    @IBOutlet weak var listTableView: UITableView!
     
     // 현재페이지 체크 변수 (자동 스크롤할 때 필요)
     var nowPage: Int = 0
@@ -20,6 +21,8 @@ class MainList: UIViewController {
     
     let list = List.data
     let cellSpacingHeight: CGFloat = 1
+    let cellName = "MainTableViewCell"
+    let cellReuseIdentifier = "offerCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +33,50 @@ class MainList: UIViewController {
         bannerCollectionView.dataSource = self
         
         bannerTimer()
+        
+        listTableView.delegate = self
+        listTableView.dataSource = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.hidesBackButton = true
+    }
+    
+    // Section 당 Row의 수
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    // Section의 수
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return list.count
+    }
+    
+    // 각 Section 사이의 간격 설정
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return cellSpacingHeight
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = listTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! MainTableViewCell
+        let target = list[indexPath.section]
+        
+        let dateFormat = DateFormatter()
+        dateFormat.dateFormat = "yyyy-MM-dd"
+        
+        cell.type?.text = target.type
+        cell.title?.text = target.title
+        cell.stack?.text = target.stack
+        cell.endDate?.text = dateFormat.string(from: target.endDate)
+        cell.registrant?.text = target.registrant
+        
+        return cell
+    }
+    
+    private func registerXib() {
+        let nibName = UINib(nibName: cellName, bundle: nil)
+        listTableView.register(nibName, forCellReuseIdentifier: cellReuseIdentifier)
     }
     
     // 2초마다 실행되는 타이머
@@ -55,6 +97,8 @@ class MainList: UIViewController {
         // 다음 페이지로 전환
         nowPage += 1
         bannerCollectionView.scrollToItem(at: NSIndexPath(item: nowPage, section: 0) as IndexPath, at: .right, animated: true)
+        
+        registerXib()
     }
 }
 

@@ -16,6 +16,8 @@ class Register: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.hideKeyboar()
 
         // Do any additional setup after loading the view.
     }

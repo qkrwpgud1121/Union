@@ -15,7 +15,6 @@ class Temp: UIViewController {
         super.viewDidLoad()
         
         self.hideKeyboar()
-        self.setKeyboardObserver()
     }
 
     @IBAction func temp(_ sender: UIButton) {
