@@ -12,6 +12,7 @@ class MainList: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet var bannerCollectionView: UICollectionView!
     @IBOutlet weak var listTableView: UITableView!
+    @IBOutlet weak var profile: UIButton!
     
     // 현재페이지 체크 변수 (자동 스크롤할 때 필요)
     var nowPage: Int = 0
@@ -26,6 +27,11 @@ class MainList: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        profile.layer.cornerRadius = profile.frame.width / 2
+        profile.layer.borderWidth = 2
+        profile.layer.borderColor = UIColor.gray.cgColor
+        profile.clipsToBounds = true
         
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         

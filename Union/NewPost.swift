@@ -15,9 +15,14 @@ class NewPost: UIViewController {
     @IBOutlet weak var period: UIButton!
     @IBOutlet weak var stack: UIButton!
     @IBOutlet weak var position: UIButton!
+    @IBOutlet weak var stackView: UIView!
+    @IBOutlet weak var positionView: UIView!
     
     var stackArray: [Int] = []
     var positionArray: [Int] = []
+    
+    var stackXLoc: Int = 0
+    var posXLoc: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,36 +112,36 @@ class NewPost: UIViewController {
         
         let div: Int = 0
         
-        let JavaScript = UIAction(title: "JavaScript" , handler: {_ in self.checkArray(div: div ,index: 0)})
-        let TypeScript = UIAction(title: "TypeScript" , handler: {_ in self.checkArray(div: div ,index: 1)})
-        let React = UIAction(title: "React" , handler: {_ in self.checkArray(div: div ,index: 2)})
-        let Vue = UIAction(title: "Vue" , handler: {_ in self.checkArray(div: div ,index: 3)})
-        let Node = UIAction(title: "Node.js", handler: {_ in self.checkArray(div: div ,index: 4)})
-        let Next = UIAction(title: "Next.js" , handler: {_ in self.checkArray(div: div ,index: 5)})
-        let Nest = UIAction(title: "Nest.js" , handler: {_ in self.checkArray(div: div ,index: 6)})
-        let Spring = UIAction(title: "Spring", handler: {_ in self.checkArray(div: div ,index: 7)})
-        let Java = UIAction(title: "Java", handler: {_ in self.checkArray(div: div ,index: 8)})
-        let Express = UIAction(title: "Express",  handler: {_ in self.checkArray(div: div ,index: 9)})
-        let Go = UIAction(title: "Go",  handler: {_ in self.checkArray(div: div ,index: 10)})
-        let C = UIAction(title: "C",  handler: {_ in self.checkArray(div: div ,index: 11)})
-        let Python = UIAction(title: "Python",  handler: {_ in self.checkArray(div: div ,index: 12)})
-        let Django = UIAction(title: "Django",  handler: {_ in self.checkArray(div: div ,index: 13)})
-        let Swift = UIAction(title: "Swift",  handler: {_ in self.checkArray(div: div ,index: 14)})
-        let Kotlin = UIAction(title: "Kotlin",  handler: {_ in self.checkArray(div: div ,index: 15)})
-        let MySQL = UIAction(title: "MySQL", handler: {_ in self.checkArray(div: div ,index: 16)})
-        let MongoDB = UIAction(title: "MongoDB",  handler: {_ in self.checkArray(div: div ,index: 17)})
-        let php = UIAction(title: "php", handler: {_ in self.checkArray(div: div ,index: 18)})
-        let GraphQL = UIAction(title: "GraphQL",  handler: {_ in self.checkArray(div: div ,index: 19)})
-        let Firebase = UIAction(title: "Firebase",  handler: {_ in self.checkArray(div: div ,index: 20)})
-        let ReactNative = UIAction(title: "ReactNative",  handler: {_ in self.checkArray(div: div ,index: 21)})
-        let Unity = UIAction(title: "Unity",  handler: {_ in self.checkArray(div: div ,index: 22)})
-        let Flutter = UIAction(title: "Flutter", handler: {_ in self.checkArray(div: div ,index: 23)})
-        let AWS = UIAction(title: "AWS", handler: {_ in self.checkArray(div: div ,index: 24)})
-        let Kubernetes = UIAction(title: "Kubernetes", handler: {_ in self.checkArray(div: div ,index: 25)})
-        let Docker = UIAction(title: "Docker", handler: {_ in self.checkArray(div: div ,index: 26)})
-        let Git = UIAction(title: "Git", handler: {_ in self.checkArray(div: div ,index: 27)})
-        let Figma = UIAction(title: "Figma", handler: {_ in self.checkArray(div: div ,index: 28)})
-        let Zeplin = UIAction(title: "Zeplin", handler: {_ in self.checkArray(div: div ,index: 29)})
+        let JavaScript = UIAction(title: "JavaScript" , handler: {_ in self.checkArray(div: div ,index: 0, type: "JavaScript")})
+        let TypeScript = UIAction(title: "TypeScript" , handler: {_ in self.checkArray(div: div ,index: 1, type: "TypeScript")})
+        let React = UIAction(title: "React" , handler: {_ in self.checkArray(div: div ,index: 2, type: "React")})
+        let Vue = UIAction(title: "Vue" , handler: {_ in self.checkArray(div: div ,index: 3, type: "Vue")})
+        let Node = UIAction(title: "Node.js", handler: {_ in self.checkArray(div: div ,index: 4, type: "Node")})
+        let Next = UIAction(title: "Next.js" , handler: {_ in self.checkArray(div: div ,index: 5, type: "Next")})
+        let Nest = UIAction(title: "Nest.js" , handler: {_ in self.checkArray(div: div ,index: 6, type: "Nest")})
+        let Spring = UIAction(title: "Spring", handler: {_ in self.checkArray(div: div ,index: 7, type: "Spring")})
+        let Java = UIAction(title: "Java", handler: {_ in self.checkArray(div: div ,index: 8, type: "Java")})
+        let Express = UIAction(title: "Express",  handler: {_ in self.checkArray(div: div ,index: 9, type: "Express")})
+        let Go = UIAction(title: "Go",  handler: {_ in self.checkArray(div: div ,index: 10, type: "Go")})
+        let C = UIAction(title: "C",  handler: {_ in self.checkArray(div: div ,index: 11, type: "C")})
+        let Python = UIAction(title: "Python",  handler: {_ in self.checkArray(div: div ,index: 12, type: "Python")})
+        let Django = UIAction(title: "Django",  handler: {_ in self.checkArray(div: div ,index: 13, type: "Django")})
+        let Swift = UIAction(title: "Swift",  handler: {_ in self.checkArray(div: div ,index: 14, type: "Swift")})
+        let Kotlin = UIAction(title: "Kotlin",  handler: {_ in self.checkArray(div: div ,index: 15, type: "Kotlin")})
+        let MySQL = UIAction(title: "MySQL", handler: {_ in self.checkArray(div: div ,index: 16, type: "MySQL")})
+        let MongoDB = UIAction(title: "MongoDB",  handler: {_ in self.checkArray(div: div ,index: 17, type: "MongoDB")})
+        let php = UIAction(title: "php", handler: {_ in self.checkArray(div: div ,index: 18, type: "php")})
+        let GraphQL = UIAction(title: "GraphQL",  handler: {_ in self.checkArray(div: div ,index: 19, type: "GraphQL")})
+        let Firebase = UIAction(title: "Firebase",  handler: {_ in self.checkArray(div: div ,index: 20, type: "Firebase")})
+        let ReactNative = UIAction(title: "ReactNative",  handler: {_ in self.checkArray(div: div ,index: 21, type: "ReactNative")})
+        let Unity = UIAction(title: "Unity",  handler: {_ in self.checkArray(div: div ,index: 22, type: "Unity")})
+        let Flutter = UIAction(title: "Flutter", handler: {_ in self.checkArray(div: div ,index: 23, type: "Flutter")})
+        let AWS = UIAction(title: "AWS", handler: {_ in self.checkArray(div: div ,index: 24, type: "AWS")})
+        let Kubernetes = UIAction(title: "Kubernetes", handler: {_ in self.checkArray(div: div ,index: 25, type: "Kubernetes")})
+        let Docker = UIAction(title: "Docker", handler: {_ in self.checkArray(div: div ,index: 26, type: "Docker")})
+        let Git = UIAction(title: "Git", handler: {_ in self.checkArray(div: div ,index: 27, type: "Git")})
+        let Figma = UIAction(title: "Figma", handler: {_ in self.checkArray(div: div ,index: 28, type: "Figma")})
+        let Zeplin = UIAction(title: "Zeplin", handler: {_ in self.checkArray(div: div ,index: 29, type: "Zeplin")})
         
         let buttonMenu = UIMenu(title: "프로젝트 사용 스택", children: [JavaScript, TypeScript, React, Vue, Node, Next, Nest, Spring, Java, Express, Go, C, Python, Django, Swift, Kotlin, MySQL, php, MongoDB, GraphQL, Firebase, ReactNative, Unity, Flutter, AWS, Kubernetes, Docker, Git, Figma, Zeplin])
 
@@ -157,14 +162,14 @@ class NewPost: UIViewController {
         let div: Int = 1
         
         let all = UIAction(title: "전체", handler: {_ in print("all")})
-        let frontend = UIAction(title: "프런드엔드", handler: {_ in self.checkArray(div: div ,index: 0)})
-        let backend = UIAction(title: "백엔드", handler: {_ in self.checkArray(div: div ,index: 1)})
-        let designer = UIAction(title: "디자이너", handler: {_ in self.checkArray(div: div ,index: 2)})
-        let iOS = UIAction(title: "iOS", handler: {_ in self.checkArray(div: div ,index: 3)})
-        let AOS = UIAction(title: "안드로이드", handler: {_ in self.checkArray(div: div ,index: 4)})
-        let devops = UIAction(title: "DevOps", handler: {_ in self.checkArray(div: div ,index: 5)})
-        let PM = UIAction(title: "PM", handler: {_ in self.checkArray(div: div ,index: 6)})
-        let planner = UIAction(title: "기획자", handler: {_ in self.checkArray(div: div ,index: 7)})
+        let frontend = UIAction(title: "프런드엔드", handler: {_ in self.checkArray(div: div ,index: 0, type: "프런드엔드")})
+        let backend = UIAction(title: "백엔드", handler: {_ in self.checkArray(div: div ,index: 1, type: "백엔드")})
+        let designer = UIAction(title: "디자이너", handler: {_ in self.checkArray(div: div ,index: 2, type: "디자이너")})
+        let iOS = UIAction(title: "iOS", handler: {_ in self.checkArray(div: div ,index: 3, type: "iOS")})
+        let AOS = UIAction(title: "안드로이드", handler: {_ in self.checkArray(div: div ,index: 4, type: "AOS")})
+        let devops = UIAction(title: "DevOps", handler: {_ in self.checkArray(div: div ,index: 5, type: "DevOps")})
+        let PM = UIAction(title: "PM", handler: {_ in self.checkArray(div: div ,index: 6, type: "PM")})
+        let planner = UIAction(title: "기획자", handler: {_ in self.checkArray(div: div ,index: 7, type: "기획자")})
         
         let buttonMenu = UIMenu(title: "프로젝트 모집 포지션", children: [all, frontend, backend, designer, iOS, AOS, devops, PM, planner])
 
@@ -172,17 +177,90 @@ class NewPost: UIViewController {
         position.changesSelectionAsPrimaryAction = false
     }
     
-    func checkArray(div: Int, index: Int){
+    
+    func checkArray(div: Int, index: Int, type: String){
         
         if div == 0 {
             if !self.stackArray.contains(index) {
                 self.stackArray.append(index)
-                print(self.stackArray)
+                addButton(div: div, index: index, type: type)
             }
         } else {
             if !self.positionArray.contains(index) {
                 self.positionArray.append(index)
-                print(self.positionArray)
+                addButton(div: div, index: index, type: type)
+            }
+        }
+    }
+    
+    func addButton(div: Int, index: Int, type: String) {
+        
+        let btnWidth: Int = type.count * 10 + 15
+
+        if div == 0 {
+            
+            let button = UIButton(
+                frame: CGRect(x: stackXLoc , y: 5, width: btnWidth, height: 15)
+            )
+            
+            button.backgroundColor = .lightGray
+            button.setTitle(type, for: .normal)
+            button.setTitleColor(.white, for: .normal)
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+            button.layer.cornerRadius = 7.5
+            button.setImage(UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(scale: .small)) ,for: .normal)
+            button.tintColor = UIColor.white
+            button.semanticContentAttribute = .forceRightToLeft
+            button.addTarget(self, action: #selector(stackButtonAction), for: .touchUpInside)
+            button.tag = index
+            
+            self.stackView.addSubview(button)
+            stackXLoc = stackXLoc + btnWidth + 5
+            
+        } else {
+            
+            let button = UIButton(
+                frame: CGRect(x: posXLoc , y: 5, width: btnWidth, height: 15)
+            )
+            
+            button.backgroundColor = .lightGray
+            button.setTitle(type, for: .normal)
+            button.setTitleColor(.white, for: .normal)
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 10)
+            button.layer.cornerRadius = 7.5
+            button.setImage(UIImage(systemName: "xmark", withConfiguration: UIImage.SymbolConfiguration(scale: .small)) ,for: .normal)
+            button.tintColor = UIColor.white
+            button.semanticContentAttribute = .forceRightToLeft
+            button.addTarget(self, action: #selector(positionButtonAction), for: .touchUpInside)
+            button.tag = index
+            
+            self.positionView.addSubview(button)
+            posXLoc = posXLoc + btnWidth + 5
+            
+        }
+    }
+    
+    @objc func stackButtonAction(sender: UIButton) {
+        
+        let rmIndex: Int = stackArray.firstIndex(of: sender.tag)!
+            
+        if stackArray.count > 0 {
+            if positionArray.contains(rmIndex) {
+                stackArray.remove(at: rmIndex)
+                print(stackArray)
+            }
+            
+        }
+    }
+    
+    @objc func positionButtonAction(sender: UIButton) {
+        
+        let rmIndex: Int = positionArray.firstIndex(of: sender.tag)!
+        
+        if positionArray.count > 0 {
+            if positionArray.contains(rmIndex) {
+                positionArray.remove(at: rmIndex)
+                print(positionArray)
             }
         }
     }
