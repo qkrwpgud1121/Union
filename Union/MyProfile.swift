@@ -9,6 +9,7 @@ import UIKit
 
 class MyProfile: UIViewController {
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var nickName: UITextField!
     @IBOutlet var imgView: UIImageView!
     @IBOutlet var imgSetting: UIButton!
@@ -16,7 +17,13 @@ class MyProfile: UIViewController {
     @IBOutlet weak var career: UIButton!
     @IBOutlet weak var addLink: UIButton!
     @IBOutlet weak var potLabel: UILabel!
-    @IBOutlet weak var test: UIButton!
+    
+    var linkArrayTag: [Int] = []
+    var linkArray: [String] = []
+    
+    var addLinkBtnTran: CGFloat = 0.0
+    
+    var count: Int = 0
     
     let imgPicker = UIImagePickerController()
     
@@ -34,9 +41,13 @@ class MyProfile: UIViewController {
         imgSetting.layer.borderWidth = 2
         imgSetting.layer.borderColor = UIColor.white.cgColor
         
-        setPosition()
+        self.hideKeyboar()
+        self.setKeyboardObserver()
         
+        setPosition()
+
         setCareer()
+    
     }
     
     @IBAction func addBtnClick(_ sender: UIButton) {
@@ -101,38 +112,75 @@ class MyProfile: UIViewController {
         career.changesSelectionAsPrimaryAction = true
     }
     
-    
-    //var yPos: CGFloat = potLabel.frame.origin.y + 21.0 + 8.0
-    
-    var yPos: CGFloat = 739.0
-    
     @IBAction func addLink(_ sender: UIButton) {
         
-        print(potLabel.frame.origin.y + 21.0 + 8.0)
+        count += 1
+        addTextfield()
+    }
+    
+    func addTextfield() {
         
-        let width = UIScreen.main.bounds.size.width - 32
+        for tempView in scrollView.subviews {
+            if tempView.tag != 0 {
+                tempView.removeFromSuperview()
+            }
+        }
         
-        var xPos: CGFloat = 16.0
-        //var yPos: CGFloat = potLabel.frame.origin.y + 21.0 + 8.0
+        let xPos: CGFloat = 16.0
+        var yPos: CGFloat = potLabel.frame.origin.y + 22.0 + 5.0
+        var tag: Int = 1
         
-        let textField = UITextField(frame: CGRect(x: xPos, y: yPos, width: width, height: 34))
+        self.addLinkBtnTran = 0.0
         
-        textField.text = "test"
-        textField.layer.borderWidth = 0.5
-        textField.layer.borderColor = UIColor.lightGray.cgColor
-        textField.layer.cornerRadius = 5
-        
-        UIView.animate(withDuration: 0.5, animations: {
-            self.addLink.transform = CGAffineTransform(translationX: 0 , y: 34)
-            self.view.addSubview(textField)
-        })
-        
-        yPos = yPos + 34.0 + 5.0
+        if count != 0 {
+            
+            for i in 1...count {
+                
+                let width = UIScreen.main.bounds.size.width - 32.0
+                
+                let stackView = UIStackView(frame: CGRect(x: xPos, y: yPos, width: width, height: 34))
+                
+                stackView.tag = tag
+                
+                let textField = UITextField(frame: CGRect(x: xPos, y: yPos, width: width - 36.0, height: 34))
+                textField.layer.borderWidth = 0.5
+                textField.layer.borderColor = UIColor.lightGray.cgColor
+                textField.layer.cornerRadius = 5
+                
+                let button = UIButton(frame: CGRect(x: width+20.0, y: yPos, width: 34, height: 34))
+                button.setImage(UIImage(systemName: "trash"), for: .normal)
+                button.addTarget(self, action: #selector(removeLink(_:)), for: .touchUpInside)
+                button.tag = tag
+                
+                stackView.addArrangedSubview(textField)
+                stackView.addArrangedSubview(button)
+                
+                addLinkBtnTran = addLinkBtnTran + 34.0 + 5.0
+                
+                print(self.addLinkBtnTran)
+                
+                yPos = yPos + 34.0 + 5.0
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.addLink.transform = CGAffineTransform(translationX: 0 , y: self.addLinkBtnTran)
+                    self.scrollView.addSubview(stackView)
+                })
+                tag = tag + 1
+            }
+        }
         
     }
-    @IBAction func test(_ sender: UIButton) {
-        print("click")
-        self.test.transform = CGAffineTransform(translationX: 0 , y: 34)
+    
+    @objc func removeLink(_ sender: AnyObject) {
+        
+        addLinkBtnTran = addLinkBtnTran - 34.0
+        
+        UIView.animate(withDuration: 0.5, animations: {
+            self.addLink.transform = CGAffineTransform(translationX: 0 , y: self.addLinkBtnTran)
+        })
+        
+        count -= 1
+        
+        addTextfield()
     }
     
     @IBAction func profileSave(_ sender: UIBarButtonItem) {
@@ -143,11 +191,11 @@ class MyProfile: UIViewController {
 extension MyProfile : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-            if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-                
-                imgView.image = image
-            }
-            dismiss(animated: true, completion: nil)
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
+            
+            imgView.image = image
         }
+        dismiss(animated: true, completion: nil)
+    }
     
 }

@@ -241,14 +241,14 @@ class NewPost: UIViewController {
     @objc func removeStackTag(_ sender: AnyObject) {
         
         stackArray.remove(at: (sender.tag - 1))
-        stackIndex.remove(at: sender.tag - 1)
+        stackIndex.remove(at: (sender.tag - 1))
         createTagCloud(OnView: self.stackView, withArray: stackArray as [AnyObject], div: 0)
     }
     
     @objc func removePosTag(_ sender: AnyObject) {
         
         positionArray.remove(at: (sender.tag - 1))
-        positionIndex.remove(at: sender.tag - 1)
+        positionIndex.remove(at: (sender.tag - 1))
         createTagCloud(OnView: self.positionView, withArray: positionArray as [AnyObject], div: 1)
     }
     
