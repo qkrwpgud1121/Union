@@ -161,7 +161,7 @@ class NewPost: UIViewController {
         let div: Int = 1
         
         let all = UIAction(title: "전체", handler: {_ in print("all")})
-        let frontend = UIAction(title: "프런드엔드", handler: {_ in self.addTag(div: div ,index: 0, type: "프런드엔드")})
+        let frontend = UIAction(title: "프런트엔드", handler: {_ in self.addTag(div: div ,index: 0, type: "프런드엔드")})
         let backend = UIAction(title: "백엔드", handler: {_ in self.addTag(div: div ,index: 1, type: "백엔드")})
         let designer = UIAction(title: "디자이너", handler: {_ in self.addTag(div: div ,index: 2, type: "디자이너")})
         let iOS = UIAction(title: "iOS", handler: {_ in self.addTag(div: div ,index: 3, type: "iOS")})

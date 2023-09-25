@@ -77,7 +77,7 @@ class MyProfile: UIViewController {
     func setPosition() {
         
         let all = UIAction(title: "전체", handler: {_ in print("all")})
-        let frontend = UIAction(title: "프런드엔드", handler: {_ in print("all")})
+        let frontend = UIAction(title: "프런트엔드", handler: {_ in print("all")})
         let backend = UIAction(title: "백엔드", handler: {_ in print("all")})
         let designer = UIAction(title: "디자이너", handler: {_ in print("all")})
         let iOS = UIAction(title: "iOS", handler: {_ in print("all")})
@@ -156,8 +156,6 @@ class MyProfile: UIViewController {
                 stackView.addArrangedSubview(button)
                 
                 addLinkBtnTran = addLinkBtnTran + 34.0 + 5.0
-                
-                print(self.addLinkBtnTran)
                 
                 yPos = yPos + 34.0 + 5.0
                 UIView.animate(withDuration: 0.5, animations: {
