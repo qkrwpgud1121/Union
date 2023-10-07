@@ -42,6 +42,7 @@ class MainList: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         listTableView.delegate = self
         listTableView.dataSource = self
+        listTableView.rowHeight = 100
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,7 +76,6 @@ class MainList: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.title?.text = target.title
         cell.stack?.text = target.stack
         cell.endDate?.text = dateFormat.string(from: target.endDate)
-        cell.registrant?.text = target.registrant
         
         return cell
     }

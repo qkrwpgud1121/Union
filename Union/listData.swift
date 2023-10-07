@@ -13,13 +13,12 @@ struct List {
     let title: String
     let stack: String
     let registrant: String
-    let image: String
 }
 
 extension List {
     static var data = [
-        List(type: "프로젝트", endDate: NSDate() as Date, title: "테스트", stack: "iOS, Swift, Object-c", registrant: "박제형", image: "img1"),
-        List(type: "스터디", endDate: NSDate() as Date, title: "테스트", stack: "iOS, Swift, Object-c", registrant: "채준관", image: "img2")
+        List(type: "프로젝트", endDate: NSDate() as Date, title: "테스트", stack: "iOS, Swift, Object-c", registrant: "박제형"),
+        List(type: "스터디", endDate: NSDate() as Date, title: "테스트", stack: "iOS, Swift, Object-c", registrant: "채준관")
     ]
     
 }

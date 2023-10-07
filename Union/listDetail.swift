@@ -8,6 +8,13 @@
 import UIKit
 
 class listDetail: UIViewController {
+    
+    var preparetype: String?
+    var prepareEndDate: String?
+    var prepareTitle: String?
+    var prepareStack: String?
+    var prepareRegistrant: String?
+    var prepareImage: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()

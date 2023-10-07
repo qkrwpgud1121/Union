@@ -35,7 +35,7 @@ class MyProfile: UIViewController {
         imgView.layer.cornerRadius = imgView.frame.width / 2
         imgView.layer.borderWidth = 2
         imgView.layer.borderColor = UIColor.white.cgColor
-        imgView.clipsToBounds = true
+        imgView.clipsToBounds = true 
 
         imgSetting.layer.cornerRadius = imgSetting.frame.width / 2
         imgSetting.layer.borderWidth = 2
