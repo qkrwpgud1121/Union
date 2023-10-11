@@ -23,7 +23,7 @@
 		F8DADACD2A96055300E0A643 /* MyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DADACC2A96055300E0A643 /* MyProfile.swift */; };
 		F8DEC4FE2A8B47FD00820B35 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DEC4FD2A8B47FD00820B35 /* Register.swift */; };
 		F8F2496F2A98330000E13B60 /* NewPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F2496E2A98330000E13B60 /* NewPost.swift */; };
-		F8FDCEC12AD169BA00B41F2F /* listDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FDCEC02AD169BA00B41F2F /* listDetail.swift */; };
+		F8FDCEC12AD169BA00B41F2F /* ListDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FDCEC02AD169BA00B41F2F /* ListDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,7 +47,7 @@
 		F8DADACC2A96055300E0A643 /* MyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfile.swift; sourceTree = "<group>"; };
 		F8DEC4FD2A8B47FD00820B35 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		F8F2496E2A98330000E13B60 /* NewPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPost.swift; sourceTree = "<group>"; };
-		F8FDCEC02AD169BA00B41F2F /* listDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listDetail.swift; sourceTree = "<group>"; };
+		F8FDCEC02AD169BA00B41F2F /* ListDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +101,7 @@
 				F8B2B3132A86219800CAD9A7 /* AppDelegate.swift */,
 				F8B2B3152A86219800CAD9A7 /* SceneDelegate.swift */,
 				F8B2B3192A86219800CAD9A7 /* Main.storyboard */,
-				F8FDCEC02AD169BA00B41F2F /* listDetail.swift */,
+				F8FDCEC02AD169BA00B41F2F /* ListDetail.swift */,
 				F8B2B31C2A86219900CAD9A7 /* Assets.xcassets */,
 				F8B2B31E2A86219900CAD9A7 /* LaunchScreen.storyboard */,
 				F8B2B3212A86219900CAD9A7 /* Info.plist */,
@@ -239,7 +239,7 @@
 				F87809FC2A90EC8B004CB0D8 /* BannerCell.swift in Sources */,
 				F8DADACD2A96055300E0A643 /* MyProfile.swift in Sources */,
 				F8B2B3182A86219800CAD9A7 /* ViewController.swift in Sources */,
-				F8FDCEC12AD169BA00B41F2F /* listDetail.swift in Sources */,
+				F8FDCEC12AD169BA00B41F2F /* ListDetail.swift in Sources */,
 				F8B2B3142A86219800CAD9A7 /* AppDelegate.swift in Sources */,
 				F80E38D82A8B13D70014529C /* Temp.swift in Sources */,
 				F87C66C52A90DE23002B66C9 /* MainList.swift in Sources */,

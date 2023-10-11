@@ -10,6 +10,8 @@ import SideMenu
 
 class MainList: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var tapBar: UITabBar!
+    
     @IBOutlet var bannerCollectionView: UICollectionView!
     @IBOutlet weak var listTableView: UITableView!
     @IBOutlet weak var profile: UIButton!
@@ -43,6 +45,8 @@ class MainList: UIViewController, UITableViewDelegate, UITableViewDataSource {
         listTableView.delegate = self
         listTableView.dataSource = self
         listTableView.rowHeight = 100
+        
+        tapBar.selectedItem = tapBar.items?.first
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -75,6 +79,7 @@ class MainList: UIViewController, UITableViewDelegate, UITableViewDataSource {
         cell.type?.text = target.type
         cell.title?.text = target.title
         cell.stack?.text = target.stack
+        cell.registrant?.text = target.registrant
         cell.endDate?.text = dateFormat.string(from: target.endDate)
         
         return cell
@@ -83,6 +88,32 @@ class MainList: UIViewController, UITableViewDelegate, UITableViewDataSource {
     private func registerXib() {
         let nibName = UINib(nibName: cellName, bundle: nil)
         listTableView.register(nibName, forCellReuseIdentifier: cellReuseIdentifier)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detail" {
+            if let destination = segue.destination as? ListDetail {
+                if let selectedIndex = self.listTableView.indexPathForSelectedRow?.section {
+                    
+                    let target = list[selectedIndex]
+                    
+                    let dateFormat = DateFormatter()
+                    dateFormat.dateFormat = "yyyy-MM-dd"
+                    
+                    destination.prepareType = target.type
+                    destination.preparePeople = target.people
+                    destination.prepareProceedType = target.proceedType
+                    destination.prepareProceedPeriod = target.proceedPeriod
+                    destination.preparePosition = target.position
+                    destination.prepareContact = target.contact
+                    destination.prepareDetail = target.detail
+                    destination.prepareEndDate = dateFormat.string(from: target.endDate)
+                    destination.prepareTitle = target.title
+                    destination.prepareStack = target.stack
+                    destination.prepareRegistrant = target.registrant
+                }
+            }
+        }
     }
     
     // 2초마다 실행되는 타이머

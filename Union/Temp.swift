@@ -25,7 +25,7 @@ class Temp: UIViewController {
         
         print(param)
         
-        let url = URL(string: "http://211.204.106.46/union/api/user/issue/temporary-password")
+        let url = URL(string: "http://localhost:8080/union/api/user/issue/temporary-password")
         
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
@@ -46,10 +46,10 @@ class Temp: UIViewController {
                     
                     let tempResultCode = jsonObject["resultCode"] as? String
                     let tempResultMessage = jsonObject["resultMessage"] as? String
-                    let Pwd = jsonObject["password"] as? String
+                    
                     
                     if tempResultMessage == "SUCCESS" {
-                        NSLog("result", jsonObject)
+//                        print(Pwd)
                     }
                     
                 } catch let e as NSError {
@@ -57,6 +57,6 @@ class Temp: UIViewController {
                 }
             }
         }
-        
+        tempTask.resume()
     }
 }
