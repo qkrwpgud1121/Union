@@ -34,6 +34,7 @@ class Temp: UIViewController {
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         
         let tempTask = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            
             if let e = error {
                 NSLog("An error has occured: \(e.localizedDescription)")
                 return
@@ -46,10 +47,14 @@ class Temp: UIViewController {
                     
                     let tempResultCode = jsonObject["resultCode"] as? String
                     let tempResultMessage = jsonObject["resultMessage"] as? String
+                    let responseData = jsonObject["responseData"] as? [String : Any]
                     
+                    let tempPwd = responseData!["password"] as? String
                     
                     if tempResultMessage == "SUCCESS" {
-//                        print(Pwd)
+                        self.tempAlert(message: tempPwd!)
+                    } else {
+                        self.tempAlert(message: tempResultMessage!)
                     }
                     
                 } catch let e as NSError {
@@ -58,5 +63,15 @@ class Temp: UIViewController {
             }
         }
         tempTask.resume()
+    }
+    
+    func tempAlert(message: String) {
+        
+        var message: String = message
+        
+        let alert = UIAlertController(title: "임시 비밀번호", message: message, preferredStyle: .alert)
+        let sucess = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(sucess)
+        self.present(alert, animated: true)
     }
 }

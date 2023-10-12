@@ -14,6 +14,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        email.layer.borderColor = CGColor(red: 211/255, green: 72/255, blue: 89/255, alpha: 1)
+        email.layer.borderWidth = 1
+        email.layer.cornerRadius = 15
+        
+        password.layer.borderColor = CGColor(red: 211/255, green: 72/255, blue: 89/255, alpha: 1)
+        password.layer.borderWidth = 1
+        password.layer.cornerRadius = 15
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationItem.hidesBackButton = true
     }
 
     @IBAction func btn_login(_ sender: Any) {
@@ -43,25 +55,41 @@ class ViewController: UIViewController {
                     let object = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
                     guard let jsonObject = object else {return}
                     
-                    print(jsonObject)
-                    
                     let resultMessage = jsonObject["resultMessage"] as? String
-                    let resultCode = jsonObject["resultCode"] as? String
-                    let token = jsonObject["token"] as? String
+                    let responseData = jsonObject["responseData"] as? [String : Any]
+                    
+                    let token = responseData!["token"] as? String
                     
                     if resultMessage == "SUCCESS" {
+                        
+                        let appDelegate = UIApplication.shared.delegate as? AppDelegate
+
+                        appDelegate?.userEmail = Email
+                        appDelegate?.userToken = token!
+                        
                         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                         let mainView = storyboard.instantiateViewController(identifier: "MainList")
                         mainView.modalPresentationStyle = .fullScreen
                         self.navigationController?.show(mainView, sender: nil)
+                    } else {
+                        self.loginAlert(message: resultMessage!)
                     }
                 } catch let e as NSError {
                     print("An error has occured while parsing JSONObject: \(e.localizedDescription)")
                 }
             }
         }
-        
         task.resume()
+    }
+    
+    func loginAlert(message: String) {
+        
+        let message: String = message
+        
+        let alert = UIAlertController(title: "로그인", message: message, preferredStyle: .alert)
+        let sucess = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(sucess)
+        self.present(alert, animated: true)
     }
     
 }

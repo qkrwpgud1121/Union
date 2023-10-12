@@ -35,7 +35,7 @@ class Register: UIViewController {
         
         print(param)
         
-        let url = URL(string: "http://211.204.106.46/union/api/user/register")
+        let url = URL(string: "http://localhost:8080/union/api/user/register")
         
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
@@ -56,10 +56,9 @@ class Register: UIViewController {
                     
                     let resultCode = jsonObject["resultCode"] as? String
                     let resultMessage = jsonObject["resultMessage"] as? String
-                    let token = jsonObject["token"] as? String
                     
                     if resultMessage == "SUCCESS" {
-                        NSLog("result", jsonObject)
+                        self.registerAlert(message: resultMessage!)
                     }
                     
                 } catch let e as NSError {
@@ -67,5 +66,23 @@ class Register: UIViewController {
                 }
             }
         }
+        task.resume()
+    }
+    
+    func registerAlert(message: String) {
+        
+        var message: String = message
+        
+        let alert = UIAlertController(title: "회원 가입", message: message, preferredStyle: .alert)
+        let sucess = UIAlertAction(title: "확인", style: .default) { _ in
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let mainView = storyboard.instantiateViewController(identifier: "ViewController")
+            mainView.modalPresentationStyle = .fullScreen
+            self.navigationController?.show(mainView, sender: nil)
+        }
+        alert.addAction(sucess)
+        self.present(alert, animated: true)
+        
+        
     }
 }
