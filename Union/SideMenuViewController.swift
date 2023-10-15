@@ -66,7 +66,6 @@ class SideMenuViewController: UIViewController {
                     guard let jsonObject = object else {return}
             
                     let resultMessage = jsonObject["resultMessage"] as? String
-                    let resultCode = jsonObject["resultCode"] as? String
             
                     if resultMessage == "SUCCESS" {
                         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)

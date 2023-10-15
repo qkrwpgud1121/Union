@@ -44,7 +44,7 @@ class MainList: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         listTableView.delegate = self
         listTableView.dataSource = self
-        listTableView.rowHeight = 100
+        listTableView.rowHeight = 186
         
         tapBar.selectedItem = tapBar.items?.first
     }
