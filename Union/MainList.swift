@@ -8,7 +8,7 @@
 import UIKit
 import SideMenu
 
-class MainList: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MainList: UIViewController{
     
     @IBOutlet weak var tapBar: UITabBar!
     
@@ -18,9 +18,11 @@ class MainList: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     // 현재페이지 체크 변수 (자동 스크롤할 때 필요)
     var nowPage: Int = 0
-
+    
     // 데이터 배열
     let dataArray: Array<UIImage> = [UIImage(named: "img1.png")!, UIImage(named: "img2.png")!, UIImage(named: "img3.png")!]
+    
+    private var listMainVM: ListViewModel!
     
     let list = List.data
     let cellSpacingHeight: CGFloat = 1
@@ -42,9 +44,11 @@ class MainList: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         bannerTimer()
         
+        setup()
+        
         listTableView.delegate = self
         listTableView.dataSource = self
-        listTableView.rowHeight = 186
+        listTableView.rowHeight = 180
         
         tapBar.selectedItem = tapBar.items?.first
     }
@@ -54,35 +58,19 @@ class MainList: UIViewController, UITableViewDelegate, UITableViewDataSource {
         self.navigationItem.hidesBackButton = true
     }
     
-    // Section 당 Row의 수
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
-    }
-    
-    // Section의 수
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return list.count
-    }
-    
-    // 각 Section 사이의 간격 설정
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return cellSpacingHeight
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = listTableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as! MainTableViewCell
-        let target = list[indexPath.section]
+    private func setup() {
         
-        let dateFormat = DateFormatter()
-        dateFormat.dateFormat = "yyyy-MM-dd"
-        
-        cell.type?.text = target.type
-        cell.title?.text = target.title
-        cell.stack?.text = target.stack
-        cell.registrant?.text = target.registrant
-        cell.endDate?.text = dateFormat.string(from: target.endDate)
-        
-        return cell
+        let url = URL(string: "http://localhost:8080/union/api/union/board/getPagingList")!
+        ListService().getMainList(url: url) { //1
+            (responseList) in
+
+            if let responseList = responseList {
+                self.listMainVM = ListViewModel(responseList: responseList) //2
+            }
+            DispatchQueue.main.async {
+                self.listTableView.reloadData()
+            }
+        }
     }
     
     private func registerXib() {
@@ -162,4 +150,28 @@ extension MainList: UICollectionViewDelegate, UICollectionViewDataSource, UIColl
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         nowPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
     }
+}
+
+extension MainList: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.listMainVM.numberOfRowsInSection(section)
+    }
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.listMainVM == nil ? 0 : self.listMainVM.numberOfSections
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? MainTableViewCell
+        else {fatalError("no matched articleTableViewCell identifier")}
+
+        let listVM = self.listMainVM.listAtIndex(indexPath.row) //3
+        cell.title?.text = listVM.title
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 186.0
+    }
+
 }

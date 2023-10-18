@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var btnSession: UIButton!
+    @IBOutlet weak var btnLogin: UIButton!
     
     private var eyeButton = UIButton(type: .custom)
     
@@ -25,6 +26,8 @@ class ViewController: UIViewController {
         password.layer.borderColor = CGColor(red: 211/255, green: 72/255, blue: 89/255, alpha: 1)
         password.layer.borderWidth = 1
         password.layer.cornerRadius = 15
+        
+        btnLogin.layer.cornerRadius = 18
         
         rememberMeFlag = UserDefaults.standard.bool(forKey: "REMEMBER_USER")
         
