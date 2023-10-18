@@ -19,12 +19,18 @@ struct responseData: Decodable {
 }
 
 struct DetailList: Decodable {
+    let type: String?
+    let endDate: String?
     let title: String?
     let detail: String?
+    let registrant: String?
     
     enum CodingKeys: String, CodingKey {
+        case type = "progressType"
+        case endDate = "deadline"
         case title = "unionBoardSubject"
         case detail = "unionBoardContent"
+        case registrant = "name"
     }
 }
 

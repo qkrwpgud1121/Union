@@ -48,7 +48,6 @@ class MainList: UIViewController{
         
         listTableView.delegate = self
         listTableView.dataSource = self
-        listTableView.rowHeight = 180
         
         tapBar.selectedItem = tapBar.items?.first
     }
@@ -166,7 +165,11 @@ extension MainList: UITableViewDelegate, UITableViewDataSource {
         else {fatalError("no matched articleTableViewCell identifier")}
 
         let listVM = self.listMainVM.listAtIndex(indexPath.row) //3
+        cell.type?.text = listVM.type
+        cell.endDate?.text = listVM.endDate
         cell.title?.text = listVM.title
+        cell.title?.text = listVM.title
+        cell.registrant?.text = listVM.registrant
         return cell
     }
     

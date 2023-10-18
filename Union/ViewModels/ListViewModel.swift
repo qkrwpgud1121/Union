@@ -37,10 +37,19 @@ extension ListMainViewModel {
 }
 
 extension ListMainViewModel {
+    var type: String? {
+        return self.DetailList.type
+    }
+    var endDate: String? {
+        return self.DetailList.endDate
+    }
     var title: String? {
         return self.DetailList.title
     }
     var detail: String? {
         return self.DetailList.detail
+    }
+    var registrant: String? {
+        return self.DetailList.registrant
     }
 }
