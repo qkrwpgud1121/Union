@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		F80E38D82A8B13D70014529C /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80E38D72A8B13D70014529C /* Temp.swift */; };
-		F81E28882A9C93EC0006F1A6 /* ListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81E28872A9C93EC0006F1A6 /* ListData.swift */; };
 		F84D56522ADFE2D2006117CE /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84D56512ADFE2D2006117CE /* ListViewModel.swift */; };
 		F8582FE22A92761600478181 /* CustomSideMenuNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8582FE12A92761600478181 /* CustomSideMenuNavigation.swift */; };
 		F8582FE42A92766C00478181 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8582FE32A92766C00478181 /* SideMenuViewController.swift */; };
@@ -33,7 +32,6 @@
 		4A8FC9B93CCBAFFBE757333D /* Pods-Union.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Union.release.xcconfig"; path = "Target Support Files/Pods-Union/Pods-Union.release.xcconfig"; sourceTree = "<group>"; };
 		62E7502B64DBC861E7B957BF /* Pods-Union.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Union.debug.xcconfig"; path = "Target Support Files/Pods-Union/Pods-Union.debug.xcconfig"; sourceTree = "<group>"; };
 		F80E38D72A8B13D70014529C /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
-		F81E28872A9C93EC0006F1A6 /* ListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListData.swift; sourceTree = "<group>"; };
 		F84D56512ADFE2D2006117CE /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		F8582FE12A92761600478181 /* CustomSideMenuNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSideMenuNavigation.swift; sourceTree = "<group>"; };
 		F8582FE32A92766C00478181 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
@@ -164,7 +162,6 @@
 				F8582FE32A92766C00478181 /* SideMenuViewController.swift */,
 				F8DADACC2A96055300E0A643 /* MyProfile.swift */,
 				F8F2496E2A98330000E13B60 /* NewPost.swift */,
-				F81E28872A9C93EC0006F1A6 /* ListData.swift */,
 			);
 			path = Union;
 			sourceTree = "<group>";
@@ -293,7 +290,6 @@
 				F80E38D82A8B13D70014529C /* Temp.swift in Sources */,
 				F87C66C52A90DE23002B66C9 /* MainList.swift in Sources */,
 				F8B2B3162A86219800CAD9A7 /* SceneDelegate.swift in Sources */,
-				F81E28882A9C93EC0006F1A6 /* ListData.swift in Sources */,
 				F863A5C22ADCF7E500B77527 /* ListModel.swift in Sources */,
 				F8582FE22A92761600478181 /* CustomSideMenuNavigation.swift in Sources */,
 				F8F2496F2A98330000E13B60 /* NewPost.swift in Sources */,

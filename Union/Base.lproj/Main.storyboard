@@ -355,7 +355,7 @@
                                             <constraints>
                                                 <constraint firstItem="N6v-h2-pdu" firstAttribute="leading" secondItem="Gy0-tT-iIV" secondAttribute="leadingMargin" id="5Rg-AE-cQv"/>
                                                 <constraint firstItem="b57-ti-xfW" firstAttribute="trailing" secondItem="Gy0-tT-iIV" secondAttribute="trailingMargin" id="6iL-r7-v4l"/>
-                                                <constraint firstItem="VSb-wt-voR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Gy0-tT-iIV" secondAttribute="leadingMargin" id="DPM-ET-Tjl"/>
+                                                <constraint firstItem="VSb-wt-voR" firstAttribute="leading" secondItem="Gy0-tT-iIV" secondAttribute="leadingMargin" id="DPM-ET-Tjl"/>
                                                 <constraint firstItem="VSb-wt-voR" firstAttribute="bottom" secondItem="Gy0-tT-iIV" secondAttribute="bottomMargin" id="KPk-uG-3GP"/>
                                                 <constraint firstItem="b57-ti-xfW" firstAttribute="top" secondItem="JIl-Dg-QT4" secondAttribute="bottom" constant="16" id="QWu-Mf-ltr"/>
                                                 <constraint firstItem="dff-x2-cPF" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JIl-Dg-QT4" secondAttribute="trailing" constant="8" symbolic="YES" id="VmK-OK-hc4"/>
@@ -398,15 +398,26 @@
                                     <tabBarItem title="Study" image="pencil.line" catalog="system" id="1mu-W1-kr2"/>
                                 </items>
                             </tabBar>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xli-Am-Rng">
+                                <rect key="frame" x="101" y="64" width="178" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="mGf-Fk-VNI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dMy-KP-7Fy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="hIR-jm-tF8" firstAttribute="leading" secondItem="xli-Am-Rng" secondAttribute="trailing" constant="5" id="2f9-YZ-Uua"/>
                             <constraint firstItem="XJc-u8-XuV" firstAttribute="bottom" secondItem="4Ni-0g-nzf" secondAttribute="bottom" constant="-83" id="2lF-Pe-Ubh"/>
                             <constraint firstItem="exw-zo-ali" firstAttribute="top" secondItem="dMy-KP-7Fy" secondAttribute="top" id="Rs6-Zh-jAZ"/>
                             <constraint firstItem="2h6-HK-cHG" firstAttribute="top" secondItem="dMy-KP-7Fy" secondAttribute="top" id="WVf-WT-cBF"/>
                             <constraint firstItem="XJc-u8-XuV" firstAttribute="top" secondItem="exw-zo-ali" secondAttribute="bottom" id="XKo-7J-qn0"/>
+                            <constraint firstItem="xli-Am-Rng" firstAttribute="leading" secondItem="exw-zo-ali" secondAttribute="trailing" constant="5" id="Zhl-k7-C0k"/>
                             <constraint firstItem="4Ni-0g-nzf" firstAttribute="leading" secondItem="dMy-KP-7Fy" secondAttribute="leading" id="ekh-3H-NiW"/>
+                            <constraint firstItem="xli-Am-Rng" firstAttribute="top" secondItem="dMy-KP-7Fy" secondAttribute="top" constant="5" id="eqd-4f-vNL"/>
                             <constraint firstItem="2h6-HK-cHG" firstAttribute="leading" secondItem="hIR-jm-tF8" secondAttribute="trailing" id="ety-iz-0DL"/>
                             <constraint firstItem="4Ni-0g-nzf" firstAttribute="trailing" secondItem="dMy-KP-7Fy" secondAttribute="trailing" id="gX0-ni-oB1"/>
                             <constraint firstItem="exw-zo-ali" firstAttribute="leading" secondItem="dMy-KP-7Fy" secondAttribute="leading" constant="16" id="jmL-G0-xIW"/>
@@ -421,6 +432,7 @@
                         <outlet property="bannerCollectionView" destination="S6x-uw-OkV" id="S5N-x8-9a6"/>
                         <outlet property="listTableView" destination="XJc-u8-XuV" id="Etu-lf-KOb"/>
                         <outlet property="profile" destination="2h6-HK-cHG" id="bs3-qu-XJC"/>
+                        <outlet property="search" destination="xli-Am-Rng" id="hJP-6F-OaC"/>
                         <outlet property="tapBar" destination="4Ni-0g-nzf" id="45D-OW-f1E"/>
                     </connections>
                 </viewController>
@@ -786,10 +798,10 @@
                                             </textField>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TeI-Fm-885">
                                                 <rect key="frame" x="16" y="652" width="361" height="400"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="400" id="YeI-UF-whl"/>
                                                 </constraints>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -886,13 +898,16 @@
                     </navigationItem>
                     <size key="freeformSize" width="393" height="1100"/>
                     <connections>
-                        <outlet property="category" destination="0Zo-Gq-FSR" id="4vb-Va-GqQ"/>
-                        <outlet property="method" destination="Ayo-FZ-JV0" id="Hp6-5p-zCO"/>
-                        <outlet property="period" destination="GAz-Qh-2fU" id="nRO-pV-Ygq"/>
-                        <outlet property="person" destination="6df-Pa-NX2" id="FEE-P0-frT"/>
-                        <outlet property="position" destination="Dbx-Xc-gWh" id="ZNe-iv-Ugb"/>
+                        <outlet property="btnCategory" destination="0Zo-Gq-FSR" id="4on-cB-Gv0"/>
+                        <outlet property="btnMethod" destination="Ayo-FZ-JV0" id="HG8-Cr-mXS"/>
+                        <outlet property="btnPeriod" destination="GAz-Qh-2fU" id="ME9-th-xNo"/>
+                        <outlet property="btnPerson" destination="6df-Pa-NX2" id="FKa-VJ-CWc"/>
+                        <outlet property="btnPosition" destination="Dbx-Xc-gWh" id="L30-YZ-uWz"/>
+                        <outlet property="btnStack" destination="Oh9-0o-Ku0" id="BAH-zP-dmb"/>
+                        <outlet property="contact" destination="Oea-sg-Nj0" id="Z57-YS-NY8"/>
                         <outlet property="positionView" destination="Ygr-Bu-u7i" id="fG7-cp-stq"/>
-                        <outlet property="stack" destination="Oh9-0o-Ku0" id="952-X7-tBO"/>
+                        <outlet property="postDetail" destination="TeI-Fm-885" id="frF-kW-Tdg"/>
+                        <outlet property="postTitle" destination="fCD-gV-YUI" id="yIs-PA-HhT"/>
                         <outlet property="stackView" destination="Yp8-M9-3Gm" id="J0i-aw-9nQ"/>
                     </connections>
                 </viewController>

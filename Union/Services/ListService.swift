@@ -17,7 +17,7 @@ class ListService {
     
     func getMainList(url: URL, completion: @escaping([DetailList]?) -> ()) {
         
-        let param = ["requestData" : ["unionBoardSubject" : ""], "paging" : ["number" : 0, "size" : 4]]
+        let param = ["requestData" : ["unionBoardSubject" : ""], "paging" : ["number" : 0, "size" : 20]]
         let paramData = try! JSONSerialization.data(withJSONObject: param)
 
         let url = url

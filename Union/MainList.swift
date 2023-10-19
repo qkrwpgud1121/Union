@@ -15,6 +15,7 @@ class MainList: UIViewController{
     @IBOutlet var bannerCollectionView: UICollectionView!
     @IBOutlet weak var listTableView: UITableView!
     @IBOutlet weak var profile: UIButton!
+    @IBOutlet weak var search: UITextField!
     
     // 현재페이지 체크 변수 (자동 스크롤할 때 필요)
     var nowPage: Int = 0
@@ -24,7 +25,6 @@ class MainList: UIViewController{
     
     private var listMainVM: ListViewModel!
     
-    let list = List.data
     let cellSpacingHeight: CGFloat = 1
     let cellName = "MainTableViewCell"
     let cellReuseIdentifier = "offerCell"
@@ -32,12 +32,16 @@ class MainList: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
         profile.layer.cornerRadius = profile.frame.width / 2
         profile.layer.borderWidth = 2
         profile.layer.borderColor = UIColor.gray.cgColor
         profile.clipsToBounds = true
         
-        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        search.layer.cornerRadius = search.frame.height / 2
+        search.layer.borderWidth = 1
+        search.layer.borderColor = UIColor.gray.cgColor
         
         bannerCollectionView.delegate = self
         bannerCollectionView.dataSource = self
@@ -72,36 +76,36 @@ class MainList: UIViewController{
         }
     }
     
-    private func registerXib() {
-        let nibName = UINib(nibName: cellName, bundle: nil)
-        listTableView.register(nibName, forCellReuseIdentifier: cellReuseIdentifier)
-    }
+//    private func registerXib() {
+//        let nibName = UINib(nibName: cellName, bundle: nil)
+//        listTableView.register(nibName, forCellReuseIdentifier: cellReuseIdentifier)
+//    }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "detail" {
-            if let destination = segue.destination as? ListDetail {
-                if let selectedIndex = self.listTableView.indexPathForSelectedRow?.section {
-                    
-                    let target = list[selectedIndex]
-                    
-                    let dateFormat = DateFormatter()
-                    dateFormat.dateFormat = "yyyy-MM-dd"
-                    
-                    destination.prepareType = target.type
-                    destination.preparePeople = target.people
-                    destination.prepareProceedType = target.proceedType
-                    destination.prepareProceedPeriod = target.proceedPeriod
-                    destination.preparePosition = target.position
-                    destination.prepareContact = target.contact
-                    destination.prepareDetail = target.detail
-                    destination.prepareEndDate = dateFormat.string(from: target.endDate)
-                    destination.prepareTitle = target.title
-                    destination.prepareStack = target.stack
-                    destination.prepareRegistrant = target.registrant
-                }
-            }
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "detail" {
+//            if let destination = segue.destination as? ListDetail {
+//                if let selectedIndex = self.listTableView.indexPathForSelectedRow?.section {
+//                    
+//                    let target = list[selectedIndex]
+//                    
+//                    let dateFormat = DateFormatter()
+//                    dateFormat.dateFormat = "yyyy-MM-dd"
+//                    
+//                    destination.prepareType = target.type
+//                    destination.preparePeople = target.people
+//                    destination.prepareProceedType = target.proceedType
+//                    destination.prepareProceedPeriod = target.proceedPeriod
+//                    destination.preparePosition = target.position
+//                    destination.prepareContact = target.contact
+//                    destination.prepareDetail = target.detail
+//                    destination.prepareEndDate = dateFormat.string(from: target.endDate)
+//                    destination.prepareTitle = target.title
+//                    destination.prepareStack = target.stack
+//                    destination.prepareRegistrant = target.registrant
+//                }
+//            }
+//        }
+//    }
     
     // 2초마다 실행되는 타이머
     func bannerTimer() {
@@ -122,7 +126,7 @@ class MainList: UIViewController{
         nowPage += 1
         bannerCollectionView.scrollToItem(at: NSIndexPath(item: nowPage, section: 0) as IndexPath, at: .right, animated: true)
         
-        registerXib()
+//        registerXib()
     }
 }
 
@@ -164,7 +168,7 @@ extension MainList: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? MainTableViewCell
         else {fatalError("no matched articleTableViewCell identifier")}
 
-        let listVM = self.listMainVM.listAtIndex(indexPath.row) //3
+        let listVM = self.listMainVM.listAtIndex(indexPath.row)
         cell.type?.text = listVM.type
         cell.endDate?.text = listVM.endDate
         cell.title?.text = listVM.title
