@@ -42,21 +42,12 @@ class ListService {
                 let decoded = try decoder.decode(ListMain.self, from: data!)
                 
                 let listArray = decoded.responseData.list
-                
+                print(listArray as Any)
                 completion(listArray)
 
             } catch let e as NSError {
                 print(String(describing: e))
             }
-//            else if let data = data {
-//                
-//                let listMain = try? JSONDecoder().decode(ListMain.self, from: data)
-//                print(listMain?.responseData)
-//                if let listMain = listMain {
-//                    //completion(listMain.responseList)
-//                }
-//                //print("1 \(listMain?.responseList)")
-//            }
         }.resume()
     }
 }

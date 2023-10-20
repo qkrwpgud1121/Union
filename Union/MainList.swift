@@ -77,36 +77,31 @@ class MainList: UIViewController{
         }
     }
     
-//    private func registerXib() {
-//        let nibName = UINib(nibName: cellName, bundle: nil)
-//        listTableView.register(nibName, forCellReuseIdentifier: cellReuseIdentifier)
-//    }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "detail" {
-//            if let destination = segue.destination as? ListDetail {
-//                if let selectedIndex = self.listTableView.indexPathForSelectedRow?.section {
-//                    
-//                    let target = list[selectedIndex]
-//                    
-//                    let dateFormat = DateFormatter()
-//                    dateFormat.dateFormat = "yyyy-MM-dd"
-//                    
-//                    destination.prepareType = target.type
-//                    destination.preparePeople = target.people
-//                    destination.prepareProceedType = target.proceedType
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "detail" {
+            if let destination = segue.destination as? ListDetail {
+                if let selectedIndex = self.listTableView.indexPathForSelectedRow?.section {
+                    
+                    let target = listMainVM.listAtIndex(selectedIndex)
+                    
+                    let dateFormat = DateFormatter()
+                    dateFormat.dateFormat = "yyyy-MM-dd"
+                    
+                    destination.prepareType = target.type
+//                    destination.preparePeople = target.
+//                    destination.prepareProceedType = target.type
 //                    destination.prepareProceedPeriod = target.proceedPeriod
-//                    destination.preparePosition = target.position
+                    destination.preparePosition = target.position
 //                    destination.prepareContact = target.contact
-//                    destination.prepareDetail = target.detail
+                    destination.prepareDetail = target.detail
 //                    destination.prepareEndDate = dateFormat.string(from: target.endDate)
-//                    destination.prepareTitle = target.title
-//                    destination.prepareStack = target.stack
-//                    destination.prepareRegistrant = target.registrant
-//                }
-//            }
-//        }
-//    }
+                    destination.prepareTitle = target.title
+                    destination.prepareStack = target.stack
+                    destination.prepareRegistrant = target.registrant
+                }
+            }
+        }
+    }
     
     // 2초마다 실행되는 타이머
     func bannerTimer() {
@@ -126,8 +121,6 @@ class MainList: UIViewController{
         // 다음 페이지로 전환
         nowPage += 1
         bannerCollectionView.scrollToItem(at: NSIndexPath(item: nowPage, section: 0) as IndexPath, at: .right, animated: true)
-        
-//        registerXib()
     }
 }
 
@@ -173,8 +166,9 @@ extension MainList: UITableViewDelegate, UITableViewDataSource {
         cell.type?.text = listVM.type
         cell.endDate?.text = listVM.endDate
         cell.title?.text = listVM.title
-        cell.title?.text = listVM.title
         cell.registrant?.text = listVM.registrant
+        cell.stack?.text = listVM.stack
+        
         return cell
     }
     

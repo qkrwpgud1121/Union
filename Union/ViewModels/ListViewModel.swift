@@ -41,13 +41,28 @@ extension ListMainViewModel {
         return self.DetailList.type
     }
     var endDate: String? {
-        return self.DetailList.endDate
+        let date = DetailList.endDate
+        let year = date!.prefix(4)
+        let startIndex = date!.index(date!.startIndex, offsetBy: 4)
+        let endIndex = date!.index(date!.endIndex, offsetBy: -3)
+        let month = date![startIndex...endIndex]
+        let day = date!.suffix(2)
+        let endDate = "\(year)-\(month)-\(day)"
+        return endDate
     }
     var title: String? {
         return self.DetailList.title
     }
     var detail: String? {
         return self.DetailList.detail
+    }
+    var stack: String? {
+        let stack = DetailList.stack.joined(separator: ", ")
+        return stack
+    }
+    var position: String? {
+        let position = DetailList.position.joined(separator: ", ")
+        return position
     }
     var registrant: String? {
         return self.DetailList.registrant

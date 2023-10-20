@@ -23,13 +23,17 @@ struct DetailList: Decodable {
     let endDate: String?
     let title: String?
     let detail: String?
+    let stack: [String]
+    let position: [String]
     let registrant: String?
     
     enum CodingKeys: String, CodingKey {
-        case type = "progressType"
+        case type = "groupType"
         case endDate = "deadline"
         case title = "unionBoardSubject"
         case detail = "unionBoardContent"
+        case stack = "stackList"
+        case position = "groupPositionList"
         case registrant = "name"
     }
 }
