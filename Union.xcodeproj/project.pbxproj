@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F80E38D82A8B13D70014529C /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80E38D72A8B13D70014529C /* Temp.swift */; };
 		F84D56522ADFE2D2006117CE /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84D56512ADFE2D2006117CE /* ListViewModel.swift */; };
+		F84E84872AE2579400035F26 /* NewPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E84862AE2579400035F26 /* NewPostModel.swift */; };
 		F8582FE22A92761600478181 /* CustomSideMenuNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8582FE12A92761600478181 /* CustomSideMenuNavigation.swift */; };
 		F8582FE42A92766C00478181 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8582FE32A92766C00478181 /* SideMenuViewController.swift */; };
 		F863A5BF2ADCDD2800B77527 /* ListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F863A5BE2ADCDD2800B77527 /* ListService.swift */; };
@@ -33,6 +34,7 @@
 		62E7502B64DBC861E7B957BF /* Pods-Union.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Union.debug.xcconfig"; path = "Target Support Files/Pods-Union/Pods-Union.debug.xcconfig"; sourceTree = "<group>"; };
 		F80E38D72A8B13D70014529C /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
 		F84D56512ADFE2D2006117CE /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
+		F84E84862AE2579400035F26 /* NewPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostModel.swift; sourceTree = "<group>"; };
 		F8582FE12A92761600478181 /* CustomSideMenuNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSideMenuNavigation.swift; sourceTree = "<group>"; };
 		F8582FE32A92766C00478181 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		F863A5BE2ADCDD2800B77527 /* ListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListService.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				F863A5C12ADCF7E500B77527 /* ListModel.swift */,
+				F84E84862AE2579400035F26 /* NewPostModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F84E84872AE2579400035F26 /* NewPostModel.swift in Sources */,
 				F88531D52AA0565000C5AB19 /* MainTableViewCell.swift in Sources */,
 				F87809FC2A90EC8B004CB0D8 /* BannerCell.swift in Sources */,
 				F8DADACD2A96055300E0A643 /* MyProfile.swift in Sources */,

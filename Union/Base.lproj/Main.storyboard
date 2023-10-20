@@ -1539,13 +1539,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Profile" width="240" height="240"/>
+        <image name="Profile" width="80" height="80"/>
         <image name="bell.fill" catalog="system" width="123" height="128"/>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
         <image name="pencil.line" catalog="system" width="128" height="117"/>
         <image name="person.3.fill" catalog="system" width="128" height="66"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="스크린샷 2023-08-19 오후 9.13.13" width="728" height="290"/>
+        <image name="스크린샷 2023-08-19 오후 9.13.13" width="242.66667175292969" height="96.666664123535156"/>
         <namedColor name="AccentColor">
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

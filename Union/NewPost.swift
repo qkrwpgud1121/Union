@@ -7,14 +7,6 @@
 
 import UIKit
 
-struct requestParam: Codable {
-    var groupType: String
-    var numberOfGroup: Int
-    var unionBoardSubject: String
-    var unionBoardContent: String
-    var email: String
-}
-
 class NewPost: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
@@ -48,6 +40,11 @@ class NewPost: UIViewController {
         self.hideKeyboar()
         self.setKeyboardObserver()
         
+        let currentDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyyMMdd"
+        endDate = dateFormatter.string(from: currentDate)
+        
         setCategory()
         
         setPerson()
@@ -64,49 +61,59 @@ class NewPost: UIViewController {
     
     @IBAction func saveNewPost(_ sender: UIBarButtonItem) {
         
-        let email = appDelegate?.userEmail
-        let token = appDelegate?.userToken
-//        
-        let encoder = JSONEncoder()
-        let requestData = requestParam(groupType: type, numberOfGroup: person, unionBoardSubject: postTitle.text ?? "", unionBoardContent: postDetail.text, email: email!)
-        let param = try? encoder.encode(requestData)
-//        let paramData = try! JSONSerialization.data(withJSONObject: param!)
-//        
-        print(String(data: param!, encoding: .utf8) as Any)
+        if stackArray.isEmpty {
+            newPostAlert(message: "필요 스택", resutlCode: "1")
+        } else if positionArray.isEmpty {
+            newPostAlert(message: "희망 포지션", resutlCode: "1")
+        } else if contact.text!.isEmpty {
+            newPostAlert(message: "연락처", resutlCode: "1")
+        } else if postTitle.text!.isEmpty {
+            newPostAlert(message: "제목", resutlCode: "1")
+        } else if postDetail.text!.isEmpty {
+            newPostAlert(message: "내용", resutlCode: "1")
+        } else {
+            let email = appDelegate?.userEmail
+            let token = appDelegate?.userToken
             
-        let url = URL(string: "http://localhost:8080/union/api/union/board/write")
+            let encoder = JSONEncoder()
+            let requestData = requestParam(unionBoardSubject: postTitle.text!, unionBoardContent: postDetail.text!, email: email!, name: "JJJ", groupType: type, numberOfGroup: person, progressType: method, deadline: endDate, contactInformation: contact.text!, stacks: stackArray, groupPositions: positionArray)
+            let param = try? encoder.encode(requestData)
+                
+            let url = URL(string: "http://localhost:8080/union/api/union/board/write")
+                
+            var request = URLRequest(url: url!)
+            request.httpMethod = "POST"
+            request.httpBody = param
+                
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            request.addValue(token!, forHTTPHeaderField: "X-AUTH-TOKEN")
             
-        var request = URLRequest(url: url!)
-        request.httpMethod = "POST"
-        request.httpBody = param
-            
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue(token!, forHTTPHeaderField: "X-AUTH-TOKEN")
-        
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            
-            if let e = error {
-                NSLog("An error has occured: \(e.localizedDescription)")
-                return
-            }
-            
-            DispatchQueue.main.async {
-                do{
-                    let object = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-                    guard let jsonObject = object else {return}
-            
-                    let resultMessage = jsonObject["resultMessage"] as? String
-            
-                    if resultMessage == "SUCCESS" {
-                        print("Success")
+            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                
+                if let e = error {
+                    NSLog("An error has occured: \(e.localizedDescription)")
+                    return
+                }
+                
+                DispatchQueue.main.async {
+                    do{
+                        let object = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+                        guard let jsonObject = object else {return}
+                
+                        let resultMessage = jsonObject["resultMessage"] as? String
+                        let resultCode = jsonObject["resultCode"] as? String
+                
+                        if resultCode == "0" {
+                            self.newPostAlert(message: "신규 글 작성 완료.", resutlCode: resultCode!)
+                        }
+                
+                    } catch let e as NSError {
+                                print("An error has occured while parsing JSONObject: \(e.localizedDescription)")
                     }
-            
-                } catch let e as NSError {
-                            print("An error has occured while parsing JSONObject: \(e.localizedDescription)")
                 }
             }
+            task.resume()
         }
-        task.resume()
     }
     
     func setCategory() {
@@ -122,7 +129,6 @@ class NewPost: UIViewController {
     
     func setPerson() {
         
-        let none = UIAction(title: "미정", state: .on , handler: {_ in self.person = 0})
         let one = UIAction(title: "1명", state: .on , handler: {_ in self.person = 1})
         let two = UIAction(title: "2명", state: .on , handler: {_ in self.person = 2})
         let three = UIAction(title: "3명", state: .on , handler: {_ in self.person = 3})
@@ -134,7 +140,7 @@ class NewPost: UIViewController {
         let nine = UIAction(title: "9명", state: .on , handler: {_ in self.person = 9})
         let ten = UIAction(title: "10명 이상", state: .on , handler: {_ in self.person = 10})
 
-        let buttonMenu = UIMenu(title: "모집 인원", children: [none, one, two, three, four, five, six, seven, eight, nine, ten])
+        let buttonMenu = UIMenu(title: "모집 인원", children: [one, two, three, four, five, six, seven, eight, nine, ten])
 
         btnPerson.menu = buttonMenu
         btnPerson.changesSelectionAsPrimaryAction = true
@@ -314,13 +320,17 @@ class NewPost: UIViewController {
         createTagCloud(OnView: self.positionView, withArray: positionArray as [AnyObject], div: 1)
     }
     
-    func newPostAlert(message: String) {
+    func newPostAlert(message: String, resutlCode: String) {
         
-        let message: String = message
+        var message = message
         
-        let alert = UIAlertController(title: "\(message)을 입력해 주세요.", message: "", preferredStyle: .alert)
-        let sucess = UIAlertAction(title: "확인", style: .default, handler: nil)
-        alert.addAction(sucess)
+        if resutlCode != "0" {
+            message = "\(message)을 입력해 주세요."
+        }
+        
+        let alert = UIAlertController(title: message, message: "", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(ok)
         self.present(alert, animated: true)
     }
     

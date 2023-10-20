@@ -59,6 +59,7 @@ class MainList: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.hidesBackButton = true
+        setup()
     }
     
     private func setup() {
