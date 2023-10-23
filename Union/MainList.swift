@@ -80,21 +80,23 @@ class MainList: UIViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "detail" {
             if let destination = segue.destination as? ListDetail {
-                if let selectedIndex = self.listTableView.indexPathForSelectedRow?.section {
+                if let selectedIndex = self.listTableView.indexPathForSelectedRow?.row {
                     
                     let target = listMainVM.listAtIndex(selectedIndex)
                     
                     let dateFormat = DateFormatter()
                     dateFormat.dateFormat = "yyyy-MM-dd"
                     
+                    let groupOfPerson: String = "\(String(target.people!)) 명"
+                    
                     destination.prepareType = target.type
-//                    destination.preparePeople = target.
-//                    destination.prepareProceedType = target.type
-//                    destination.prepareProceedPeriod = target.proceedPeriod
+                    destination.preparePeople = groupOfPerson
+                    destination.prepareProceedType = target.progressType
+                    destination.prepareProceedPeriod = target.progressMonth
                     destination.preparePosition = target.position
-//                    destination.prepareContact = target.contact
+                    destination.prepareContact = target.contact
                     destination.prepareDetail = target.detail
-//                    destination.prepareEndDate = dateFormat.string(from: target.endDate)
+                    destination.prepareEndDate = target.endDate
                     destination.prepareTitle = target.title
                     destination.prepareStack = target.stack
                     destination.prepareRegistrant = target.registrant

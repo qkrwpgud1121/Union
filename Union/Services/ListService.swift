@@ -42,7 +42,6 @@ class ListService {
                 let decoded = try decoder.decode(ListMain.self, from: data!)
                 
                 let listArray = decoded.responseData.list
-                print(listArray as Any)
                 completion(listArray)
 
             } catch let e as NSError {

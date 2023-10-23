@@ -56,6 +56,18 @@ extension ListMainViewModel {
     var detail: String? {
         return self.DetailList.detail
     }
+    var people: Int? {
+        return self.DetailList.people
+    }
+    var progressType: String? {
+        return self.DetailList.progressType
+    }
+    var progressMonth: String? {
+        return self.DetailList.progressMonth
+    }
+    var contact: String? {
+        return self.DetailList.contact
+    }
     var stack: String? {
         let stack = DetailList.stack.joined(separator: ", ")
         return stack

@@ -25,7 +25,7 @@ class NewPost: UIViewController {
     
     var type: String = "프로젝트"
     var person: Int = 0
-    var method: String = "전체"
+    var method: String = "온라인,오프라인"
     var period: String = "미정"
     var endDate: String = ""
     
@@ -76,7 +76,7 @@ class NewPost: UIViewController {
             let token = appDelegate?.userToken
             
             let encoder = JSONEncoder()
-            let requestData = requestParam(unionBoardSubject: postTitle.text!, unionBoardContent: postDetail.text!, email: email!, name: "JJJ", groupType: type, numberOfGroup: person, progressType: method, deadline: endDate, contactInformation: contact.text!, stacks: stackArray, groupPositions: positionArray)
+            let requestData = requestParam(unionBoardSubject: postTitle.text!, unionBoardContent: postDetail.text!, email: email!, name: "JJJ", groupType: type, numberOfGroup: person, progressType: method, progressMonth: period, deadline: endDate, contactInformation: contact.text!, stacks: stackArray, groupPositions: positionArray)
             let param = try? encoder.encode(requestData)
                 
             let url = URL(string: "http://localhost:8080/union/api/union/board/write")
@@ -148,7 +148,7 @@ class NewPost: UIViewController {
     
     func setMethod() {
         
-        let all = UIAction(title: "전체", state: .on , handler: {_ in self.method = "전체"})
+        let all = UIAction(title: "온라인,오프라인", state: .on , handler: {_ in self.method = "온라인,오프라인"})
         let online = UIAction(title: "온라인", state: .on , handler: {_ in self.method = "온라인"})
         let offline = UIAction(title: "오프라인", state: .on , handler: {_ in self.method = "오프라인"})
 

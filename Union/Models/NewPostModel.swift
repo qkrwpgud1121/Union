@@ -19,6 +19,7 @@ struct requestParam: Codable {
     var groupType: String
     var numberOfGroup: Int
     var progressType: String
+    var progressMonth: String
 //      "progressStartDay" : null,
 //      "progressEndDay" : null,
 //      "stack" : null,

@@ -23,6 +23,10 @@ struct DetailList: Decodable {
     let endDate: String?
     let title: String?
     let detail: String?
+    let people: Int?
+    let progressType: String?
+    let progressMonth: String?
+    let contact: String?
     let stack: [String]
     let position: [String]
     let registrant: String?
@@ -32,6 +36,10 @@ struct DetailList: Decodable {
         case endDate = "deadline"
         case title = "unionBoardSubject"
         case detail = "unionBoardContent"
+        case people = "numberOfGroup"
+        case progressType = "progressType"
+        case progressMonth = "progressMonth"
+        case contact = "contactInformation"
         case stack = "stackList"
         case position = "groupPositionList"
         case registrant = "name"

@@ -14,6 +14,7 @@
 		F8582FE42A92766C00478181 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8582FE32A92766C00478181 /* SideMenuViewController.swift */; };
 		F863A5BF2ADCDD2800B77527 /* ListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F863A5BE2ADCDD2800B77527 /* ListService.swift */; };
 		F863A5C22ADCF7E500B77527 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F863A5C12ADCF7E500B77527 /* ListModel.swift */; };
+		F86D7E0F2AE6342400815638 /* MyPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86D7E0E2AE6342400815638 /* MyPostTableViewCell.swift */; };
 		F87809FC2A90EC8B004CB0D8 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87809FB2A90EC8B004CB0D8 /* BannerCell.swift */; };
 		F87C66C52A90DE23002B66C9 /* MainList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F87C66C42A90DE23002B66C9 /* MainList.swift */; };
 		F88531D52AA0565000C5AB19 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88531D42AA0565000C5AB19 /* MainTableViewCell.swift */; };
@@ -39,6 +40,7 @@
 		F8582FE32A92766C00478181 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		F863A5BE2ADCDD2800B77527 /* ListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListService.swift; sourceTree = "<group>"; };
 		F863A5C12ADCF7E500B77527 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		F86D7E0E2AE6342400815638 /* MyPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostTableViewCell.swift; sourceTree = "<group>"; };
 		F87809FB2A90EC8B004CB0D8 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 		F87C66C42A90DE23002B66C9 /* MainList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainList.swift; sourceTree = "<group>"; };
 		F88531D42AA0565000C5AB19 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 			children = (
 				F87809FB2A90EC8B004CB0D8 /* BannerCell.swift */,
 				F88531D42AA0565000C5AB19 /* MainTableViewCell.swift */,
+				F86D7E0E2AE6342400815638 /* MyPostTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				F84E84872AE2579400035F26 /* NewPostModel.swift in Sources */,
 				F88531D52AA0565000C5AB19 /* MainTableViewCell.swift in Sources */,
 				F87809FC2A90EC8B004CB0D8 /* BannerCell.swift in Sources */,
+				F86D7E0F2AE6342400815638 /* MyPostTableViewCell.swift in Sources */,
 				F8DADACD2A96055300E0A643 /* MyProfile.swift in Sources */,
 				F8B2B3182A86219800CAD9A7 /* ViewController.swift in Sources */,
 				F8FDCEC12AD169BA00B41F2F /* ListDetail.swift in Sources */,
