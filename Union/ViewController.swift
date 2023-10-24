@@ -97,6 +97,7 @@ class ViewController: UIViewController {
                         let responseData = jsonObject["responseData"] as? [String : Any]
                         
                         let token = responseData!["token"] as? String
+                        let name = responseData!["name"] as? String
                         
                         if resultMessage == "SUCCESS" {
                             
@@ -104,6 +105,7 @@ class ViewController: UIViewController {
                             
                             appDelegate?.userEmail = Email
                             appDelegate?.userToken = token!
+                            appDelegate?.userName = name!
                             
                             UserDefaults.standard.set(Email, forKey: "USER_EMAIL")
                             UserDefaults.standard.set(pwd, forKey: "USER_PASSWORD")

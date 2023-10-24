@@ -1,22 +1,16 @@
 //
-//  ListService.swift
+//  ListDetailService.swift
 //  Union
 //
-//  Created by JehyeongPark on 10/16/23.
+//  Created by JehyeongPark on 10/24/23.
 //
 
 import Foundation
-import UIKit
 
-let appDelegate = UIApplication.shared.delegate as? AppDelegate
-let userToken = appDelegate!.userToken
-let userEmail = appDelegate!.userEmail
-
-var listArray : [String] = []
-
-class ListService {
+class ListDetailService {
     
-    func getMainList(url: URL, param: Data, completion: @escaping([DetailList]?) -> ()) {
+    
+    func setListDetail(url: URL, param: Data, completion: @escaping(MyPostResponse) -> ()) {
         
         let url = url
         
@@ -31,16 +25,14 @@ class ListService {
             
             if let error = error {
                 print(error.localizedDescription)
-                completion(nil) // if any error occurs, article can be nil
             }
             
             do{
                 let decoder = JSONDecoder()
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
-                let decoded = try decoder.decode(ListMain.self, from: data!)
+                let decoded = try decoder.decode(MyPostResponse.self, from: data!)
                 
-                let listArray = decoded.responseData.list
-                completion(listArray)
+                completion(decoded)
 
             } catch let e as NSError {
                 print(String(describing: e))

@@ -76,43 +76,34 @@ class NewPost: UIViewController {
             let token = appDelegate?.userToken
             
             let encoder = JSONEncoder()
-            let requestData = requestParam(unionBoardSubject: postTitle.text!, unionBoardContent: postDetail.text!, email: email!, name: "JJJ", groupType: type, numberOfGroup: person, progressType: method, progressMonth: period, deadline: endDate, contactInformation: contact.text!, stacks: stackArray, groupPositions: positionArray)
+            let requestData = requestParam(unionBoardId: nil ,unionBoardSubject: postTitle.text!, unionBoardContent: postDetail.text!, email: email!, name: "JJJ", groupType: type, numberOfGroup: person, progressType: method, progressMonth: period, deadline: endDate, contactInformation: contact.text!, stacks: stackArray, groupPositions: positionArray)
             let param = try? encoder.encode(requestData)
                 
             let url = URL(string: "http://localhost:8080/union/api/union/board/write")
                 
-            var request = URLRequest(url: url!)
-            request.httpMethod = "POST"
-            request.httpBody = param
+            ListDetailService().setListDetail(url: url!, param: param!) { //1
+                (decoded) in
                 
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            request.addValue(token!, forHTTPHeaderField: "X-AUTH-TOKEN")
-            
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+                let resultMessage = decoded.resultMessage
                 
-                if let e = error {
-                    NSLog("An error has occured: \(e.localizedDescription)")
-                    return
-                }
-                
-                DispatchQueue.main.async {
-                    do{
-                        let object = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-                        guard let jsonObject = object else {return}
-                
-                        let resultMessage = jsonObject["resultMessage"] as? String
-                        let resultCode = jsonObject["resultCode"] as? String
-                
-                        if resultCode == "0" {
-                            self.newPostAlert(message: "신규 글 작성 완료.", resutlCode: resultCode!)
+                if resultMessage == "SUCCESS" {
+                    DispatchQueue.main.async{
+                        do{
+                            let alert = UIAlertController(title: "", message: "신규 작성 되었습니다.", preferredStyle: .alert)
+                            
+                            let sucess = UIAlertAction(title: "확인", style: .default){_ in
+                                let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                                let mainView = storyboard.instantiateViewController(identifier: "MainList")
+                                mainView.modalPresentationStyle = .fullScreen
+                                self.navigationController?.show(mainView, sender: nil)
+                            }
+                            
+                            alert.addAction(sucess)
+                            self.present(alert, animated: true)
                         }
-                
-                    } catch let e as NSError {
-                                print("An error has occured while parsing JSONObject: \(e.localizedDescription)")
                     }
                 }
             }
-            task.resume()
         }
     }
     
@@ -329,7 +320,12 @@ class NewPost: UIViewController {
         }
         
         let alert = UIAlertController(title: message, message: "", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "확인", style: .default, handler: nil)
+        let ok = UIAlertAction(title: "확인", style: .default){_ in
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let mainView = storyboard.instantiateViewController(identifier: "MainList")
+            mainView.modalPresentationStyle = .fullScreen
+            self.navigationController?.show(mainView, sender: nil)
+        }
         alert.addAction(ok)
         self.present(alert, animated: true)
     }

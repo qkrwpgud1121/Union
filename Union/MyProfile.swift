@@ -9,6 +9,8 @@ import UIKit
 
 class MyProfile: UIViewController {
     
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var nickName: UITextField!
     @IBOutlet var imgView: UIImageView!
@@ -43,6 +45,8 @@ class MyProfile: UIViewController {
         
         self.hideKeyboar()
         self.setKeyboardObserver()
+        
+        nickName.text = appDelegate?.userName
         
         setPosition()
 

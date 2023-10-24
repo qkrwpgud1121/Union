@@ -37,6 +37,9 @@ extension ListMainViewModel {
 }
 
 extension ListMainViewModel {
+    var boardId: String? {
+        return self.DetailList.boardId
+    }
     var type: String? {
         return self.DetailList.type
     }

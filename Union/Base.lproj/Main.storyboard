@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
@@ -387,15 +386,14 @@
                                     <constraint firstAttribute="height" constant="83" id="doF-sO-KXr"/>
                                 </constraints>
                                 <items>
-                                    <tabBarItem title="Project" image="person.3.fill" catalog="system" id="pMb-po-ZCH">
-                                        <color key="badgeColor" name="AccentColor"/>
+                                    <tabBarItem tag="1" title="Project" image="person.3.fill" catalog="system" id="pMb-po-ZCH">
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
                                                 <color key="value" red="0.89735513929999999" green="0.2212501466" blue="0.33556646109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </tabBarItem>
-                                    <tabBarItem title="Study" image="pencil.line" catalog="system" id="1mu-W1-kr2"/>
+                                    <tabBarItem tag="2" title="Study" image="pencil.line" catalog="system" id="1mu-W1-kr2"/>
                                 </items>
                             </tabBar>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xli-Am-Rng">
@@ -902,7 +900,7 @@
         <!--My Post-->
         <scene sceneID="qMK-dN-gXa">
             <objects>
-                <viewController id="bfq-AG-KwG" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyPost" id="bfq-AG-KwG" customClass="MyPost" customModule="Union" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Al9-8f-f8H">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -974,6 +972,14 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="9pf-mC-efc" secondAttribute="trailing" id="z1d-Kc-pJA"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="myPostEndDate" destination="zBq-bl-Qdu" id="RRL-DB-OgS"/>
+                                            <outlet property="myPostRegistrant" destination="Wqk-9T-AX3" id="jwI-ah-IUm"/>
+                                            <outlet property="myPostStack" destination="Uyu-0W-L7a" id="H2T-XB-xy2"/>
+                                            <outlet property="myPostTitle" destination="9pf-mC-efc" id="zbg-dW-kTX"/>
+                                            <outlet property="myPostType" destination="6yB-Mv-BLO" id="fGn-5W-mfw"/>
+                                            <segue destination="VHV-sD-ynJ" kind="show" identifier="MyPostDetail" id="mfv-q0-Nk3"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -988,6 +994,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Post" id="3v7-rf-Xtl"/>
+                    <connections>
+                        <outlet property="myPostTableView" destination="kgV-gs-K6h" id="p6O-Gu-pMv"/>
+                        <outlet property="navigationBar" destination="3v7-rf-Xtl" id="6Lp-o8-Q6Z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6us-rv-m1j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1369,7 +1379,7 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Whh-9c-yOm">
-                                                <rect key="frame" x="16" y="84.333333333333314" width="361" height="186"/>
+                                                <rect key="frame" x="16" y="84.333333333333343" width="361" height="186.00000000000003"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fUv-1h-rwo">
                                                         <rect key="frame" x="16" y="16" width="329" height="18"/>
@@ -1417,7 +1427,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="a7e-DD-O1f">
-                                                        <rect key="frame" x="16" y="50.000000000000014" width="329" height="18"/>
+                                                        <rect key="frame" x="16" y="50" width="329" height="18"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="48G-Vv-ShV">
                                                                 <rect key="frame" x="0.0" y="0.0" width="164.66666666666666" height="18"/>
@@ -1462,7 +1472,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="jgc-9z-3pE">
-                                                        <rect key="frame" x="16" y="84.000000000000014" width="329" height="18"/>
+                                                        <rect key="frame" x="16" y="84" width="329" height="18"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MuU-co-XXz">
                                                                 <rect key="frame" x="0.0" y="0.0" width="329" height="18"/>
@@ -1487,7 +1497,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Mgn-RH-Cvq">
-                                                        <rect key="frame" x="16" y="118.00000000000001" width="329" height="17.999999999999986"/>
+                                                        <rect key="frame" x="16" y="117.99999999999997" width="329" height="18"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모집 분야" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TnK-nb-Sdl">
                                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="18"/>
@@ -1507,7 +1517,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MwO-a8-5aT">
-                                                        <rect key="frame" x="16" y="152" width="329" height="18"/>
+                                                        <rect key="frame" x="16" y="151.99999999999997" width="329" height="18"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용 언어" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LyC-ze-lY2">
                                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="18"/>
@@ -1604,12 +1614,15 @@
                             <constraint firstItem="0yd-Cu-Cgf" firstAttribute="leading" secondItem="KZa-kd-H4f" secondAttribute="leading" id="deE-Ux-MeK"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="CWs-nu-oKg"/>
+                    <navigationItem key="navigationItem" id="CWs-nu-oKg">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="ellipsis" catalog="system" hidden="YES" id="Q97-ge-ekF"/>
+                    </navigationItem>
                     <size key="freeformSize" width="393" height="1062"/>
                     <connections>
                         <outlet property="detail" destination="8H2-G5-2wq" id="q4e-QH-IaJ"/>
                         <outlet property="detailContact" destination="02e-y2-Fnd" id="gd3-eI-Pcf"/>
                         <outlet property="detailEndDate" destination="unb-UD-SEb" id="4bB-Sb-kGO"/>
+                        <outlet property="detailMenu" destination="Q97-ge-ekF" id="sSu-1k-zft"/>
                         <outlet property="detailPeople" destination="chf-ef-rfe" id="iiw-HB-Byz"/>
                         <outlet property="detailPosition" destination="F7x-0M-rnb" id="v1u-Bd-bWX"/>
                         <outlet property="detailProceedPeriod" destination="aLe-Xb-kUC" id="FeA-Yq-Fiu"/>
@@ -1623,20 +1636,21 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4WF-wr-SPZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2156.4885496183206" y="704.92957746478874"/>
+            <point key="canvasLocation" x="2158" y="705"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="mfv-q0-Nk3"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="Profile" width="80" height="80"/>
         <image name="bell.fill" catalog="system" width="123" height="128"/>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
+        <image name="ellipsis" catalog="system" width="128" height="37"/>
         <image name="pencil.line" catalog="system" width="128" height="117"/>
         <image name="person.3.fill" catalog="system" width="128" height="66"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="스크린샷 2023-08-19 오후 9.13.13" width="242.66667175292969" height="96.666664123535156"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

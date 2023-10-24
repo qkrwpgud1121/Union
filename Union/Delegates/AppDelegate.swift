@@ -12,6 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var userEmail: String = ""
     var userToken: String = ""
+    var userName: String = ""
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -77,6 +78,16 @@ extension UIViewController {
                 }
             }
         }
+    }
+    
+    func setAlert(message: String) {
+        
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
+        
+        let sucess = UIAlertAction(title: "확인", style: .default, handler: nil)
+        
+        alert.addAction(sucess)
+        self.present(alert, animated: true)
     }
     
 }

@@ -11,7 +11,7 @@ struct requestParam: Codable {
 //    "regDt" : null,
 //      "regDay" : null,
 //      "modDt" : null,
-//      "unionBoardId" : null,
+    var unionBoardId: String?
     var unionBoardSubject: String
     var unionBoardContent: String
     var email: String

@@ -8,7 +8,7 @@
 import UIKit
 import SideMenu
 
-class MainList: UIViewController{
+class MainList: UIViewController, UITabBarDelegate{
     
     @IBOutlet weak var tapBar: UITabBar!
     
@@ -28,6 +28,8 @@ class MainList: UIViewController{
     let cellSpacingHeight: CGFloat = 1
     let cellName = "MainTableViewCell"
     let cellReuseIdentifier = "offerCell"
+    
+    var requestGroupType: String = "프로젝트"
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,8 +54,10 @@ class MainList: UIViewController{
         
         listTableView.delegate = self
         listTableView.dataSource = self
-        
+         
+        tapBar.delegate = self
         tapBar.selectedItem = tapBar.items?.first
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -62,10 +66,24 @@ class MainList: UIViewController{
         setup()
     }
     
+    func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        if item.tag == 1 {
+            requestGroupType = "프로젝트"
+        } else {
+            requestGroupType = "스터디"
+        }
+        setup()
+    }
+    
     private func setup() {
         
+        let encoder = JSONEncoder()
+        let param = MainListParam(requestData: mainRequest(groupType: requestGroupType ,unionBoardSubject: "", unionBoardContent: ""))
+        
+        let paramData = try? encoder.encode(param)
+        
         let url = URL(string: "http://localhost:8080/union/api/union/board/getPagingList")!
-        ListService().getMainList(url: url) { //1
+        ListService().getMainList(url: url, param: paramData!) { //1
             (responseList) in
 
             if let responseList = responseList {
@@ -89,6 +107,9 @@ class MainList: UIViewController{
                     
                     let groupOfPerson: String = "\(String(target.people!)) 명"
                     
+                    destination.prepareSegue = segue.identifier
+                    
+                    destination.prepareBoardId = target.boardId
                     destination.prepareType = target.type
                     destination.preparePeople = groupOfPerson
                     destination.prepareProceedType = target.progressType
@@ -162,9 +183,10 @@ extension MainList: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? MainTableViewCell
-        else {fatalError("no matched articleTableViewCell identifier")}
+        else {fatalError("no matched MainTableViewCell identifier")}
 
         let listVM = self.listMainVM.listAtIndex(indexPath.row)
+        
         cell.type?.text = listVM.type
         cell.endDate?.text = listVM.endDate
         cell.title?.text = listVM.title
@@ -179,3 +201,4 @@ extension MainList: UITableViewDelegate, UITableViewDataSource {
     }
 
 }
+ 

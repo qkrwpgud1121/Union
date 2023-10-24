@@ -9,6 +9,12 @@ import UIKit
 
 class MyPostTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var myPostType: UILabel!
+    @IBOutlet weak var myPostEndDate: UILabel!
+    @IBOutlet weak var myPostTitle: UILabel!
+    @IBOutlet weak var myPostStack: UILabel!
+    @IBOutlet weak var myPostRegistrant: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

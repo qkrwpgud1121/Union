@@ -19,6 +19,7 @@ struct responseData: Decodable {
 }
 
 struct DetailList: Decodable {
+    let boardId: String?
     let type: String?
     let endDate: String?
     let title: String?
@@ -32,6 +33,7 @@ struct DetailList: Decodable {
     let registrant: String?
     
     enum CodingKeys: String, CodingKey {
+        case boardId = "unionBoardId"
         case type = "groupType"
         case endDate = "deadline"
         case title = "unionBoardSubject"
@@ -57,3 +59,12 @@ struct DetailList: Decodable {
 //    let offset: Int
 //}
 
+struct MainListParam: Codable {
+    var requestData: mainRequest
+}
+
+struct mainRequest: Codable {
+    var groupType: String
+    var unionBoardSubject: String
+    var unionBoardContent: String
+}

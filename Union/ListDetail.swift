@@ -9,6 +9,9 @@ import UIKit
 
 class ListDetail: UIViewController {
     
+    var prepareSegue: String?
+    
+    var prepareBoardId: String?
     var prepareType: String?
     var preparePeople: String?
     var prepareProceedType: String?
@@ -21,6 +24,8 @@ class ListDetail: UIViewController {
     var prepareDetail: String?
     var prepareRegistrant: String?
 
+    @IBOutlet weak var detailMenu: UIBarButtonItem!
+    
     @IBOutlet weak var detailView: UIView!
     
     @IBOutlet weak var detailType: UILabel!
@@ -43,6 +48,11 @@ class ListDetail: UIViewController {
         detailView.layer.cornerRadius = 15
         
         detail.sizeToFit()
+        
+        if prepareSegue == "MyPostDetail" {
+            detailMenu.isHidden = false
+            setMenu()
+        }
 
         detailType.text = prepareType
         detailPeople.text = preparePeople
@@ -56,5 +66,52 @@ class ListDetail: UIViewController {
         detailRegistrant.text = prepareRegistrant
         detail.text = prepareDetail
     }
+    
+    func setMenu() {
+        
+        let modify = UIAction(title: "수정", handler: {_ in self.modify()})
+        let delete = UIAction(title: "삭제", attributes: .destructive, handler: {_ in self.postDelete()})
 
+        let buttonMenu = UIMenu(title: "", children: [modify, delete])
+
+        detailMenu.menu = buttonMenu
+    }
+    
+    func postDelete() {
+        
+        let encoder = JSONEncoder()
+        let requestData = MyPostDelete(unionBoardId: prepareBoardId!, email: userEmail, token: userToken)
+        
+        let param = try? encoder.encode(requestData)
+        
+        let url = URL(string: "http://localhost:8080/union/api/union/board/delete")
+        
+        ListDetailService().setListDetail(url: url!, param: param!) { //1
+            (decoded) in
+            
+            let resultMessage = decoded.resultMessage
+            
+            if resultMessage == "SUCCESS" {
+                DispatchQueue.main.async {
+                    do {
+                        let alert = UIAlertController(title: "", message: "삭제 되었습니다.", preferredStyle: .alert)
+                        
+                        let sucess = UIAlertAction(title: "확인", style: .default){_ in
+                            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                            let mainView = storyboard.instantiateViewController(identifier: "MyPost")
+                            mainView.modalPresentationStyle = .fullScreen
+                            self.navigationController?.show(mainView, sender: nil)
+                        }
+                        
+                        alert.addAction(sucess)
+                        self.present(alert, animated: true)
+                    }
+                }
+            }
+        }
+    }
+    
+    func modify() {
+        
+    }
 }
