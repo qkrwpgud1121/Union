@@ -17,6 +17,12 @@ struct data: Codable {
     var email: String
 }
 
+struct MyPostModify {
+    var unionBoardId: String
+    var unionBoardSubject: String
+    var unionBoardContent: String
+}
+
 struct MyPostDelete: Codable {
     var unionBoardId: String
     var email: String

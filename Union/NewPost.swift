@@ -9,8 +9,6 @@ import UIKit
 
 class NewPost: UIViewController {
     
-    let appDelegate = UIApplication.shared.delegate as? AppDelegate
-    
     @IBOutlet weak var btnCategory: UIButton!
     @IBOutlet weak var btnPerson: UIButton!
     @IBOutlet weak var btnMethod: UIButton!
@@ -22,9 +20,18 @@ class NewPost: UIViewController {
     @IBOutlet weak var contact: UITextField!
     @IBOutlet weak var postTitle: UITextField!
     @IBOutlet weak var postDetail: UITextView!
+    @IBOutlet weak var endDatePidker: UIDatePicker!
+    
+    var segueType = ""
+    var segueBoardId = ""
+    var segueContect = ""
+    var segueTitle = ""
+    var segueDetail = ""
+    var segueStack = ""
+    var seguePosition = ""
     
     var type: String = "프로젝트"
-    var person: Int = 0
+    var person: Int = 1
     var method: String = "온라인,오프라인"
     var period: String = "미정"
     var endDate: String = ""
@@ -40,10 +47,35 @@ class NewPost: UIViewController {
         self.hideKeyboar()
         self.setKeyboardObserver()
         
-        let currentDate = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyyMMdd"
-        endDate = dateFormatter.string(from: currentDate)
+        if segueType == "modify" {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            let date = dateFormatter.date(from: endDate)
+            endDatePidker.date = date!
+            contact.text = segueContect
+            postTitle.text = segueTitle
+            postDetail.text = segueDetail
+            
+            let stack = segueStack.split(separator:", ")
+            var stackIndex: Int = 0
+            for stacks in stack {
+                self.addTag(div: 0 ,index: stackIndex, type: String(stacks))
+                stackIndex+=1
+            }
+            
+            let position = seguePosition.split(separator: ", ")
+            var positionIndex: Int = 0
+            for positions in position {
+                self.addTag(div: 1 ,index: positionIndex, type: String(positions))
+                positionIndex+=1
+            }
+        } else {
+            let currentDate = Date()
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyyMMdd"
+            endDate = dateFormatter.string(from: currentDate)
+        }
+        
         
         setCategory()
         
@@ -61,6 +93,8 @@ class NewPost: UIViewController {
     
     @IBAction func saveNewPost(_ sender: UIBarButtonItem) {
         
+        
+        
         if stackArray.isEmpty {
             newPostAlert(message: "필요 스택", resutlCode: "1")
         } else if positionArray.isEmpty {
@@ -72,15 +106,18 @@ class NewPost: UIViewController {
         } else if postDetail.text!.isEmpty {
             newPostAlert(message: "내용", resutlCode: "1")
         } else {
-            let email = appDelegate?.userEmail
-            let token = appDelegate?.userToken
             
             let encoder = JSONEncoder()
-            let requestData = requestParam(unionBoardId: nil ,unionBoardSubject: postTitle.text!, unionBoardContent: postDetail.text!, email: email!, name: "JJJ", groupType: type, numberOfGroup: person, progressType: method, progressMonth: period, deadline: endDate, contactInformation: contact.text!, stacks: stackArray, groupPositions: positionArray)
+            let requestData = requestParam(unionBoardId: segueBoardId ,unionBoardSubject: postTitle.text!, unionBoardContent: postDetail.text!, email: userEmail, name: "JJJ", groupType: type, numberOfGroup: person, progressType: method, progressMonth: period, deadline: endDate, contactInformation: contact.text!, stacks: stackArray, groupPositions: positionArray)
             let param = try? encoder.encode(requestData)
                 
-            let url = URL(string: "http://localhost:8080/union/api/union/board/write")
-                
+            var requestURL: String = ""
+            if segueType == "modify" {
+                requestURL = "http://localhost:8080/union/api/union/board/modify"
+            } else {
+                requestURL = "http://localhost:8080/union/api/union/board/write"
+            }
+            let url = URL(string: requestURL)
             ListDetailService().setListDetail(url: url!, param: param!) { //1
                 (decoded) in
                 
@@ -111,11 +148,19 @@ class NewPost: UIViewController {
         
         let project = UIAction(title: "프로젝트", state: .on , handler: {_ in self.type = "프로젝트"})
         let study = UIAction(title: "스터디", state: .on , handler: {_ in self.type = "스터디"})
-
-        let buttonMenu = UIMenu(title: "모집 구분", children: [project, study])
-
-        btnCategory.menu = buttonMenu
-        btnCategory.changesSelectionAsPrimaryAction = true
+        
+        if type == "스터디"{
+            let buttonMenu = UIMenu(title: "모집 구분", children: [study, project])
+            btnCategory.menu?.index(ofAccessibilityElement: 1)
+            btnCategory.menu = buttonMenu
+            btnCategory.changesSelectionAsPrimaryAction = true
+        } else {
+            let buttonMenu = UIMenu(title: "모집 구분", children: [project, study])
+            btnCategory.menu?.index(ofAccessibilityElement: 1)
+            btnCategory.menu = buttonMenu
+            btnCategory.changesSelectionAsPrimaryAction = true
+        }
+        
     }
     
     func setPerson() {
@@ -130,11 +175,51 @@ class NewPost: UIViewController {
         let eight = UIAction(title: "8명", state: .on , handler: {_ in self.person = 8})
         let nine = UIAction(title: "9명", state: .on , handler: {_ in self.person = 9})
         let ten = UIAction(title: "10명 이상", state: .on , handler: {_ in self.person = 10})
-
-        let buttonMenu = UIMenu(title: "모집 인원", children: [one, two, three, four, five, six, seven, eight, nine, ten])
-
-        btnPerson.menu = buttonMenu
-        btnPerson.changesSelectionAsPrimaryAction = true
+    
+        switch person {
+        case 2:
+            let buttonMenu = UIMenu(title: "모집 인원", children: [two, one, three, four, five, six, seven, eight, nine, ten])
+            btnPerson.menu = buttonMenu
+            btnPerson.changesSelectionAsPrimaryAction = true
+        case 3:
+            let buttonMenu = UIMenu(title: "모집 인원", children: [three, one, two, four, five, six, seven, eight, nine, ten])
+            btnPerson.menu = buttonMenu
+            btnPerson.changesSelectionAsPrimaryAction = true
+        case 4:
+            let buttonMenu = UIMenu(title: "모집 인원", children: [four, one, two, three, five, six, seven, eight, nine, ten])
+            btnPerson.menu = buttonMenu
+            btnPerson.changesSelectionAsPrimaryAction = true
+        case 5:
+            let buttonMenu = UIMenu(title: "모집 인원", children: [five, one, two, three, four, six, seven, eight, nine, ten])
+            btnPerson.menu = buttonMenu
+            btnPerson.changesSelectionAsPrimaryAction = true
+        case 6:
+            let buttonMenu = UIMenu(title: "모집 인원", children: [six, one, two, three, four, five, seven, eight, nine, ten])
+            btnPerson.menu = buttonMenu
+            btnPerson.changesSelectionAsPrimaryAction = true
+        case 7:
+            let buttonMenu = UIMenu(title: "모집 인원", children: [seven, one, two, three, four, five, six, eight, nine, ten])
+            btnPerson.menu = buttonMenu
+            btnPerson.changesSelectionAsPrimaryAction = true
+        case 8:
+            let buttonMenu = UIMenu(title: "모집 인원", children: [eight, one, two, three, four, five, six, seven, nine, ten])
+            btnPerson.menu = buttonMenu
+            btnPerson.changesSelectionAsPrimaryAction = true
+        case 9:
+            let buttonMenu = UIMenu(title: "모집 인원", children: [nine, one, two, three, four, five, six, seven, eight, ten])
+            btnPerson.menu = buttonMenu
+            btnPerson.changesSelectionAsPrimaryAction = true
+        case 10:
+            let buttonMenu = UIMenu(title: "모집 인원", children: [ten, one, two, three, four, five, six, seven, eight, nine])
+            btnPerson.menu = buttonMenu
+            btnPerson.changesSelectionAsPrimaryAction = true
+        default:
+            let buttonMenu = UIMenu(title: "모집 인원", children: [one, two, three, four, five, six, seven, eight, nine, ten])
+            btnPerson.menu = buttonMenu
+            btnPerson.changesSelectionAsPrimaryAction = true
+        }
+        
+        
     }
     
     func setMethod() {
@@ -143,10 +228,24 @@ class NewPost: UIViewController {
         let online = UIAction(title: "온라인", state: .on , handler: {_ in self.method = "온라인"})
         let offline = UIAction(title: "오프라인", state: .on , handler: {_ in self.method = "오프라인"})
 
-        let buttonMenu = UIMenu(title: "진행 방식", children: [all, online, offline])
+        switch method {
+        case "오프라인":
+            let buttonMenu = UIMenu(title: "진행 방식", children: [offline, all, online])
 
-        btnMethod.menu = buttonMenu
-        btnMethod.changesSelectionAsPrimaryAction = true
+            btnMethod.menu = buttonMenu
+            btnMethod.changesSelectionAsPrimaryAction = true
+        case "온라인":
+            let buttonMenu = UIMenu(title: "진행 방식", children: [online, all, offline])
+
+            btnMethod.menu = buttonMenu
+            btnMethod.changesSelectionAsPrimaryAction = true
+        default:
+            let buttonMenu = UIMenu(title: "진행 방식", children: [all, online, offline])
+
+            btnMethod.menu = buttonMenu
+            btnMethod.changesSelectionAsPrimaryAction = true
+        }
+        
     }
     
     func setPeriod() {
@@ -160,10 +259,48 @@ class NewPost: UIViewController {
         let six = UIAction(title: "6개월", state: .on , handler: {_ in self.period = "6개월"})
         let long = UIAction(title: "장기", state: .on , handler: {_ in self.period = "장기"})
 
-        let buttonMenu = UIMenu(title: "진행 방식", children: [none, one, two, three, four, five, six, long])
+        switch period {
+        case "1개월":
+            let buttonMenu = UIMenu(title: "진행 방식", children: [one, none, two, three, four, five, six, long])
 
-        btnPeriod.menu = buttonMenu
-        btnPeriod.changesSelectionAsPrimaryAction = true
+            btnPeriod.menu = buttonMenu
+            btnPeriod.changesSelectionAsPrimaryAction = true
+        case "2개월":
+            let buttonMenu = UIMenu(title: "진행 방식", children: [two, none, one,  three, four, five, six, long])
+
+            btnPeriod.menu = buttonMenu
+            btnPeriod.changesSelectionAsPrimaryAction = true
+        case "3개월":
+            let buttonMenu = UIMenu(title: "진행 방식", children: [three, none, one, two, four, five, six, long])
+
+            btnPeriod.menu = buttonMenu
+            btnPeriod.changesSelectionAsPrimaryAction = true
+        case "4개월":
+            let buttonMenu = UIMenu(title: "진행 방식", children: [four, none, one, two, three, five, six, long])
+
+            btnPeriod.menu = buttonMenu
+            btnPeriod.changesSelectionAsPrimaryAction = true
+        case "5개월":
+            let buttonMenu = UIMenu(title: "진행 방식", children: [five, none, one, two, three, four, six, long])
+
+            btnPeriod.menu = buttonMenu
+            btnPeriod.changesSelectionAsPrimaryAction = true
+        case "6개월":
+            let buttonMenu = UIMenu(title: "진행 방식", children: [six, none, one, two, three, four, five, long])
+
+            btnPeriod.menu = buttonMenu
+            btnPeriod.changesSelectionAsPrimaryAction = true
+        case "장기":
+            let buttonMenu = UIMenu(title: "진행 방식", children: [long, none, one, two, three, four, five, six])
+
+            btnPeriod.menu = buttonMenu
+            btnPeriod.changesSelectionAsPrimaryAction = true
+        default:
+            let buttonMenu = UIMenu(title: "진행 방식", children: [none, one, two, three, four, five, six, long])
+
+            btnPeriod.menu = buttonMenu
+            btnPeriod.changesSelectionAsPrimaryAction = true
+        }
     }
     
     func setStack() {

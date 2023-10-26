@@ -69,8 +69,8 @@ class ListDetail: UIViewController {
     
     func setMenu() {
         
-        let modify = UIAction(title: "수정", handler: {_ in self.modify()})
-        let delete = UIAction(title: "삭제", attributes: .destructive, handler: {_ in self.postDelete()})
+        let modify = UIAction(title: "수정", image: UIImage(systemName: "square.and.pencil"), handler: {_ in self.modify()})
+        let delete = UIAction(title: "삭제", image: UIImage(systemName: "trash"),attributes: .destructive, handler: {_ in self.postDelete()})
 
         let buttonMenu = UIMenu(title: "", children: [modify, delete])
 
@@ -113,5 +113,25 @@ class ListDetail: UIViewController {
     
     func modify() {
         
+//        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//        let mainView = storyboard.instantiateViewController(identifier: "NewPost")
+        guard let mainView = self.storyboard?.instantiateViewController(withIdentifier: "NewPost") as? NewPost else {return}
+        
+        mainView.segueType = "modify"
+        mainView.segueBoardId = prepareBoardId!
+        mainView.type = prepareType!
+        mainView.person = Int(preparePeople!.prefix(1))!
+        mainView.method = prepareProceedType!
+        mainView.period = prepareProceedPeriod!
+        mainView.endDate = prepareEndDate!
+        mainView.segueContect = prepareContact!
+        mainView.segueTitle = prepareTitle!
+        mainView.segueDetail = prepareDetail!
+        
+        mainView.segueStack = prepareStack!
+        mainView.seguePosition = preparePosition!
+
+        mainView.modalPresentationStyle = .fullScreen
+        self.navigationController?.show(mainView, sender: nil)
     }
 }
