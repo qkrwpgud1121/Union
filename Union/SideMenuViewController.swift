@@ -13,6 +13,8 @@ class SideMenuViewController: UIViewController {
     
     @IBOutlet var profile: UIImageView!
     
+    let stirng = userProfile.self
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

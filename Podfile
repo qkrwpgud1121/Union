@@ -8,5 +8,5 @@ target 'Union' do
   # Pods for Union
 
   pod 'SideMenu'
-
+  pod 'Alamofire', '~> 5.5'
 end

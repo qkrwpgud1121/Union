@@ -1248,6 +1248,8 @@
                         <outlet property="career" destination="8qo-vt-f9q" id="ceG-lY-3to"/>
                         <outlet property="imgSetting" destination="Pue-P3-4kh" id="Mzb-xq-BKg"/>
                         <outlet property="imgView" destination="LTR-0e-dxY" id="iXH-Vf-ImG"/>
+                        <outlet property="introduction" destination="XZB-fe-nkH" id="fVq-Z1-o2P"/>
+                        <outlet property="mainName" destination="ZzN-52-4lJ" id="kbR-Ac-DzE"/>
                         <outlet property="nickName" destination="8Ks-VD-kgE" id="kdl-9y-vSo"/>
                         <outlet property="position" destination="dqp-0H-rN9" id="2mz-QE-axz"/>
                         <outlet property="potLabel" destination="GpB-rG-qBh" id="WMt-Wb-PHk"/>
@@ -1380,7 +1382,7 @@
                                                 </subviews>
                                             </stackView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Whh-9c-yOm">
-                                                <rect key="frame" x="16" y="84.333333333333343" width="361" height="186.00000000000003"/>
+                                                <rect key="frame" x="16" y="84.333333333333314" width="361" height="186"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="fUv-1h-rwo">
                                                         <rect key="frame" x="16" y="16" width="329" height="18"/>
@@ -1428,7 +1430,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="a7e-DD-O1f">
-                                                        <rect key="frame" x="16" y="50" width="329" height="18"/>
+                                                        <rect key="frame" x="16" y="50.000000000000014" width="329" height="18"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="48G-Vv-ShV">
                                                                 <rect key="frame" x="0.0" y="0.0" width="164.66666666666666" height="18"/>
@@ -1473,7 +1475,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="jgc-9z-3pE">
-                                                        <rect key="frame" x="16" y="84" width="329" height="18"/>
+                                                        <rect key="frame" x="16" y="84.000000000000014" width="329" height="18"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MuU-co-XXz">
                                                                 <rect key="frame" x="0.0" y="0.0" width="329" height="18"/>
@@ -1498,7 +1500,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Mgn-RH-Cvq">
-                                                        <rect key="frame" x="16" y="117.99999999999997" width="329" height="18"/>
+                                                        <rect key="frame" x="16" y="118.00000000000001" width="329" height="17.999999999999986"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="모집 분야" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TnK-nb-Sdl">
                                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="18"/>
@@ -1518,7 +1520,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="MwO-a8-5aT">
-                                                        <rect key="frame" x="16" y="151.99999999999997" width="329" height="18"/>
+                                                        <rect key="frame" x="16" y="152" width="329" height="18"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용 언어" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LyC-ze-lY2">
                                                                 <rect key="frame" x="0.0" y="0.0" width="60" height="18"/>
@@ -1641,7 +1643,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mfv-q0-Nk3"/>
+        <segue reference="A09-zu-b7X"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="Profile" width="80" height="80"/>

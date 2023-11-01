@@ -40,6 +40,7 @@ class MainList: UIViewController, UITabBarDelegate{
         profile.layer.borderWidth = 2
         profile.layer.borderColor = UIColor.gray.cgColor
         profile.clipsToBounds = true
+        profile.imageView?.sload(url: appDelegate?.userProfile ?? "")
         
         search.layer.cornerRadius = search.frame.height / 2
         search.layer.borderWidth = 1

@@ -93,8 +93,6 @@ class NewPost: UIViewController {
     
     @IBAction func saveNewPost(_ sender: UIBarButtonItem) {
         
-        
-        
         if stackArray.isEmpty {
             newPostAlert(message: "필요 스택", resutlCode: "1")
         } else if positionArray.isEmpty {

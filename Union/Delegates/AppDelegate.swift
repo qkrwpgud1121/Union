@@ -12,7 +12,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var userEmail: String = ""
     var userToken: String = ""
-    var userName: String = ""
+    var userProfile: String? = ""
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -92,3 +92,27 @@ extension UIViewController {
     
 }
 
+extension UITextField {
+    
+    func addLeftPadding() {
+        
+        self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 8, height: self.frame.height))
+        self.leftViewMode = .always
+    }
+}
+
+extension UIImageView {
+    
+    func sload(url: String) {
+        DispatchQueue.global().async { [weak self] in
+            let i = URL(fileURLWithPath: url)
+            if let data = try? Data(contentsOf: i) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
+    }
+}

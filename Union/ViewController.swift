@@ -18,14 +18,16 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         email.layer.borderColor = CGColor(red: 211/255, green: 72/255, blue: 89/255, alpha: 1)
         email.layer.borderWidth = 1
         email.layer.cornerRadius = 15
+        email.addLeftPadding()
         
         password.layer.borderColor = CGColor(red: 211/255, green: 72/255, blue: 89/255, alpha: 1)
         password.layer.borderWidth = 1
         password.layer.cornerRadius = 15
+        password.addLeftPadding()
         
         btnLogin.layer.cornerRadius = 18
         
@@ -68,62 +70,98 @@ class ViewController: UIViewController {
             
         } else {
             
-            let Email = email.text!
+            let email = email.text!
             let pwd = password.text!
-            let param = ["email" : Email, "password" : pwd]
-            let paramData = try! JSONSerialization.data(withJSONObject: param)
+            
+            let encoder = JSONEncoder()
+            let requestData = loginRequest(email: email, password: pwd)
+            
+            let param = try? encoder.encode(requestData)
             
             let url = URL(string: "http://localhost:8080/union/api/user/login")
             
-            var request = URLRequest(url: url!)
-            request.httpMethod = "POST"
-            request.httpBody = paramData
-            
-            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-            
-            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            LoginService().getLog(url: url!, param: param!) { //1
+                (decoded) in
                 
-                if let e = error {
-                    NSLog("An error has occured: \(e.localizedDescription)")
-                    return
-                }
+                let resultMessage = decoded.resultMessage
                 
-                DispatchQueue.main.async {
-                    do{
-                        let object = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-                        guard let jsonObject = object else {return}
-                        
-                        let resultMessage = jsonObject["resultMessage"] as? String
-                        let responseData = jsonObject["responseData"] as? [String : Any]
-                        
-                        let token = responseData!["token"] as? String
-                        let name = responseData!["name"] as? String
-                        
-                        if resultMessage == "SUCCESS" {
+                if resultMessage == "SUCCESS" {
+                    DispatchQueue.main.async {
+                        do {
                             
-                            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+                            let responseData = decoded.responseData
                             
-                            appDelegate?.userEmail = Email
-                            appDelegate?.userToken = token!
-                            appDelegate?.userName = name!
+                            appDelegate?.userToken = responseData.token
+                            appDelegate?.userEmail = responseData.email
+                            appDelegate?.userProfile = responseData.profileImagePath
                             
-                            UserDefaults.standard.set(Email, forKey: "USER_EMAIL")
+                            UserDefaults.standard.set(email, forKey: "USER_EMAIL")
                             UserDefaults.standard.set(pwd, forKey: "USER_PASSWORD")
                             
                             let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                             let mainView = storyboard.instantiateViewController(identifier: "MainList")
                             mainView.modalPresentationStyle = .fullScreen
                             self.navigationController?.show(mainView, sender: nil)
-                        } else {
-                            self.loginAlert(message: resultMessage!)
+                            }
                         }
-                    } catch let e as NSError {
-                        print("An error has occured while parsing JSONObject: \(e.localizedDescription)")
                     }
                 }
             }
-            task.resume()
-        }
+            
+//            let param = ["email" : Email, "password" : pwd]
+//            let paramData = try! JSONSerialization.data(withJSONObject: param)
+//            
+//            let url = URL(string: "http://localhost:8080/union/api/user/login")
+//            
+//            var request = URLRequest(url: url!)
+//            request.httpMethod = "POST"
+//            request.httpBody = paramData
+//            
+//            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+//            
+//            let task = URLSession.shared.dataTask(with: request) { data, response, error in
+//                
+//                if let e = error {
+//                    NSLog("An error has occured: \(e.localizedDescription)")
+//                    return
+//                }
+//                
+//                DispatchQueue.main.async {
+//                    do{
+//                        let object = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
+//                        guard let jsonObject = object else {return}
+//                        
+//                        let resultMessage = jsonObject["resultMessage"] as? String
+//                        let responseData = jsonObject["responseData"] as? [String : Any]
+//                        
+//                        let token = responseData!["token"] as? String
+//                        let name = responseData!["name"] as? String
+//                        
+//                        if resultMessage == "SUCCESS" {
+//                            
+//                            let appDelegate = UIApplication.shared.delegate as? AppDelegate
+//                            
+//                            appDelegate?.userEmail = Email
+//                            appDelegate?.userToken = token!
+//                            appDelegate?.userName = name!
+//                            
+//                            UserDefaults.standard.set(Email, forKey: "USER_EMAIL")
+//                            UserDefaults.standard.set(pwd, forKey: "USER_PASSWORD")
+//                            
+//                            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+//                            let mainView = storyboard.instantiateViewController(identifier: "MainList")
+//                            mainView.modalPresentationStyle = .fullScreen
+//                            self.navigationController?.show(mainView, sender: nil)
+//                        } else {
+//                            self.loginAlert(message: resultMessage!)
+//                        }
+//                    } catch let e as NSError {
+//                        print("An error has occured while parsing JSONObject: \(e.localizedDescription)")
+//                    }
+//                }
+//            }
+//            task.resume()
+//        }
     }
     
     func loginAlert(message: String) {
