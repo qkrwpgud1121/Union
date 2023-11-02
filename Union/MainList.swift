@@ -15,13 +15,14 @@ class MainList: UIViewController, UITabBarDelegate{
     @IBOutlet var bannerCollectionView: UICollectionView!
     @IBOutlet weak var listTableView: UITableView!
     @IBOutlet weak var profile: UIButton!
-    @IBOutlet weak var search: UITextField!
     
     // 현재페이지 체크 변수 (자동 스크롤할 때 필요)
     var nowPage: Int = 0
     
     // 데이터 배열
     let dataArray: Array<UIImage> = [UIImage(named: "img1.png")!, UIImage(named: "img2.png")!, UIImage(named: "img3.png")!]
+    
+    let imgPath = appDelegate?.userProfile
     
     private var listMainVM: ListViewModel!
     
@@ -40,11 +41,12 @@ class MainList: UIViewController, UITabBarDelegate{
         profile.layer.borderWidth = 2
         profile.layer.borderColor = UIColor.gray.cgColor
         profile.clipsToBounds = true
-        profile.imageView?.sload(url: appDelegate?.userProfile ?? "")
         
-        search.layer.cornerRadius = search.frame.height / 2
-        search.layer.borderWidth = 1
-        search.layer.borderColor = UIColor.gray.cgColor
+        let i = URL(fileURLWithPath: appDelegate?.userProfile ?? "")
+        let data = try? Data(contentsOf: i)
+        let image = UIImage(data: data!)
+        
+        profile.setImage(image, for: .normal)
         
         bannerCollectionView.delegate = self
         bannerCollectionView.dataSource = self

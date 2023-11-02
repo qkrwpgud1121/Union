@@ -103,7 +103,7 @@ extension UITextField {
 
 extension UIImageView {
     
-    func sload(url: String) {
+    func imgLoad(url: String) {
         DispatchQueue.global().async { [weak self] in
             let i = URL(fileURLWithPath: url)
             if let data = try? Data(contentsOf: i) {

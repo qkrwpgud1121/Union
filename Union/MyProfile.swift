@@ -86,7 +86,7 @@ class MyProfile: UIViewController {
                         
                     let imgPath = appDelegate?.userProfile
                     
-                    self.imgView.sload(url: imgPath ?? "")
+                    self.imgView.imgLoad(url: imgPath ?? "")
                     
                     for link in links {
                         self.count += 1
@@ -338,9 +338,6 @@ class MyProfile: UIViewController {
                     self.scrollView.addSubview(stackView)
                 })
                 tag = tag + 1
-                
-                print(linkArray)
-                print(linkArrayTag)
             }
         }
     }
@@ -364,7 +361,6 @@ class MyProfile: UIViewController {
         })
         
         count -= 1
-        print(sender.tag as Any)
         linkArray.remove(at: sender.tag-1)
         addTextfield()
     }
@@ -399,6 +395,9 @@ class MyProfile: UIViewController {
             let resultMessage = decoded.resultMessage
             
             if resultMessage == "SUCCESS" {
+                
+                appDelegate?.userProfile = "/Users/jehyeongpark/Downloads/apache-tomcat-9.0.80/webapps/union/WEB-INF/profileImages/\(self.saveImageName)"
+                
                 let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                 let mainView = storyboard.instantiateViewController(identifier: "MainList")
                 mainView.modalPresentationStyle = .fullScreen
@@ -422,15 +421,9 @@ extension MyProfile : UIImagePickerControllerDelegate, UINavigationControllerDel
                 if let imageName = imageName{
                     saveImageName = imageName as! String
                 }
-                
             }
         }
 
         dismiss(animated: true, completion: nil)
-    }
-    
-    func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        return paths[0]
     }
 }

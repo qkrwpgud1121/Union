@@ -396,26 +396,15 @@
                                     <tabBarItem tag="2" title="Study" image="pencil.line" catalog="system" id="1mu-W1-kr2"/>
                                 </items>
                             </tabBar>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xli-Am-Rng">
-                                <rect key="frame" x="101" y="64" width="178" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="mGf-Fk-VNI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dMy-KP-7Fy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="hIR-jm-tF8" firstAttribute="leading" secondItem="xli-Am-Rng" secondAttribute="trailing" constant="5" id="2f9-YZ-Uua"/>
                             <constraint firstItem="XJc-u8-XuV" firstAttribute="bottom" secondItem="4Ni-0g-nzf" secondAttribute="bottom" constant="-83" id="2lF-Pe-Ubh"/>
                             <constraint firstItem="exw-zo-ali" firstAttribute="top" secondItem="dMy-KP-7Fy" secondAttribute="top" id="Rs6-Zh-jAZ"/>
                             <constraint firstItem="2h6-HK-cHG" firstAttribute="top" secondItem="dMy-KP-7Fy" secondAttribute="top" id="WVf-WT-cBF"/>
                             <constraint firstItem="XJc-u8-XuV" firstAttribute="top" secondItem="exw-zo-ali" secondAttribute="bottom" id="XKo-7J-qn0"/>
-                            <constraint firstItem="xli-Am-Rng" firstAttribute="leading" secondItem="exw-zo-ali" secondAttribute="trailing" constant="5" id="Zhl-k7-C0k"/>
                             <constraint firstItem="4Ni-0g-nzf" firstAttribute="leading" secondItem="dMy-KP-7Fy" secondAttribute="leading" id="ekh-3H-NiW"/>
-                            <constraint firstItem="xli-Am-Rng" firstAttribute="top" secondItem="dMy-KP-7Fy" secondAttribute="top" constant="5" id="eqd-4f-vNL"/>
                             <constraint firstItem="2h6-HK-cHG" firstAttribute="leading" secondItem="hIR-jm-tF8" secondAttribute="trailing" id="ety-iz-0DL"/>
                             <constraint firstItem="4Ni-0g-nzf" firstAttribute="trailing" secondItem="dMy-KP-7Fy" secondAttribute="trailing" id="gX0-ni-oB1"/>
                             <constraint firstItem="exw-zo-ali" firstAttribute="leading" secondItem="dMy-KP-7Fy" secondAttribute="leading" constant="16" id="jmL-G0-xIW"/>
@@ -430,7 +419,6 @@
                         <outlet property="bannerCollectionView" destination="S6x-uw-OkV" id="S5N-x8-9a6"/>
                         <outlet property="listTableView" destination="XJc-u8-XuV" id="Etu-lf-KOb"/>
                         <outlet property="profile" destination="2h6-HK-cHG" id="bs3-qu-XJC"/>
-                        <outlet property="search" destination="xli-Am-Rng" id="hJP-6F-OaC"/>
                         <outlet property="tapBar" destination="4Ni-0g-nzf" id="45D-OW-f1E"/>
                     </connections>
                 </viewController>

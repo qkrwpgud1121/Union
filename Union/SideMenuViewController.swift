@@ -8,12 +8,10 @@
 import UIKit
 
 class SideMenuViewController: UIViewController {
-
-    let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     @IBOutlet var profile: UIImageView!
     
-    let stirng = userProfile.self
+    let imgPath = appDelegate?.userProfile
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,17 +20,19 @@ class SideMenuViewController: UIViewController {
         profile.layer.borderWidth = 2
         profile.layer.borderColor = UIColor.gray.cgColor
         profile.clipsToBounds = true
+        profile.imgLoad(url: imgPath ?? "")
+        
     }
 
     @IBAction func logOut(_ sender: UIButton) {
         
-        let email = self.appDelegate!.userEmail
-        let token = self.appDelegate!.userToken
+        let email = appDelegate?.userEmail
+        let token = appDelegate?.userToken
         
         let alert = UIAlertController(title: "로그 아웃", message: "로그 아웃 하시겠습니까?", preferredStyle: .alert)
         let sucess = UIAlertAction(title: "확인", style: .default) { _ in
             
-            self.logOut(email: email, token: token)
+            self.logOut(email: email!, token: token!)
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel)
         alert.addAction(sucess)
