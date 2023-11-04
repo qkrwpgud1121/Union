@@ -83,9 +83,11 @@ class MyProfile: UIViewController {
                     self.userHopeJob = responseData.hopeJob ?? ""
                     self.responseLink = responseData.portfolioLink ?? ""
                     let links = self.responseLink.split(separator: ", ")
-                        
-                    let imgPath = appDelegate?.userProfile
+                    self.saveImagePath = responseData.profileImagePath
                     
+                    appDelegate?.userProfile = self.saveImagePath
+                    
+                    let imgPath = appDelegate?.userProfile
                     self.imgView.imgLoad(url: imgPath ?? "")
                     
                     for link in links {
@@ -101,22 +103,6 @@ class MyProfile: UIViewController {
                 self.setCareer()
             }
         }
-    }
-    
-    func getSavedImage(fileName: String) -> UIImage? {
-        
-        var documentsUrl: URL {
-            return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        }
-        
-        let fileURL = documentsUrl.appendingPathComponent(fileName)
-        do {
-            let imageData = try Data(contentsOf: fileURL)
-            return UIImage(data: imageData)
-        } catch {
-            print("Error loading image : \(error)")
-        }
-        return nil
     }
     
     @IBAction func addBtnClick(_ sender: UIButton) {
@@ -387,7 +373,7 @@ class MyProfile: UIViewController {
         let param = try? encoder.encode(requestData)
         
         let requestURL = "http://localhost:8080/union/api/user/profile/modify"
-
+        
         let url = URL(string: requestURL)
         ProfileService().setProfile(with: requestData, url: url!, param: param!, image: imgView.image!, imageName: saveImageName) { //1
             (decoded) in
@@ -396,7 +382,7 @@ class MyProfile: UIViewController {
             
             if resultMessage == "SUCCESS" {
                 
-                appDelegate?.userProfile = "/Users/jehyeongpark/Downloads/apache-tomcat-9.0.80/webapps/union/WEB-INF/profileImages/\(self.saveImageName)"
+                self.profileSetup()
                 
                 let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                 let mainView = storyboard.instantiateViewController(identifier: "MainList")
@@ -410,13 +396,12 @@ class MyProfile: UIViewController {
 extension MyProfile : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
+        let documentsDirectory = FileManager.default.urls(for: .documentDirectory,in: .userDomainMask).first!
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
 
             imgView.image = image
             
             if let imageUrl = info[UIImagePickerController.InfoKey.referenceURL] as? URL{
-                
                 let imageName = PHAsset.fetchAssets(withALAssetURLs: [imageUrl], options: nil).firstObject?.value(forKey: "filename")
                 if let imageName = imageName{
                     saveImageName = imageName as! String

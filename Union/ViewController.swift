@@ -63,7 +63,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func btn_login(_ sender: Any) {
-    
+        
         if email.text!.isEmpty || password.text!.isEmpty {
             
             self.loginAlert(message: "이메일, 비밀번호를 입력해주세요.")
@@ -93,7 +93,7 @@ class ViewController: UIViewController {
                             
                             appDelegate?.userToken = responseData.token
                             appDelegate?.userEmail = responseData.email
-                            appDelegate?.userProfile = responseData.profileImagePath
+                            appDelegate?.userProfile = responseData.profileImagePath 
                             
                             UserDefaults.standard.set(email, forKey: "USER_EMAIL")
                             UserDefaults.standard.set(pwd, forKey: "USER_PASSWORD")
@@ -102,66 +102,11 @@ class ViewController: UIViewController {
                             let mainView = storyboard.instantiateViewController(identifier: "MainList")
                             mainView.modalPresentationStyle = .fullScreen
                             self.navigationController?.show(mainView, sender: nil)
-                            }
                         }
                     }
                 }
             }
-            
-//            let param = ["email" : Email, "password" : pwd]
-//            let paramData = try! JSONSerialization.data(withJSONObject: param)
-//            
-//            let url = URL(string: "http://localhost:8080/union/api/user/login")
-//            
-//            var request = URLRequest(url: url!)
-//            request.httpMethod = "POST"
-//            request.httpBody = paramData
-//            
-//            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//            
-//            let task = URLSession.shared.dataTask(with: request) { data, response, error in
-//                
-//                if let e = error {
-//                    NSLog("An error has occured: \(e.localizedDescription)")
-//                    return
-//                }
-//                
-//                DispatchQueue.main.async {
-//                    do{
-//                        let object = try JSONSerialization.jsonObject(with: data!, options: []) as? NSDictionary
-//                        guard let jsonObject = object else {return}
-//                        
-//                        let resultMessage = jsonObject["resultMessage"] as? String
-//                        let responseData = jsonObject["responseData"] as? [String : Any]
-//                        
-//                        let token = responseData!["token"] as? String
-//                        let name = responseData!["name"] as? String
-//                        
-//                        if resultMessage == "SUCCESS" {
-//                            
-//                            let appDelegate = UIApplication.shared.delegate as? AppDelegate
-//                            
-//                            appDelegate?.userEmail = Email
-//                            appDelegate?.userToken = token!
-//                            appDelegate?.userName = name!
-//                            
-//                            UserDefaults.standard.set(Email, forKey: "USER_EMAIL")
-//                            UserDefaults.standard.set(pwd, forKey: "USER_PASSWORD")
-//                            
-//                            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-//                            let mainView = storyboard.instantiateViewController(identifier: "MainList")
-//                            mainView.modalPresentationStyle = .fullScreen
-//                            self.navigationController?.show(mainView, sender: nil)
-//                        } else {
-//                            self.loginAlert(message: resultMessage!)
-//                        }
-//                    } catch let e as NSError {
-//                        print("An error has occured while parsing JSONObject: \(e.localizedDescription)")
-//                    }
-//                }
-//            }
-//            task.resume()
-//        }
+        }
     }
     
     func loginAlert(message: String) {

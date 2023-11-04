@@ -42,11 +42,7 @@ class MainList: UIViewController, UITabBarDelegate{
         profile.layer.borderColor = UIColor.gray.cgColor
         profile.clipsToBounds = true
         
-        let i = URL(fileURLWithPath: appDelegate?.userProfile ?? "")
-        let data = try? Data(contentsOf: i)
-        let image = UIImage(data: data!)
-        
-        profile.setImage(image, for: .normal)
+        setProfile()
         
         bannerCollectionView.delegate = self
         bannerCollectionView.dataSource = self
@@ -66,7 +62,15 @@ class MainList: UIViewController, UITabBarDelegate{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.hidesBackButton = true
+        
+        setProfile()
+        
         setup()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        setProfile()
     }
     
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
@@ -93,6 +97,9 @@ class MainList: UIViewController, UITabBarDelegate{
                 self.listMainVM = ListViewModel(responseList: responseList) //2
             }
             DispatchQueue.main.async {
+                
+                
+                
                 self.listTableView.reloadData()
             }
         }
@@ -147,6 +154,14 @@ class MainList: UIViewController, UITabBarDelegate{
         // 다음 페이지로 전환
         nowPage += 1
         bannerCollectionView.scrollToItem(at: NSIndexPath(item: nowPage, section: 0) as IndexPath, at: .right, animated: true)
+    }
+    
+    func setProfile() {
+        
+        let i = URL(fileURLWithPath: appDelegate?.userProfile ?? "")
+        let data = try! Data(contentsOf: i)
+        let image = UIImage(data: data)
+        self.profile.setImage(image, for: .normal)
     }
 }
 

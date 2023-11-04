@@ -11,8 +11,6 @@ class SideMenuViewController: UIViewController {
     
     @IBOutlet var profile: UIImageView!
     
-    let imgPath = appDelegate?.userProfile
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,7 +18,7 @@ class SideMenuViewController: UIViewController {
         profile.layer.borderWidth = 2
         profile.layer.borderColor = UIColor.gray.cgColor
         profile.clipsToBounds = true
-        profile.imgLoad(url: imgPath ?? "")
+        profile.imgLoad(url: appDelegate?.userProfile ?? "")
         
     }
 

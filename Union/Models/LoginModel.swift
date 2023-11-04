@@ -21,5 +21,6 @@ struct loginResponse: Decodable {
 struct userInfo: Decodable {
     let email: String
     let token: String
+    let profileImageName: String
     let profileImagePath: String
 }
