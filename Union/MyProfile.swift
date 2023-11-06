@@ -75,7 +75,6 @@ class MyProfile: UIViewController {
             
             let responseData = decoded.responseData
             
-            
             DispatchQueue.main.async {
                 do {
                     self.nickName.text = responseData.name
