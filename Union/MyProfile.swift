@@ -10,6 +10,8 @@ import Photos
 
 class MyProfile: UIViewController {
     
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet var nickName: UITextField!
     @IBOutlet var imgView: UIImageView!
@@ -83,12 +85,14 @@ class MyProfile: UIViewController {
                     self.userHopeJob = responseData.hopeJob ?? ""
                     self.responseLink = responseData.portfolioLink ?? ""
                     let links = self.responseLink.split(separator: ", ")
-                    self.saveImagePath = responseData.profileImagePath
                     
-                    appDelegate?.userProfile = self.saveImagePath
-                    
-                    let imgPath = appDelegate?.userProfile
-                    self.imgView.imgLoad(url: imgPath ?? "")
+                    if self.appDelegate?.userProfile != "" {
+                        
+                        self.saveImagePath = responseData.profileImagePath!
+                        self.appDelegate?.userProfile = self.saveImagePath
+                        let imgPath = self.appDelegate?.userProfile
+                        self.imgView.imgLoad(url: imgPath ?? "")
+                    }
                     
                     for link in links {
                         self.count += 1
@@ -369,7 +373,7 @@ class MyProfile: UIViewController {
         let requestPortfolioLink = linkArray.joined(separator: ", ")
         
         let encoder = JSONEncoder()
-        let requestData = saveProfileRequest(email: userEmail, name: nickName.text!, hopeJob: userHopeJob, career: userCareer, introduction: introduction.text, portfolioLink: requestPortfolioLink)
+        let requestData = saveProfileRequest(email: appDelegate!.userEmail, name: nickName.text!, hopeJob: userHopeJob, career: userCareer, introduction: introduction.text, portfolioLink: requestPortfolioLink)
         let param = try? encoder.encode(requestData)
         
         let requestURL = "http://localhost:8080/union/api/user/profile/modify"

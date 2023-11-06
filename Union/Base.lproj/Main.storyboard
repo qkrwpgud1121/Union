@@ -396,11 +396,35 @@
                                     <tabBarItem tag="2" title="Study" image="pencil.line" catalog="system" id="1mu-W1-kr2"/>
                                 </items>
                             </tabBar>
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GIN-t9-mmy">
+                                <rect key="frame" x="96" y="59" width="188" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="X7a-mD-8rO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AgB-9T-9Bd">
+                                <rect key="frame" x="240" y="59" width="44" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="55L-VR-L9u"/>
+                                    <constraint firstAttribute="width" constant="44" id="QID-vl-2Jq"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="magnifyingglass" catalog="system"/>
+                                <connections>
+                                    <action selector="search:" destination="TQC-eC-tWo" eventType="touchUpInside" id="7cT-JM-0BI"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dMy-KP-7Fy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="hIR-jm-tF8" firstAttribute="leading" secondItem="GIN-t9-mmy" secondAttribute="trailing" id="2YV-pT-XAf"/>
                             <constraint firstItem="XJc-u8-XuV" firstAttribute="bottom" secondItem="4Ni-0g-nzf" secondAttribute="bottom" constant="-83" id="2lF-Pe-Ubh"/>
+                            <constraint firstItem="GIN-t9-mmy" firstAttribute="leading" secondItem="exw-zo-ali" secondAttribute="trailing" id="HFV-5h-THf"/>
+                            <constraint firstItem="hIR-jm-tF8" firstAttribute="leading" secondItem="AgB-9T-9Bd" secondAttribute="trailing" id="IP3-hW-aAz"/>
+                            <constraint firstItem="AgB-9T-9Bd" firstAttribute="top" secondItem="dMy-KP-7Fy" secondAttribute="top" id="RbJ-AG-WAZ"/>
                             <constraint firstItem="exw-zo-ali" firstAttribute="top" secondItem="dMy-KP-7Fy" secondAttribute="top" id="Rs6-Zh-jAZ"/>
                             <constraint firstItem="2h6-HK-cHG" firstAttribute="top" secondItem="dMy-KP-7Fy" secondAttribute="top" id="WVf-WT-cBF"/>
                             <constraint firstItem="XJc-u8-XuV" firstAttribute="top" secondItem="exw-zo-ali" secondAttribute="bottom" id="XKo-7J-qn0"/>
@@ -411,6 +435,7 @@
                             <constraint firstAttribute="bottom" secondItem="4Ni-0g-nzf" secondAttribute="bottom" id="qZA-lT-uEX"/>
                             <constraint firstItem="hIR-jm-tF8" firstAttribute="top" secondItem="dMy-KP-7Fy" secondAttribute="top" id="rpp-yb-tU1"/>
                             <constraint firstItem="dMy-KP-7Fy" firstAttribute="trailing" secondItem="XJc-u8-XuV" secondAttribute="trailing" constant="16" id="tiI-HC-X0g"/>
+                            <constraint firstItem="GIN-t9-mmy" firstAttribute="top" secondItem="dMy-KP-7Fy" secondAttribute="top" id="vld-0s-jrg"/>
                             <constraint firstItem="dMy-KP-7Fy" firstAttribute="trailing" secondItem="2h6-HK-cHG" secondAttribute="trailing" constant="16" id="wmY-K4-po6"/>
                             <constraint firstItem="XJc-u8-XuV" firstAttribute="leading" secondItem="dMy-KP-7Fy" secondAttribute="leading" constant="16" id="yUh-mR-z4f"/>
                         </constraints>
@@ -419,6 +444,8 @@
                         <outlet property="bannerCollectionView" destination="S6x-uw-OkV" id="S5N-x8-9a6"/>
                         <outlet property="listTableView" destination="XJc-u8-XuV" id="Etu-lf-KOb"/>
                         <outlet property="profile" destination="2h6-HK-cHG" id="bs3-qu-XJC"/>
+                        <outlet property="search" destination="AgB-9T-9Bd" id="trI-OJ-Udt"/>
+                        <outlet property="searchTextfield" destination="GIN-t9-mmy" id="w6Q-3Y-CaG"/>
                         <outlet property="tapBar" destination="4Ni-0g-nzf" id="45D-OW-f1E"/>
                     </connections>
                 </viewController>
@@ -547,6 +574,7 @@
                     <navigationItem key="navigationItem" id="onb-cW-BbI"/>
                     <connections>
                         <outlet property="profile" destination="egy-yM-aOJ" id="0jn-z0-Iya"/>
+                        <outlet property="userName" destination="Xfk-SP-Ulm" id="DHj-vV-dWv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rGA-bo-JDq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1144,13 +1172,12 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XZB-fe-nkH">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="introduce" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="XZB-fe-nkH">
                                                 <rect key="frame" x="16" y="430.66666666666674" width="361" height="200"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="bfY-P0-5LJ"/>
                                                 </constraints>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1638,6 +1665,7 @@
         <image name="bell.fill" catalog="system" width="123" height="128"/>
         <image name="checkmark.square" catalog="system" width="128" height="114"/>
         <image name="ellipsis" catalog="system" width="128" height="37"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="pencil.line" catalog="system" width="128" height="117"/>
         <image name="person.3.fill" catalog="system" width="128" height="66"/>
         <image name="plus" catalog="system" width="128" height="113"/>

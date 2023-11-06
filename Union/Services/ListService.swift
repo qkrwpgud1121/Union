@@ -8,13 +8,11 @@
 import Foundation
 import UIKit
 
-let appDelegate = UIApplication.shared.delegate as? AppDelegate
-let userToken = appDelegate!.userToken
-let userEmail = appDelegate!.userEmail
-
 var listArray : [String] = []
 
 class ListService {
+    
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     func getMainList(url: URL, param: Data, completion: @escaping([DetailList]?) -> ()) {
         
@@ -23,15 +21,16 @@ class ListService {
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.httpBody = param
-
+        
+        
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue(userToken, forHTTPHeaderField: "X-AUTH-TOKEN")
+        request.addValue(appDelegate!.userToken, forHTTPHeaderField: "X-AUTH-TOKEN")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             
             if let error = error {
                 print(error.localizedDescription)
-                completion(nil) // if any error occurs, article can be nil
+                completion(nil)
             }
             
             do{
@@ -40,6 +39,7 @@ class ListService {
                 let decoded = try decoder.decode(ListMain.self, from: data!)
                 
                 let listArray = decoded.responseData.list
+                
                 completion(listArray)
 
             } catch let e as NSError {

@@ -9,7 +9,10 @@ import UIKit
 
 class SideMenuViewController: UIViewController {
     
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     @IBOutlet var profile: UIImageView!
+    @IBOutlet weak var userName: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +22,8 @@ class SideMenuViewController: UIViewController {
         profile.layer.borderColor = UIColor.gray.cgColor
         profile.clipsToBounds = true
         profile.imgLoad(url: appDelegate?.userProfile ?? "")
+        
+        userName.text = appDelegate?.userName
         
     }
 
@@ -68,6 +73,7 @@ class SideMenuViewController: UIViewController {
                     let resultMessage = jsonObject["resultMessage"] as? String
             
                     if resultMessage == "SUCCESS" {
+                        
                         let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                         let mainView = storyboard.instantiateViewController(identifier: "ViewController")
                         mainView.modalPresentationStyle = .fullScreen

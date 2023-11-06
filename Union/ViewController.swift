@@ -8,6 +8,8 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     private var rememberMeFlag = false
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
@@ -91,9 +93,17 @@ class ViewController: UIViewController {
                             
                             let responseData = decoded.responseData
                             
-                            appDelegate?.userToken = responseData.token
-                            appDelegate?.userEmail = responseData.email
-                            appDelegate?.userProfile = responseData.profileImagePath 
+                            self.appDelegate?.userToken = responseData.token
+                            self.appDelegate?.userEmail = responseData.email
+                            self.appDelegate?.userName = responseData.name
+                            
+                            print(responseData.profileImagePath)
+                            
+                            if responseData.profileImagePath != nil {
+                                self.appDelegate?.userProfile = responseData.profileImagePath!
+                            } else {
+                                self.appDelegate?.userProfile = ""
+                            }
                             
                             UserDefaults.standard.set(email, forKey: "USER_EMAIL")
                             UserDefaults.standard.set(pwd, forKey: "USER_PASSWORD")

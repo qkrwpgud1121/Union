@@ -10,19 +10,21 @@ import SideMenu
 
 class MainList: UIViewController, UITabBarDelegate{
     
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     @IBOutlet weak var tapBar: UITabBar!
     
     @IBOutlet var bannerCollectionView: UICollectionView!
     @IBOutlet weak var listTableView: UITableView!
     @IBOutlet weak var profile: UIButton!
+    @IBOutlet weak var search: UIButton!
+    @IBOutlet weak var searchTextfield: UITextField!
     
     // 현재페이지 체크 변수 (자동 스크롤할 때 필요)
     var nowPage: Int = 0
     
     // 데이터 배열
     let dataArray: Array<UIImage> = [UIImage(named: "img1.png")!, UIImage(named: "img2.png")!, UIImage(named: "img3.png")!]
-    
-    let imgPath = appDelegate?.userProfile
     
     private var listMainVM: ListViewModel!
     
@@ -31,6 +33,7 @@ class MainList: UIViewController, UITabBarDelegate{
     let cellReuseIdentifier = "offerCell"
     
     var requestGroupType: String = "프로젝트"
+    var searchString: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +52,12 @@ class MainList: UIViewController, UITabBarDelegate{
         
         bannerTimer()
         
-        setup()
+        searchTextfield.layer.cornerRadius = searchTextfield.frame.height / 2
+        searchTextfield.layer.borderWidth = 1
+        searchTextfield.layer.borderColor = UIColor.systemBlue.cgColor
+        searchTextfield.addLeftPadding()
+        
+        setup(search: searchString)
         
         listTableView.delegate = self
         listTableView.dataSource = self
@@ -65,7 +73,7 @@ class MainList: UIViewController, UITabBarDelegate{
         
         setProfile()
         
-        setup()
+        setup(search: searchString)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -79,27 +87,23 @@ class MainList: UIViewController, UITabBarDelegate{
         } else {
             requestGroupType = "스터디"
         }
-        setup()
+        setup(search: searchString)
     }
     
-    private func setup() {
+    private func setup(search: String) {
         
         let encoder = JSONEncoder()
-        let param = MainListParam(requestData: mainRequest(groupType: requestGroupType ,unionBoardSubject: "", unionBoardContent: ""))
+        let param = MainListParam(requestData: mainRequest(groupType: requestGroupType ,unionBoardSubject: search, unionBoardContent: search))
         
         let paramData = try? encoder.encode(param)
         
         let url = URL(string: "http://localhost:8080/union/api/union/board/getPagingList")!
-        ListService().getMainList(url: url, param: paramData!) { //1
+        ListService().getMainList(url: url, param: paramData!) {
             (responseList) in
-
             if let responseList = responseList {
-                self.listMainVM = ListViewModel(responseList: responseList) //2
+                self.listMainVM = ListViewModel(responseList: responseList)
             }
             DispatchQueue.main.async {
-                
-                
-                
                 self.listTableView.reloadData()
             }
         }
@@ -158,10 +162,29 @@ class MainList: UIViewController, UITabBarDelegate{
     
     func setProfile() {
         
-        let i = URL(fileURLWithPath: appDelegate?.userProfile ?? "")
-        let data = try! Data(contentsOf: i)
-        let image = UIImage(data: data)
-        self.profile.setImage(image, for: .normal)
+        if appDelegate?.userProfile != "" {
+            
+            let i = URL(fileURLWithPath: appDelegate?.userProfile ?? "")
+            let data = try! Data(contentsOf: i)
+            let image = UIImage(data: data)
+            self.profile.setImage(image, for: .normal)
+        }
+    }
+    
+    @IBAction func search(_ sender: UIButton) {
+        
+        if self.searchTextfield.isHidden {
+            self.searchTextfield.isHidden = false
+        } else {
+            if self.searchTextfield.text == "" {
+                searchString = ""
+                self.searchTextfield.isHidden = true
+            } else {
+                searchString = self.searchTextfield.text!
+                
+            }
+        }
+        setup(search: searchString)
     }
 }
 

@@ -7,8 +7,11 @@
 
 import Foundation
 import Alamofire
+import UIKit
 
 class ProfileService {
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     func getProfile(url: URL, param: Data, completion: @escaping(profileResponse) -> ()) {
         
@@ -19,7 +22,7 @@ class ProfileService {
         request.httpBody = param
         
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue(userToken, forHTTPHeaderField: "X-AUTH-TOKEN")
+        request.addValue(appDelegate.userToken, forHTTPHeaderField: "X-AUTH-TOKEN")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             
@@ -46,7 +49,7 @@ class ProfileService {
         
         let header: HTTPHeaders = [
             "Content-Type": "multipart/form-data",
-            "X-AUTH-TOKEN" : userToken
+            "X-AUTH-TOKEN" : appDelegate.userToken
         ]
         let parameters = [
             "email" : model.email,

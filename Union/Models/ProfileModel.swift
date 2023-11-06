@@ -26,7 +26,7 @@ struct userProfile: Decodable {
     let introduction: String?
     let portfolioLink: String?
     let profileImageName: String?
-    let profileImagePath: String
+    let profileImagePath: String?
 }
 
 // MARK: - 프로필 저장

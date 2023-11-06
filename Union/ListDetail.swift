@@ -9,6 +9,8 @@ import UIKit
 
 class ListDetail: UIViewController {
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     var prepareSegue: String?
     
     var prepareBoardId: String?
@@ -80,7 +82,7 @@ class ListDetail: UIViewController {
     func postDelete() {
         
         let encoder = JSONEncoder()
-        let requestData = MyPostDelete(unionBoardId: prepareBoardId!, email: userEmail, token: userToken)
+        let requestData = MyPostDelete(unionBoardId: prepareBoardId!, email: appDelegate.userEmail, token: appDelegate.userToken)
         
         let param = try? encoder.encode(requestData)
         

@@ -9,6 +9,8 @@ import UIKit
 
 class NewPost: UIViewController {
     
+    let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     @IBOutlet weak var btnCategory: UIButton!
     @IBOutlet weak var btnPerson: UIButton!
     @IBOutlet weak var btnMethod: UIButton!
@@ -106,7 +108,7 @@ class NewPost: UIViewController {
         } else {
             
             let encoder = JSONEncoder()
-            let requestData = requestParam(unionBoardId: segueBoardId ,unionBoardSubject: postTitle.text!, unionBoardContent: postDetail.text!, email: userEmail, name: "JJJ", groupType: type, numberOfGroup: person, progressType: method, progressMonth: period, deadline: endDate, contactInformation: contact.text!, stacks: stackArray, groupPositions: positionArray)
+            let requestData = requestParam(unionBoardId: segueBoardId ,unionBoardSubject: postTitle.text!, unionBoardContent: postDetail.text!, email: appDelegate!.userEmail, name: "JJJ", groupType: type, numberOfGroup: person, progressType: method, progressMonth: period, deadline: endDate, contactInformation: contact.text!, stacks: stackArray, groupPositions: positionArray)
             let param = try? encoder.encode(requestData)
                 
             var requestURL: String = ""

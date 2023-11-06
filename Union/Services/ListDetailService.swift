@@ -6,9 +6,11 @@
 //
 
 import Foundation
+import UIKit
 
 class ListDetailService {
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     func setListDetail(url: URL, param: Data, completion: @escaping(MyPostResponse) -> ()) {
         
@@ -19,7 +21,7 @@ class ListDetailService {
         request.httpBody = param
 
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue(userToken, forHTTPHeaderField: "X-AUTH-TOKEN")
+        request.addValue(appDelegate.userToken, forHTTPHeaderField: "X-AUTH-TOKEN")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             
