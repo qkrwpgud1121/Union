@@ -22,6 +22,10 @@ class MainList: UIViewController, UITabBarDelegate{
     
     // 현재페이지 체크 변수 (자동 스크롤할 때 필요)
     var nowPage: Int = 0
+    var pagingNum: Int = 0
+    
+    var isPaging: Bool = false // 현재 페이징 중인지 체크하는 flag
+    var hasNextPage: Bool = true // 마지막 페이지 인지 체크 하는 flag
     
     // 데이터 배열
     let dataArray: Array<UIImage> = [UIImage(named: "img1.png")!, UIImage(named: "img2.png")!, UIImage(named: "img3.png")!]
@@ -61,7 +65,7 @@ class MainList: UIViewController, UITabBarDelegate{
         
         listTableView.delegate = self
         listTableView.dataSource = self
-         
+        
         tapBar.delegate = self
         tapBar.selectedItem = tapBar.items?.first
         
@@ -72,8 +76,6 @@ class MainList: UIViewController, UITabBarDelegate{
         self.navigationItem.hidesBackButton = true
         
         setProfile()
-        
-        setup(search: searchString)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -84,26 +86,37 @@ class MainList: UIViewController, UITabBarDelegate{
     func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         if item.tag == 1 {
             requestGroupType = "프로젝트"
+            pagingNum = 0
+            hasNextPage = true
         } else {
             requestGroupType = "스터디"
+            pagingNum = 0
+            hasNextPage = true
         }
         setup(search: searchString)
     }
     
     private func setup(search: String) {
-        
+
         let encoder = JSONEncoder()
-        let param = MainListParam(requestData: mainRequest(groupType: requestGroupType ,unionBoardSubject: search, unionBoardContent: search))
+        let param = MainListParam(requestData: mainRequest(groupType: requestGroupType ,unionBoardSubject: search, unionBoardContent: search), paging: pagingRequest(number: pagingNum, size: 20))
         
         let paramData = try? encoder.encode(param)
         
         let url = URL(string: "http://localhost:8080/union/api/union/board/getPagingList")!
-        ListService().getMainList(url: url, param: paramData!) {
+        ListService().getMainList(url: url, param: paramData!, pagingNum: pagingNum) {
             (responseList) in
+            
+            if responseList == nil {
+                self.hasNextPage = false
+            }
+            
             if let responseList = responseList {
                 self.listMainVM = ListViewModel(responseList: responseList)
             }
+            
             DispatchQueue.main.async {
+                self.isPaging = false
                 self.listTableView.reloadData()
             }
         }
@@ -150,7 +163,7 @@ class MainList: UIViewController, UITabBarDelegate{
     func bannerMove() {
         // 현재페이지가 마지막 페이지일 경우
         if nowPage == dataArray.count-1 {
-        // 맨 처음 페이지로 돌아감
+            // 맨 처음 페이지로 돌아감
             bannerCollectionView.scrollToItem(at: NSIndexPath(item: 0, section: 0) as IndexPath, at: .right, animated: true)
             nowPage = 0
             return
@@ -178,14 +191,20 @@ class MainList: UIViewController, UITabBarDelegate{
         } else {
             if self.searchTextfield.text == "" {
                 searchString = ""
+                pagingNum = 0
+                hasNextPage = true
+                setup(search: searchString)
                 self.searchTextfield.isHidden = true
             } else {
                 searchString = self.searchTextfield.text!
-                
+                pagingNum = 0
+                hasNextPage = true
+                setup(search: searchString)
             }
         }
-        setup(search: searchString)
+        
     }
+
 }
 
 extension MainList: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -217,15 +236,15 @@ extension MainList: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.listMainVM.numberOfRowsInSection(section)
     }
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return self.listMainVM == nil ? 0 : self.listMainVM.numberOfSections
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? MainTableViewCell
         else {fatalError("no matched MainTableViewCell identifier")}
-
+        
         let listVM = self.listMainVM.listAtIndex(indexPath.row)
         
         cell.type?.text = listVM.type
@@ -240,6 +259,25 @@ extension MainList: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 186.0
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        if listTableView.contentOffset.y > (listTableView.contentSize.height - listTableView.bounds.size.height) {
 
+            if isPaging == false &&  hasNextPage {
+                beginPaging()
+            }
+        }
+    }
+    
+    func beginPaging() {
+        
+        isPaging = true
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.pagingNum += 1
+            self.setup(search: self.searchString)
+        }
+    }
 }
  

@@ -8,20 +8,19 @@
 import Foundation
 import UIKit
 
-var listArray : [String] = []
+var listArray : [DetailList] = []
 
 class ListService {
     
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
-    func getMainList(url: URL, param: Data, completion: @escaping([DetailList]?) -> ()) {
+    func getMainList(url: URL, param: Data, pagingNum: Int, completion: @escaping([DetailList]?) -> ()) {
         
         let url = url
         
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.httpBody = param
-        
         
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue(appDelegate!.userToken, forHTTPHeaderField: "X-AUTH-TOKEN")
@@ -38,10 +37,18 @@ class ListService {
                 decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let decoded = try decoder.decode(ListMain.self, from: data!)
                 
-                let listArray = decoded.responseData.list
+                if decoded.responseData.list!.isEmpty {
+                    completion(nil)
+                }
+
+                if pagingNum == 0 {
+                    listArray = decoded.responseData.list!
+                } else {
+                    listArray.append(contentsOf: decoded.responseData.list!)
+                }
                 
                 completion(listArray)
-
+                
             } catch let e as NSError {
                 print(String(describing: e))
             }

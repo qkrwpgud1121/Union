@@ -7,6 +7,8 @@
 
 import Foundation
 
+// MARK: - 리스트 Response
+
 struct ListMain: Decodable {
     let resultCode: String?
     let resultMessage: String?
@@ -15,7 +17,6 @@ struct ListMain: Decodable {
 
 struct responseData: Decodable {
     let list: [DetailList]?
-//    let paging: paging
 }
 
 struct DetailList: Decodable {
@@ -48,23 +49,26 @@ struct DetailList: Decodable {
     }
 }
 
-//struct paging: Codable {
-//    let number: Int
-//    let size: Int
-//    let totalElements: Int
-//    let totalPages: Int
-//    let sortProp: String
-//    let direction: String
-//    let empty: Bool
-//    let offset: Int
-//}
+// MARK: - 리스트 Request
 
 struct MainListParam: Codable {
     var requestData: mainRequest
+    let paging: pagingRequest
 }
 
 struct mainRequest: Codable {
     var groupType: String
     var unionBoardSubject: String
     var unionBoardContent: String
+}
+
+struct pagingRequest: Codable {
+    let number: Int
+    let size: Int
+//    let totalElements: Int
+//    let totalPages: Int
+//    let sortProp: String
+//    let direction: String
+//    let empty: Bool
+//    let offset: Int
 }

@@ -97,8 +97,6 @@ class ViewController: UIViewController {
                             self.appDelegate?.userEmail = responseData.email
                             self.appDelegate?.userName = responseData.name
                             
-                            print(responseData.profileImagePath)
-                            
                             if responseData.profileImagePath != nil {
                                 self.appDelegate?.userProfile = responseData.profileImagePath!
                             } else {

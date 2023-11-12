@@ -12,12 +12,17 @@ class MyPost: UIViewController {
     let appDelegate = UIApplication.shared.delegate as? AppDelegate
     
     @IBOutlet weak var navigationBar: UINavigationItem!
+    @IBOutlet weak var myPostTableView: UITableView!
+    
     private var listMainVM: ListViewModel!
     
-    @IBOutlet weak var myPostTableView: UITableView!
+    var isPaging: Bool = false // 현재 페이징 중인지 체크하는 flag
+    var hasNextPage: Bool = true // 마지막 페이지 인지 체크 하는 flag
     
     let cellName = "MyPostTableViewCell"
     let cellReuseIdentifier = "MyPostCell"
+    
+    var pagingNum: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,18 +59,24 @@ class MyPost: UIViewController {
         let email = appDelegate?.userEmail
         
         let encoder = JSONEncoder()
-        let param = MyPostList(requestData: data(unionBoardSubject: "", unionBoardContent: "", email: email!))
+        let param = MyPostList(requestData: data(unionBoardSubject: "", unionBoardContent: "", email: email!), paging: paging(number: pagingNum, size: 20))
         
         let paramData = try? encoder.encode(param)
         
         let url = URL(string: "http://localhost:8080/union/api/union/board/getPagingList")!
-        ListService().getMainList(url: url, param: paramData!) { //1
+        ListService().getMainList(url: url, param: paramData!, pagingNum: pagingNum) { //1
             (responseList) in
+            
+            if responseList == nil {
+                self.hasNextPage = false
+            }
 
             if let responseList = responseList {
                 self.listMainVM = ListViewModel(responseList: responseList) //2
             }
+            
             DispatchQueue.main.async {
+                self.isPaging = false
                 self.myPostTableView.reloadData()
             }
         }
@@ -131,4 +142,23 @@ extension MyPost: UITableViewDelegate, UITableViewDataSource {
         return 186.0
     }
 
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        if myPostTableView.contentOffset.y > (myPostTableView.contentSize.height - myPostTableView.bounds.size.height) {
+
+            if isPaging == false &&  hasNextPage {
+                beginPaging()
+            }
+        }
+    }
+    
+    func beginPaging() {
+        
+        isPaging = true
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.pagingNum += 1
+            self.setup()
+        }
+    }
 }
