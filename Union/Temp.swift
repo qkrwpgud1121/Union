@@ -20,7 +20,7 @@ class Temp: UIViewController {
     @IBAction func temp(_ sender: UIButton) {
         
         if email.text!.isEmpty {
-            self.tempAlert(message: "이메일을 입력해주세요.")
+            self.tempAlert(type: true, message: "이메일을 입력해주세요.")
         } else {
             
             let email = email.text!
@@ -55,9 +55,9 @@ class Temp: UIViewController {
                         let tempPwd = responseData!["password"] as? String
                         
                         if tempResultMessage == "SUCCESS" {
-                            self.tempAlert(message: tempPwd!)
+                            self.tempAlert(type: true, message: tempPwd!)
                         } else {
-                            self.tempAlert(message: tempResultMessage!)
+                            self.tempAlert(type: false, message: tempResultMessage!)
                         }
                         
                     } catch let e as NSError {
@@ -69,13 +69,29 @@ class Temp: UIViewController {
         }
     }
     
-    func tempAlert(message: String) {
+    func tempAlert(type:Bool ,message: String) {
         
         let message: String = message
         
         let alert = UIAlertController(title: "임시 비밀번호", message: message, preferredStyle: .alert)
+        
         let sucess = UIAlertAction(title: "확인", style: .default, handler: nil)
-        alert.addAction(sucess)
+        let copy = UIAlertAction(title: "복사", style: .default) {_ in
+            
+            UIPasteboard.general.string = message
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let mainView = storyboard.instantiateViewController(identifier: "ViewController")
+            mainView.modalPresentationStyle = .fullScreen
+            self.navigationController?.show(mainView, sender: nil)
+        }
+        
+        if type {
+            alert.addAction(copy)
+        } else {
+            alert.addAction(sucess)
+            
+        }
         self.present(alert, animated: true)
     }
 }

@@ -178,7 +178,7 @@ class MainList: UIViewController, UITabBarDelegate{
         if appDelegate?.userProfile != "" {
             
             let i = URL(fileURLWithPath: appDelegate?.userProfile ?? "")
-            let data = try! Data(contentsOf: i)
+            guard let data = try? Data(contentsOf: i) else {return}
             let image = UIImage(data: data)
             self.profile.setImage(image, for: .normal)
         }

@@ -57,6 +57,8 @@ class Register: UIViewController {
                         
                         if resultMessage == "SUCCESS" {
                             self.registerAlert(type: true, message: resultMessage!)
+                        } else {
+                            self.registerAlert(type: false, message: resultMessage!)
                         }
                         
                     } catch let e as NSError {

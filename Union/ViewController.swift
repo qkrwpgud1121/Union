@@ -87,15 +87,16 @@ class ViewController: UIViewController {
                 
                 let resultMessage = decoded.resultMessage
                 
-                if resultMessage == "SUCCESS" {
-                    DispatchQueue.main.async {
+                DispatchQueue.main.async {
+                    if resultMessage == "SUCCESS" {
+                        
                         do {
                             
                             let responseData = decoded.responseData
                             
-                            self.appDelegate?.userToken = responseData.token
+                            self.appDelegate?.userToken = responseData.token ?? ""
                             self.appDelegate?.userEmail = responseData.email
-                            self.appDelegate?.userName = responseData.name
+                            self.appDelegate?.userName = responseData.name ?? ""
                             
                             if responseData.profileImagePath != nil {
                                 self.appDelegate?.userProfile = responseData.profileImagePath!
@@ -111,6 +112,9 @@ class ViewController: UIViewController {
                             mainView.modalPresentationStyle = .fullScreen
                             self.navigationController?.show(mainView, sender: nil)
                         }
+                        
+                    } else {
+                        self.loginAlert(message: resultMessage)
                     }
                 }
             }
