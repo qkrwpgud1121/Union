@@ -14,6 +14,9 @@
 		F84D56522ADFE2D2006117CE /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84D56512ADFE2D2006117CE /* ListViewModel.swift */; };
 		F84E84872AE2579400035F26 /* NewPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E84862AE2579400035F26 /* NewPostModel.swift */; };
 		F8582FE42A92766C00478181 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8582FE32A92766C00478181 /* SideMenuViewController.swift */; };
+		F85BAAFD2B03800F00BCD5C4 /* PasswordChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85BAAFC2B03800F00BCD5C4 /* PasswordChange.swift */; };
+		F85BAB002B03863F00BCD5C4 /* PwdChangeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85BAAFF2B03863F00BCD5C4 /* PwdChangeService.swift */; };
+		F85BAB022B03869A00BCD5C4 /* PwdChangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85BAB012B03869A00BCD5C4 /* PwdChangeModel.swift */; };
 		F863A5BF2ADCDD2800B77527 /* ListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F863A5BE2ADCDD2800B77527 /* ListService.swift */; };
 		F863A5C22ADCF7E500B77527 /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F863A5C12ADCF7E500B77527 /* ListModel.swift */; };
 		F86D7E0F2AE6342400815638 /* MyPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86D7E0E2AE6342400815638 /* MyPostTableViewCell.swift */; };
@@ -48,6 +51,9 @@
 		F84D56512ADFE2D2006117CE /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		F84E84862AE2579400035F26 /* NewPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostModel.swift; sourceTree = "<group>"; };
 		F8582FE32A92766C00478181 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
+		F85BAAFC2B03800F00BCD5C4 /* PasswordChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordChange.swift; sourceTree = "<group>"; };
+		F85BAAFF2B03863F00BCD5C4 /* PwdChangeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PwdChangeService.swift; sourceTree = "<group>"; };
+		F85BAB012B03869A00BCD5C4 /* PwdChangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PwdChangeModel.swift; sourceTree = "<group>"; };
 		F863A5BE2ADCDD2800B77527 /* ListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListService.swift; sourceTree = "<group>"; };
 		F863A5C12ADCF7E500B77527 /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
 		F86D7E0E2AE6342400815638 /* MyPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostTableViewCell.swift; sourceTree = "<group>"; };
@@ -128,6 +134,7 @@
 				F8F0362F2AE7723100FDF747 /* ListDetailService.swift */,
 				F80472802AEA99140079EB38 /* LoginService.swift */,
 				F8E4D0332AEBB23C00468EE0 /* ProfileService.swift */,
+				F85BAAFF2B03863F00BCD5C4 /* PwdChangeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -140,6 +147,7 @@
 				F86D7E122AE64A4700815638 /* MyPostModel.swift */,
 				F804727E2AEA98F60079EB38 /* LoginModel.swift */,
 				F8E4D0352AEBB28800468EE0 /* ProfileModel.swift */,
+				F85BAB012B03869A00BCD5C4 /* PwdChangeModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -193,6 +201,7 @@
 				F8DADACC2A96055300E0A643 /* MyProfile.swift */,
 				F8F2496E2A98330000E13B60 /* NewPost.swift */,
 				F86D7E102AE63ED300815638 /* MyPost.swift */,
+				F85BAAFC2B03800F00BCD5C4 /* PasswordChange.swift */,
 			);
 			path = Union;
 			sourceTree = "<group>";
@@ -314,6 +323,7 @@
 			files = (
 				F84E84872AE2579400035F26 /* NewPostModel.swift in Sources */,
 				F88531D52AA0565000C5AB19 /* MainTableViewCell.swift in Sources */,
+				F85BAAFD2B03800F00BCD5C4 /* PasswordChange.swift in Sources */,
 				F87809FC2A90EC8B004CB0D8 /* BannerCell.swift in Sources */,
 				F804727F2AEA98F60079EB38 /* LoginModel.swift in Sources */,
 				F86D7E112AE63ED300815638 /* MyPost.swift in Sources */,
@@ -324,6 +334,7 @@
 				F8B2B3182A86219800CAD9A7 /* ViewController.swift in Sources */,
 				F8FDCEC12AD169BA00B41F2F /* ListDetail.swift in Sources */,
 				F8B2B3142A86219800CAD9A7 /* AppDelegate.swift in Sources */,
+				F85BAB022B03869A00BCD5C4 /* PwdChangeModel.swift in Sources */,
 				F80E38D82A8B13D70014529C /* Temp.swift in Sources */,
 				F87C66C52A90DE23002B66C9 /* MainList.swift in Sources */,
 				F80472812AEA99140079EB38 /* LoginService.swift in Sources */,
@@ -331,6 +342,7 @@
 				F863A5C22ADCF7E500B77527 /* ListModel.swift in Sources */,
 				F8787BD12AF2A5FF00B4C40F /* CustomSideMenuNavigation.swift in Sources */,
 				F8E4D0342AEBB23C00468EE0 /* ProfileService.swift in Sources */,
+				F85BAB002B03863F00BCD5C4 /* PwdChangeService.swift in Sources */,
 				F8F2496F2A98330000E13B60 /* NewPost.swift in Sources */,
 				F84D56522ADFE2D2006117CE /* ListViewModel.swift in Sources */,
 				F863A5BF2ADCDD2800B77527 /* ListService.swift in Sources */,

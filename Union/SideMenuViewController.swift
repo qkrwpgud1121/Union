@@ -72,12 +72,14 @@ class SideMenuViewController: UIViewController {
             
                     let resultMessage = jsonObject["resultMessage"] as? String
             
-                    if resultMessage == "SUCCESS" {
-                        
-                        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                        let mainView = storyboard.instantiateViewController(identifier: "ViewController")
-                        mainView.modalPresentationStyle = .fullScreen
-                        self.navigationController?.show(mainView, sender: nil)
+                    DispatchQueue.main.async {
+                        if resultMessage == "SUCCESS" {
+                            
+                            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                            let mainView = storyboard.instantiateViewController(identifier: "ViewController")
+                            mainView.modalPresentationStyle = .fullScreen
+                            self.navigationController?.show(mainView, sender: nil)
+                        }
                     }
             
                 } catch let e as NSError {

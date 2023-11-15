@@ -500,7 +500,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="mZS-PL-Gp3">
-                                <rect key="frame" x="16" y="116" width="361" height="284"/>
+                                <rect key="frame" x="16" y="116" width="361" height="344"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esv-8x-wqH">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="44"/>
@@ -546,8 +546,19 @@
                                             <segue destination="ufI-s2-jQ3" kind="show" id="Vge-AM-FIL"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LWF-o7-vvb">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zP-nW-d9L">
                                         <rect key="frame" x="0.0" y="240" width="361" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="gD6-Bv-Q6a"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="비밀변호 변경"/>
+                                        <connections>
+                                            <segue destination="a5Y-Sb-0r0" kind="show" id="LZj-SW-Ubw"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LWF-o7-vvb">
+                                        <rect key="frame" x="0.0" y="300" width="361" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="Mfh-7L-kcS"/>
                                         </constraints>
@@ -581,7 +592,7 @@
             </objects>
             <point key="canvasLocation" x="2999" y="-49"/>
         </scene>
-        <!--New Post-->
+        <!--새 글 작성-->
         <scene sceneID="ROZ-YT-I8A">
             <objects>
                 <viewController storyboardIdentifier="NewPost" id="DkA-zb-IMM" customClass="NewPost" customModule="Union" customModuleProvider="target" sceneMemberID="viewController">
@@ -887,7 +898,7 @@
                             <constraint firstItem="d82-Ef-Hoa" firstAttribute="trailing" secondItem="8tk-Dz-5aa" secondAttribute="trailing" id="ov0-KE-663"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="QA9-x1-Rln">
+                    <navigationItem key="navigationItem" title="새 글 작성" id="QA9-x1-Rln">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="gfu-cy-2YA">
                             <connections>
                                 <action selector="saveNewPost:" destination="DkA-zb-IMM" id="L8k-6j-pKK"/>
@@ -914,7 +925,7 @@
             </objects>
             <point key="canvasLocation" x="3823.6641221374043" y="-136.61971830985917"/>
         </scene>
-        <!--My Post-->
+        <!--내 작성글-->
         <scene sceneID="qMK-dN-gXa">
             <objects>
                 <viewController storyboardIdentifier="MyPost" id="bfq-AG-KwG" customClass="MyPost" customModule="Union" customModuleProvider="target" sceneMemberID="viewController">
@@ -1010,7 +1021,7 @@
                             <constraint firstItem="kgV-gs-K6h" firstAttribute="top" secondItem="Nsa-wA-VUd" secondAttribute="top" id="tFl-4c-aRL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="My Post" id="3v7-rf-Xtl"/>
+                    <navigationItem key="navigationItem" title="내 작성글" id="3v7-rf-Xtl"/>
                     <connections>
                         <outlet property="myPostTableView" destination="kgV-gs-K6h" id="p6O-Gu-pMv"/>
                         <outlet property="navigationBar" destination="3v7-rf-Xtl" id="6Lp-o8-Q6Z"/>
@@ -1020,7 +1031,75 @@
             </objects>
             <point key="canvasLocation" x="4628" y="-49"/>
         </scene>
-        <!--My Favorite-->
+        <!--비밀번호 변경-->
+        <scene sceneID="bbo-JM-bp9">
+            <objects>
+                <viewController id="a5Y-Sb-0r0" customClass="PasswordChange" customModule="Union" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="D3D-Ls-2Hc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="현재 비밀번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JXv-x6-k7n">
+                                <rect key="frame" x="16" y="72" width="361" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="새 비밀번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jRT-Lw-zZW">
+                                <rect key="frame" x="16" y="122" width="361" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="새 비밀번호 확인" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a9Q-nS-3jS">
+                                <rect key="frame" x="16" y="172" width="361" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="비밀번호는 문자와 숫자를 포함한 8자리 이상, 특수 문자가 1개 이상 포함 되어야 합니다." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ikm-K6-8Ox">
+                                <rect key="frame" x="16" y="222" width="361" height="54"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="m6y-qJ-CTI"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="mHd-uq-LDw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="mHd-uq-LDw" firstAttribute="trailing" secondItem="JXv-x6-k7n" secondAttribute="trailing" constant="16" id="FU6-l7-x7E"/>
+                            <constraint firstItem="JXv-x6-k7n" firstAttribute="top" secondItem="mHd-uq-LDw" secondAttribute="top" constant="16" id="OqW-Ml-KNy"/>
+                            <constraint firstItem="jRT-Lw-zZW" firstAttribute="top" secondItem="JXv-x6-k7n" secondAttribute="bottom" constant="16" id="P1I-5N-wpB"/>
+                            <constraint firstItem="mHd-uq-LDw" firstAttribute="trailing" secondItem="a9Q-nS-3jS" secondAttribute="trailing" constant="16" id="PHO-jy-ua2"/>
+                            <constraint firstItem="jRT-Lw-zZW" firstAttribute="leading" secondItem="mHd-uq-LDw" secondAttribute="leading" constant="16" id="Q6z-Or-MI5"/>
+                            <constraint firstItem="Ikm-K6-8Ox" firstAttribute="top" secondItem="a9Q-nS-3jS" secondAttribute="bottom" constant="16" id="Udy-tV-Lay"/>
+                            <constraint firstItem="JXv-x6-k7n" firstAttribute="leading" secondItem="mHd-uq-LDw" secondAttribute="leading" constant="16" id="VNE-ZY-Wml"/>
+                            <constraint firstItem="mHd-uq-LDw" firstAttribute="trailing" secondItem="jRT-Lw-zZW" secondAttribute="trailing" constant="16" id="cVZ-al-eMC"/>
+                            <constraint firstItem="Ikm-K6-8Ox" firstAttribute="leading" secondItem="mHd-uq-LDw" secondAttribute="leading" constant="16" id="dAZ-j1-YpT"/>
+                            <constraint firstItem="mHd-uq-LDw" firstAttribute="trailing" secondItem="Ikm-K6-8Ox" secondAttribute="trailing" constant="16" id="dhK-lk-ihH"/>
+                            <constraint firstItem="a9Q-nS-3jS" firstAttribute="top" secondItem="jRT-Lw-zZW" secondAttribute="bottom" constant="16" id="eFT-PV-zFF"/>
+                            <constraint firstItem="a9Q-nS-3jS" firstAttribute="leading" secondItem="mHd-uq-LDw" secondAttribute="leading" constant="16" id="oaP-np-hxX"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="비밀번호 변경" id="RMN-ZV-N04">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="9PW-dz-hg8">
+                            <connections>
+                                <action selector="changePwd:" destination="a5Y-Sb-0r0" id="1lZ-1D-ncF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="changePwd" destination="jRT-Lw-zZW" id="29i-0n-MKn"/>
+                        <outlet property="changePwdChk" destination="a9Q-nS-3jS" id="yj6-eo-weB"/>
+                        <outlet property="currentPwd" destination="JXv-x6-k7n" id="wbe-fE-lz8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4kr-VP-3Xg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2997.709923664122" y="633.80281690140851"/>
+        </scene>
+        <!--내 관심글-->
         <scene sceneID="Pz6-DF-RgF">
             <objects>
                 <viewController id="t2B-l7-pjm" sceneMemberID="viewController">
@@ -1052,13 +1131,13 @@
                             <constraint firstItem="HHS-LM-cZ8" firstAttribute="bottom" secondItem="PII-Hc-Dzk" secondAttribute="bottom" id="xDY-2v-aU4"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="My Favorite" id="H49-e4-epq"/>
+                    <navigationItem key="navigationItem" title="내 관심글" id="H49-e4-epq"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="feS-cF-LDD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3822" y="634"/>
         </scene>
-        <!--My Profile-->
+        <!--내 정보-->
         <scene sceneID="nWB-YL-nbR">
             <objects>
                 <viewController id="ufI-s2-jQ3" customClass="MyProfile" customModule="Union" customModuleProvider="target" sceneMemberID="viewController">
@@ -1250,7 +1329,7 @@
                             <constraint firstItem="805-Ld-3Cj" firstAttribute="top" secondItem="S34-kG-N6K" secondAttribute="top" id="xkG-ab-JmI"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Oxf-jc-F2N">
+                    <navigationItem key="navigationItem" title="내 정보" id="Oxf-jc-F2N">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="42z-xf-QJU">
                             <connections>
                                 <action selector="profileSave:" destination="ufI-s2-jQ3" id="qxc-8d-XnR"/>
@@ -1343,21 +1422,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kpL-Ug-N3W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="497" y="632"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="aXA-7j-BBy">
-            <objects>
-                <viewController id="Mhg-0j-DNI" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ROL-Mt-1l7">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="ee2-3l-jWE"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="12b-jr-MPH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1314" y="632"/>
         </scene>
         <!--List Detail-->
         <scene sceneID="AMf-lo-dEy">
