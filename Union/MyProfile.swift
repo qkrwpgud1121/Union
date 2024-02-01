@@ -68,7 +68,7 @@ class MyProfile: UIViewController {
         
         let paramData = try? encoder.encode(param)
         
-        let url = URL(string: "http://localhost:8080/union/api/user/profile/getDetail")!
+        let url = URL(string: "http://43.201.53.148:8080/union/api/user/profile/getDetail")!
         
         ProfileService().getProfile(url: url, param: paramData!) { //1
             (decoded) in
@@ -375,7 +375,7 @@ class MyProfile: UIViewController {
         let requestData = saveProfileRequest(email: appDelegate!.userEmail, name: nickName.text!, hopeJob: userHopeJob, career: userCareer, introduction: introduction.text, portfolioLink: requestPortfolioLink)
         let param = try? encoder.encode(requestData)
         
-        let requestURL = "http://localhost:8080/union/api/user/profile/modify"
+        let requestURL = "http://43.201.53.148:8080/union/api/user/profile/modify"
         
         let url = URL(string: requestURL)
         ProfileService().setProfile(with: requestData, url: url!, param: param!, image: imgView.image!, imageName: saveImageName) { //1
@@ -401,7 +401,6 @@ extension MyProfile : UIImagePickerControllerDelegate, UINavigationControllerDel
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let documentsDirectory = FileManager.default.urls(for: .documentDirectory,in: .userDomainMask).first!
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage{
-
             imgView.image = image
             
             if let imageUrl = info[UIImagePickerController.InfoKey.referenceURL] as? URL{

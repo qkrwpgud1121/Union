@@ -96,15 +96,15 @@ class NewPost: UIViewController {
     @IBAction func saveNewPost(_ sender: UIBarButtonItem) {
         
         if stackArray.isEmpty {
-            newPostAlert(message: "필요 스택", resutlCode: "1")
+            newPostAlert(message: "필요 스택", resultCode: "1")
         } else if positionArray.isEmpty {
-            newPostAlert(message: "희망 포지션", resutlCode: "1")
+            newPostAlert(message: "희망 포지션", resultCode: "1")
         } else if contact.text!.isEmpty {
-            newPostAlert(message: "연락처", resutlCode: "1")
+            newPostAlert(message: "연락처", resultCode: "1")
         } else if postTitle.text!.isEmpty {
-            newPostAlert(message: "제목", resutlCode: "1")
+            newPostAlert(message: "제목", resultCode: "1")
         } else if postDetail.text!.isEmpty {
-            newPostAlert(message: "내용", resutlCode: "1")
+            newPostAlert(message: "내용", resultCode: "1")
         } else {
             
             let encoder = JSONEncoder()
@@ -113,9 +113,9 @@ class NewPost: UIViewController {
                 
             var requestURL: String = ""
             if segueType == "modify" {
-                requestURL = "http://localhost:8080/union/api/union/board/modify"
+                requestURL = "http://43.201.53.148:8080/union/api/union/board/modify"
             } else {
-                requestURL = "http://localhost:8080/union/api/union/board/write"
+                requestURL = "http://43.201.53.148:8080/union/api/union/board/write"
             }
             let url = URL(string: requestURL)
             ListDetailService().setListDetail(url: url!, param: param!) { //1
@@ -448,23 +448,28 @@ class NewPost: UIViewController {
         createTagCloud(OnView: self.positionView, withArray: positionArray as [AnyObject], div: 1)
     }
     
-    func newPostAlert(message: String, resutlCode: String) {
+    func newPostAlert(message: String, resultCode: String) {
         
         var message = message
         
-        if resutlCode != "0" {
+        if resultCode != "0" {
             message = "\(message)을 입력해 주세요."
+            
+            let alert = UIAlertController(title: message, message: "", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "확인", style: .default)
+            alert.addAction(ok)
+            self.present(alert, animated: true)
+        } else {
+            let alert = UIAlertController(title: message, message: "", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "확인", style: .default){_ in
+                let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                let mainView = storyboard.instantiateViewController(identifier: "MainList")
+                mainView.modalPresentationStyle = .fullScreen
+                self.navigationController?.show(mainView, sender: nil)
+            }
+            alert.addAction(ok)
+            self.present(alert, animated: true)
         }
-        
-        let alert = UIAlertController(title: message, message: "", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "확인", style: .default){_ in
-            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-            let mainView = storyboard.instantiateViewController(identifier: "MainList")
-            mainView.modalPresentationStyle = .fullScreen
-            self.navigationController?.show(mainView, sender: nil)
-        }
-        alert.addAction(ok)
-        self.present(alert, animated: true)
     }
     
 }

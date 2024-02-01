@@ -10,6 +10,7 @@
 		89E556B10FA578E74E398E2E /* Pods_Union.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D50AD0E277A97C5891D62A83 /* Pods_Union.framework */; };
 		F804727F2AEA98F60079EB38 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F804727E2AEA98F60079EB38 /* LoginModel.swift */; };
 		F80472812AEA99140079EB38 /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80472802AEA99140079EB38 /* LoginService.swift */; };
+		F80D02DC2B0E434C006AC828 /* fastlane in Resources */ = {isa = PBXBuildFile; fileRef = F80D02DB2B0E434C006AC828 /* fastlane */; };
 		F80E38D82A8B13D70014529C /* Temp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80E38D72A8B13D70014529C /* Temp.swift */; };
 		F84D56522ADFE2D2006117CE /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84D56512ADFE2D2006117CE /* ListViewModel.swift */; };
 		F84E84872AE2579400035F26 /* NewPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84E84862AE2579400035F26 /* NewPostModel.swift */; };
@@ -47,6 +48,7 @@
 		D50AD0E277A97C5891D62A83 /* Pods_Union.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Union.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F804727E2AEA98F60079EB38 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		F80472802AEA99140079EB38 /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		F80D02DB2B0E434C006AC828 /* fastlane */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fastlane; sourceTree = "<group>"; };
 		F80E38D72A8B13D70014529C /* Temp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temp.swift; sourceTree = "<group>"; };
 		F84D56512ADFE2D2006117CE /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		F84E84862AE2579400035F26 /* NewPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostModel.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 		F86D7E0E2AE6342400815638 /* MyPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostTableViewCell.swift; sourceTree = "<group>"; };
 		F86D7E102AE63ED300815638 /* MyPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPost.swift; sourceTree = "<group>"; };
 		F86D7E122AE64A4700815638 /* MyPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostModel.swift; sourceTree = "<group>"; };
+		F873B3EB2B69E0DF0080116A /* index.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = index.md; sourceTree = "<group>"; };
 		F87809FB2A90EC8B004CB0D8 /* BannerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 		F8787BD02AF2A5FF00B4C40F /* CustomSideMenuNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSideMenuNavigation.swift; sourceTree = "<group>"; };
 		F87C66C42A90DE23002B66C9 /* MainList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainList.swift; sourceTree = "<group>"; };
@@ -164,6 +167,7 @@
 		F8B2B3072A86219800CAD9A7 = {
 			isa = PBXGroup;
 			children = (
+				F873B3EB2B69E0DF0080116A /* index.md */,
 				F8B2B3122A86219800CAD9A7 /* Union */,
 				F8B2B3112A86219800CAD9A7 /* Products */,
 				A1E853DAD2176CF9D457D6EE /* Pods */,
@@ -182,6 +186,7 @@
 		F8B2B3122A86219800CAD9A7 /* Union */ = {
 			isa = PBXGroup;
 			children = (
+				F80D02DB2B0E434C006AC828 /* fastlane */,
 				F84D56502ADFE286006117CE /* ViewModels */,
 				F84D564F2ADFB5F1006117CE /* Cells */,
 				F863A5C52ADD7D1D00B77527 /* Delegates */,
@@ -268,6 +273,7 @@
 			files = (
 				F8B2B3202A86219900CAD9A7 /* LaunchScreen.storyboard in Resources */,
 				F8B2B31D2A86219900CAD9A7 /* Assets.xcassets in Resources */,
+				F80D02DC2B0E434C006AC828 /* fastlane in Resources */,
 				F8B2B31B2A86219800CAD9A7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

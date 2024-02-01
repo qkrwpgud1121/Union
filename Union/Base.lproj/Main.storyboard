@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lRX-kz-rie">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lRX-kz-rie">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
@@ -27,7 +28,7 @@
             </objects>
             <point key="canvasLocation" x="-1102" y="-49"/>
         </scene>
-        <!--Log In-->
+        <!--로그인-->
         <scene sceneID="ZiB-qH-r0X">
             <objects>
                 <viewController storyboardIdentifier="ViewController" id="k9N-nb-ecN" customClass="ViewController" customModule="Union" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,9 +38,8 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jlx-De-Me6">
                                 <rect key="frame" x="16" y="127" width="361" height="34"/>
-                                <color key="backgroundColor" red="0.14029276369999999" green="0.1450593174" blue="0.23322844509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -50,9 +50,8 @@
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KBZ-r0-hAA">
                                 <rect key="frame" x="16" y="177" width="361" height="34"/>
-                                <color key="backgroundColor" red="0.14029276369999999" green="0.1450593174" blue="0.23322844509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -63,10 +62,10 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYv-9b-B5u">
                                 <rect key="frame" x="16" y="227" width="361" height="22"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Remember Me" image="checkmark.square" catalog="system">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="session:" destination="k9N-nb-ecN" eventType="touchUpInside" id="JrN-qb-Ta6"/>
@@ -74,7 +73,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZH-ht-XD1">
                                 <rect key="frame" x="16" y="273" width="361" height="36"/>
-                                <color key="backgroundColor" red="0.82745099070000006" green="0.2823529541" blue="0.34901961679999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="27I-vT-v5v"/>
                                 </constraints>
@@ -94,7 +93,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="122" height="34"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="비밀번호 찾기">
-                                            <color key="baseForegroundColor" red="0.89735513929999999" green="0.2212501466" blue="0.33556646109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="baseForegroundColor" name="AccentColor"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="BS5-JQ-b9n" kind="show" id="YqB-Xc-bE0"/>
@@ -102,7 +101,7 @@
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ME9-RD-3XX">
                                         <rect key="frame" x="122" y="0.0" width="1" height="34"/>
-                                        <color key="backgroundColor" red="0.89735513929999999" green="0.2212501466" blue="0.33556646109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" name="AccentColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="1" id="qQb-Bu-phA"/>
                                         </constraints>
@@ -117,7 +116,7 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="회원가입">
-                                            <color key="baseForegroundColor" red="0.89735513929999999" green="0.2212501466" blue="0.33556646109999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="baseForegroundColor" name="AccentColor"/>
                                         </buttonConfiguration>
                                         <connections>
                                             <segue destination="KgS-6p-zlA" kind="show" id="MD1-0Z-g0i"/>
@@ -143,7 +142,8 @@
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="RIA-lo-PrE"/>
-                        <color key="backgroundColor" red="0.1411764771" green="0.14509806040000001" blue="0.22745099660000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" name="AccentColor"/>
                         <constraints>
                             <constraint firstItem="Jlx-De-Me6" firstAttribute="top" secondItem="RIA-lo-PrE" secondAttribute="top" constant="24" id="5az-vS-AfL"/>
                             <constraint firstItem="cZH-ht-XD1" firstAttribute="top" secondItem="ZYv-9b-B5u" secondAttribute="bottom" constant="24" id="8RO-Nr-zsq"/>
@@ -162,7 +162,7 @@
                             <constraint firstItem="cZH-ht-XD1" firstAttribute="leading" secondItem="RIA-lo-PrE" secondAttribute="leading" constant="16" id="tPD-dC-fjg"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Log In" largeTitleDisplayMode="always" id="TWj-dg-ean"/>
+                    <navigationItem key="navigationItem" title="로그인" id="TWj-dg-ean"/>
                     <connections>
                         <outlet property="btnLogin" destination="cZH-ht-XD1" id="84N-qd-4On"/>
                         <outlet property="btnSession" destination="ZYv-9b-B5u" id="m9n-An-g3H"/>
@@ -1112,10 +1112,10 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="fK8-GO-HpG">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="44.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fK8-GO-HpG" id="KRn-eM-N1y">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -1734,6 +1734,9 @@
         <image name="person.3.fill" catalog="system" width="128" height="66"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <image name="스크린샷 2023-08-19 오후 9.13.13" width="242.66667175292969" height="96.666664123535156"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

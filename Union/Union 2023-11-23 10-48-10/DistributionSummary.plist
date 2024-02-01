@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Union.ipa</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>arm64</string>
+			</array>
+			<key>buildNumber</key>
+			<string>1</string>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>310D9FD79BCB5EE0AAFBFD1A92BFF67FD3070580</string>
+				<key>dateExpires</key>
+				<string>11/22/24</string>
+				<key>type</key>
+				<string>Cloud Managed Apple Distribution</string>
+			</dict>
+			<key>embeddedBinaries</key>
+			<array>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>buildNumber</key>
+					<string>1</string>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>310D9FD79BCB5EE0AAFBFD1A92BFF67FD3070580</string>
+						<key>dateExpires</key>
+						<string>11/22/24</string>
+						<key>type</key>
+						<string>Cloud Managed Apple Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>Alamofire.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>AV4C82XPGK</string>
+						<key>name</key>
+						<string>jehyeong park</string>
+					</dict>
+					<key>versionNumber</key>
+					<string>5.8.1</string>
+				</dict>
+				<dict>
+					<key>architectures</key>
+					<array>
+						<string>arm64</string>
+					</array>
+					<key>buildNumber</key>
+					<string>1</string>
+					<key>certificate</key>
+					<dict>
+						<key>SHA1</key>
+						<string>310D9FD79BCB5EE0AAFBFD1A92BFF67FD3070580</string>
+						<key>dateExpires</key>
+						<string>11/22/24</string>
+						<key>type</key>
+						<string>Cloud Managed Apple Distribution</string>
+					</dict>
+					<key>name</key>
+					<string>SideMenu.framework</string>
+					<key>team</key>
+					<dict>
+						<key>id</key>
+						<string>AV4C82XPGK</string>
+						<key>name</key>
+						<string>jehyeong park</string>
+					</dict>
+					<key>versionNumber</key>
+					<string>6.5.0</string>
+				</dict>
+			</array>
+			<key>entitlements</key>
+			<dict>
+				<key>application-identifier</key>
+				<string>AV4C82XPGK.none.Union</string>
+				<key>com.apple.developer.team-identifier</key>
+				<string>AV4C82XPGK</string>
+				<key>get-task-allow</key>
+				<false/>
+			</dict>
+			<key>name</key>
+			<string>Union.app</string>
+			<key>profile</key>
+			<dict>
+				<key>UUID</key>
+				<string>51ef6c44-bc55-4ca6-9d55-d456ea97270e</string>
+				<key>dateExpires</key>
+				<string>11/22/24</string>
+				<key>name</key>
+				<string>iOS Team Ad Hoc Provisioning Profile: none.Union</string>
+			</dict>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>AV4C82XPGK</string>
+				<key>name</key>
+				<string>jehyeong park</string>
+			</dict>
+			<key>versionNumber</key>
+			<string>1.0</string>
+		</dict>
+	</array>
+</dict>
+</plist>

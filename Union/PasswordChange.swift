@@ -35,7 +35,7 @@ class PasswordChange: UIViewController {
                     let requestData = pwdChangeRequest(email: appDelegate!.userEmail, password: currentPwd.text!, newPassword: changePwd.text!)
                     let param = try? encoder.encode(requestData)
                     
-                    let requestURL = "http://localhost:8080/union/api/user/change/password"
+                    let requestURL = "http://43.201.53.148:8080/union/api/user/change/password"
                     
                     let url = URL(string: requestURL)
                     

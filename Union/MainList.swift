@@ -103,7 +103,7 @@ class MainList: UIViewController, UITabBarDelegate{
         
         let paramData = try? encoder.encode(param)
         
-        let url = URL(string: "http://localhost:8080/union/api/union/board/getPagingList")!
+        let url = URL(string: "http://43.201.53.148:8080/union/api/union/board/getPagingList")!
         ListService().getMainList(url: url, param: paramData!, pagingNum: pagingNum) {
             (responseList) in
             

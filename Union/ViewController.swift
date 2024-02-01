@@ -21,12 +21,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        email.layer.borderColor = CGColor(red: 211/255, green: 72/255, blue: 89/255, alpha: 1)
+        self.hideKeyboar()
+        
+        email.layer.borderColor = CGColor(red: 0/255, green: 117/255, blue: 227/255, alpha: 1)
         email.layer.borderWidth = 1
         email.layer.cornerRadius = 15
         email.addLeftPadding()
         
-        password.layer.borderColor = CGColor(red: 211/255, green: 72/255, blue: 89/255, alpha: 1)
+        password.layer.borderColor = CGColor(red: 0/255, green: 117/255, blue: 227/255, alpha: 1)
         password.layer.borderWidth = 1
         password.layer.cornerRadius = 15
         password.addLeftPadding()
@@ -76,11 +78,12 @@ class ViewController: UIViewController {
             let pwd = password.text!
             
             let encoder = JSONEncoder()
+     
             let requestData = loginRequest(email: email, password: pwd)
             
             let param = try? encoder.encode(requestData)
             
-            let url = URL(string: "http://localhost:8080/union/api/user/login")
+            let url = URL(string: "http://43.201.53.148:8080/union/api/user/login")
             
             LoginService().getLog(url: url!, param: param!) { //1
                 (decoded) in
