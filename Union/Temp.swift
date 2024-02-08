@@ -29,7 +29,7 @@ class Temp: UIViewController {
             
             print(param)
             
-            let url = URL(string: "http://43.201.53.148:8080/union/api/user/issue/temporary-password")
+            let url = URL(string: "http://~/union/api/user/issue/temporary-password")
             
             var request = URLRequest(url: url!)
             request.httpMethod = "POST"

@@ -34,7 +34,7 @@ class Register: UIViewController {
             let param = ["email" : email, "password" : pwd, "name" : userName]
             let paramData = try! JSONSerialization.data(withJSONObject: param)
             
-            let url = URL(string: "http://43.201.53.148:8080/union/api/user/register")
+            let url = URL(string: "http://~/union/api/user/register")
             
             var request = URLRequest(url: url!)
             request.httpMethod = "POST"

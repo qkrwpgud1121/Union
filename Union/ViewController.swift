@@ -83,7 +83,7 @@ class ViewController: UIViewController {
             
             let param = try? encoder.encode(requestData)
             
-            let url = URL(string: "http://43.201.53.148:8080/union/api/user/login")
+            let url = URL(string: "http://~/union/api/user/login")
             
             LoginService().getLog(url: url!, param: param!) { //1
                 (decoded) in

@@ -113,9 +113,9 @@ class NewPost: UIViewController {
                 
             var requestURL: String = ""
             if segueType == "modify" {
-                requestURL = "http://43.201.53.148:8080/union/api/union/board/modify"
+                requestURL = "http://~/union/api/union/board/modify"
             } else {
-                requestURL = "http://43.201.53.148:8080/union/api/union/board/write"
+                requestURL = "http://~/union/api/union/board/write"
             }
             let url = URL(string: requestURL)
             ListDetailService().setListDetail(url: url!, param: param!) { //1

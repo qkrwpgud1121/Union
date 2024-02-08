@@ -49,7 +49,7 @@ class SideMenuViewController: UIViewController {
         let param = ["email" : email]
         let paramData = try! JSONSerialization.data(withJSONObject: param)
             
-        let url = URL(string: "http://43.201.53.148:8080/union/api/user/logout")
+        let url = URL(string: "http://~/union/api/user/logout")
             
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
@@ -112,7 +112,7 @@ class SideMenuViewController: UIViewController {
         let requestData = secessionRequest(email: email, password: pwd)
         let param = try? encoder.encode(requestData)
         
-        let requestURL = "http://43.201.53.148:8080/union/api/user/delete"
+        let requestURL = "http://~/union/api/user/delete"
         
         let url = URL(string: requestURL)
         
