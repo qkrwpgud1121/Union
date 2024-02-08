@@ -89,4 +89,63 @@ class SideMenuViewController: UIViewController {
         }
         task.resume()
     }
+    
+    @IBAction func secession(_ sender: UIButton) {
+        
+        let email = appDelegate?.userEmail
+        let pwd = appDelegate?.password
+        
+        let alert = UIAlertController(title: "회원 탈퇴", message: "회원 탈퇴 하시겠습니까?", preferredStyle: .alert)
+        let sucess = UIAlertAction(title: "확인", style: .default) { _ in
+            
+            self.secession(email: email!, pwd: pwd!)
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel)
+        alert.addAction(sucess)
+        alert.addAction(cancel)
+        self.present(alert, animated: true)
+    }
+    
+    func secession(email: String, pwd: String) {
+        
+        let encoder = JSONEncoder()
+        let requestData = secessionRequest(email: email, password: pwd)
+        let param = try? encoder.encode(requestData)
+        
+        let requestURL = "http://43.201.53.148:8080/union/api/user/delete"
+        
+        let url = URL(string: requestURL)
+        
+        SecessionService().secession(url: url!, param: param!) {
+            (decoded) in
+            
+            let resultMessage = decoded.resultMessage
+            print(resultMessage)
+            DispatchQueue.main.async {
+                if resultMessage == "SUCCESS" {
+                    self.secessionAlert(message: resultMessage)
+                }
+            }
+        }
+    }
+    
+    func secessionAlert(message: String) {
+        
+        let message: String = message
+        
+        let alert = UIAlertController(title: "회원 탈퇴", message: message, preferredStyle: .alert)
+        
+        let sucess = UIAlertAction(title: "확인", style: .default) { _ in
+            let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+            let mainView = storyboard.instantiateViewController(identifier: "ViewController")
+            mainView.modalPresentationStyle = .fullScreen
+            self.navigationController?.show(mainView, sender: nil)
+        }
+        
+        alert.addAction(sucess)
+        
+        self.present(alert, animated: true)
+        
+    }
+    
 }

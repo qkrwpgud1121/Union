@@ -100,6 +100,7 @@ class ViewController: UIViewController {
                             self.appDelegate?.userToken = responseData.token ?? ""
                             self.appDelegate?.userEmail = responseData.email
                             self.appDelegate?.userName = responseData.name ?? ""
+                            self.appDelegate?.password = self.password.text!
                             
                             if responseData.profileImagePath != nil {
                                 self.appDelegate?.userProfile = responseData.profileImagePath!

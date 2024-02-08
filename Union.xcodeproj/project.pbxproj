@@ -33,6 +33,8 @@
 		F8B2B31B2A86219800CAD9A7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8B2B3192A86219800CAD9A7 /* Main.storyboard */; };
 		F8B2B31D2A86219900CAD9A7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8B2B31C2A86219900CAD9A7 /* Assets.xcassets */; };
 		F8B2B3202A86219900CAD9A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8B2B31E2A86219900CAD9A7 /* LaunchScreen.storyboard */; };
+		F8BCA1982B74744B00B3AA9E /* SecessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BCA1972B74744B00B3AA9E /* SecessionModel.swift */; };
+		F8BCA19A2B74AE0D00B3AA9E /* SecessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BCA1992B74AE0D00B3AA9E /* SecessionService.swift */; };
 		F8DADACD2A96055300E0A643 /* MyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DADACC2A96055300E0A643 /* MyProfile.swift */; };
 		F8DEC4FE2A8B47FD00820B35 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DEC4FD2A8B47FD00820B35 /* Register.swift */; };
 		F8E4D0342AEBB23C00468EE0 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E4D0332AEBB23C00468EE0 /* ProfileService.swift */; };
@@ -74,6 +76,8 @@
 		F8B2B31C2A86219900CAD9A7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F8B2B31F2A86219900CAD9A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F8B2B3212A86219900CAD9A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8BCA1972B74744B00B3AA9E /* SecessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecessionModel.swift; sourceTree = "<group>"; };
+		F8BCA1992B74AE0D00B3AA9E /* SecessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecessionService.swift; sourceTree = "<group>"; };
 		F8DADACC2A96055300E0A643 /* MyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfile.swift; sourceTree = "<group>"; };
 		F8DEC4FD2A8B47FD00820B35 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		F8E4D0332AEBB23C00468EE0 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
@@ -138,6 +142,7 @@
 				F80472802AEA99140079EB38 /* LoginService.swift */,
 				F8E4D0332AEBB23C00468EE0 /* ProfileService.swift */,
 				F85BAAFF2B03863F00BCD5C4 /* PwdChangeService.swift */,
+				F8BCA1992B74AE0D00B3AA9E /* SecessionService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 				F804727E2AEA98F60079EB38 /* LoginModel.swift */,
 				F8E4D0352AEBB28800468EE0 /* ProfileModel.swift */,
 				F85BAB012B03869A00BCD5C4 /* PwdChangeModel.swift */,
+				F8BCA1972B74744B00B3AA9E /* SecessionModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -337,6 +343,7 @@
 				F86D7E0F2AE6342400815638 /* MyPostTableViewCell.swift in Sources */,
 				F86D7E132AE64A4700815638 /* MyPostModel.swift in Sources */,
 				F8DADACD2A96055300E0A643 /* MyProfile.swift in Sources */,
+				F8BCA19A2B74AE0D00B3AA9E /* SecessionService.swift in Sources */,
 				F8B2B3182A86219800CAD9A7 /* ViewController.swift in Sources */,
 				F8FDCEC12AD169BA00B41F2F /* ListDetail.swift in Sources */,
 				F8B2B3142A86219800CAD9A7 /* AppDelegate.swift in Sources */,
@@ -354,6 +361,7 @@
 				F863A5BF2ADCDD2800B77527 /* ListService.swift in Sources */,
 				F8F036302AE7723100FDF747 /* ListDetailService.swift in Sources */,
 				F8582FE42A92766C00478181 /* SideMenuViewController.swift in Sources */,
+				F8BCA1982B74744B00B3AA9E /* SecessionModel.swift in Sources */,
 				F8DEC4FE2A8B47FD00820B35 /* Register.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,11 +513,13 @@
 				DEVELOPMENT_TEAM = AV4C82XPGK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Union/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera Permission Request";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Photo Library Permission Request";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -519,7 +529,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -534,11 +544,13 @@
 				DEVELOPMENT_TEAM = AV4C82XPGK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Union/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera Permission Request";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Photo Library Permission Request";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -548,7 +560,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

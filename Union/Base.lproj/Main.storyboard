@@ -500,7 +500,7 @@
                                 </constraints>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="mZS-PL-Gp3">
-                                <rect key="frame" x="16" y="116" width="361" height="344"/>
+                                <rect key="frame" x="16" y="115.99999999999997" width="361" height="334.33333333333326"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Esv-8x-wqH">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="44"/>
@@ -524,19 +524,8 @@
                                             <segue destination="bfq-AG-KwG" kind="show" id="7Ol-Bt-sTO"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qgR-is-BL8">
-                                        <rect key="frame" x="0.0" y="120" width="361" height="44"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="44" id="C3W-Gb-069"/>
-                                        </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="내 관심글"/>
-                                        <connections>
-                                            <segue destination="t2B-l7-pjm" kind="show" id="FjI-BV-i6i"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Se5-bZ-RZW">
-                                        <rect key="frame" x="0.0" y="180" width="361" height="44"/>
+                                        <rect key="frame" x="0.0" y="120" width="361" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="tI9-zD-e6j"/>
                                         </constraints>
@@ -547,7 +536,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zP-nW-d9L">
-                                        <rect key="frame" x="0.0" y="240" width="361" height="44"/>
+                                        <rect key="frame" x="0.0" y="180" width="361" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="gD6-Bv-Q6a"/>
                                         </constraints>
@@ -558,7 +547,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LWF-o7-vvb">
-                                        <rect key="frame" x="0.0" y="300" width="361" height="44"/>
+                                        <rect key="frame" x="0.0" y="240" width="361" height="44"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="Mfh-7L-kcS"/>
                                         </constraints>
@@ -566,6 +555,14 @@
                                         <buttonConfiguration key="configuration" style="plain" title="로그 아웃"/>
                                         <connections>
                                             <action selector="logOut:" destination="2GJ-MI-osB" eventType="touchUpInside" id="erC-po-Iub"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uOB-8O-ubV">
+                                        <rect key="frame" x="0.0" y="300" width="361" height="34.333333333333314"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="회원 탈퇴"/>
+                                        <connections>
+                                            <action selector="secession:" destination="2GJ-MI-osB" eventType="touchUpInside" id="gdR-If-Yzh"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1104,11 +1101,11 @@
             <objects>
                 <viewController id="t2B-l7-pjm" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IQN-ku-XAZ">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PII-Hc-Dzk">
-                                <rect key="frame" x="0.0" y="56" width="393" height="786"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="fK8-GO-HpG">
