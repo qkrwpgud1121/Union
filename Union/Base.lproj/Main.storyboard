@@ -38,8 +38,6 @@
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-mail" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jlx-De-Me6">
                                 <rect key="frame" x="16" y="127" width="361" height="34"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
@@ -50,8 +48,6 @@
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KBZ-r0-hAA">
                                 <rect key="frame" x="16" y="177" width="361" height="34"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
@@ -90,7 +86,7 @@
                                 <rect key="frame" x="80" y="325" width="233" height="34"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifo-nK-Z9p">
-                                        <rect key="frame" x="0.0" y="0.0" width="122" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="123" height="34"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="비밀번호 찾기">
                                             <color key="baseForegroundColor" name="AccentColor"/>
@@ -99,16 +95,6 @@
                                             <segue destination="BS5-JQ-b9n" kind="show" id="YqB-Xc-bE0"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ME9-RD-3XX">
-                                        <rect key="frame" x="122" y="0.0" width="1" height="34"/>
-                                        <color key="backgroundColor" name="AccentColor"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="1" id="qQb-Bu-phA"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0el-qi-iRE">
                                         <rect key="frame" x="123" y="0.0" width="110" height="34"/>
                                         <constraints>
@@ -130,12 +116,10 @@
                                     <constraint firstAttribute="height" constant="34" id="Hwq-iP-0iN"/>
                                     <constraint firstItem="ifo-nK-Z9p" firstAttribute="top" secondItem="mwe-rR-G0w" secondAttribute="top" id="LsK-uY-w4n"/>
                                     <constraint firstAttribute="bottom" secondItem="ifo-nK-Z9p" secondAttribute="bottom" id="MaI-uA-Ohe"/>
-                                    <constraint firstItem="ME9-RD-3XX" firstAttribute="top" secondItem="mwe-rR-G0w" secondAttribute="top" id="Mjz-M4-ljR"/>
                                     <constraint firstItem="0el-qi-iRE" firstAttribute="top" secondItem="mwe-rR-G0w" secondAttribute="top" id="NJ3-zu-8wL"/>
                                     <constraint firstItem="ifo-nK-Z9p" firstAttribute="leading" secondItem="mwe-rR-G0w" secondAttribute="leading" id="S2E-d7-Kgx"/>
                                     <constraint firstAttribute="bottom" secondItem="0el-qi-iRE" secondAttribute="bottom" id="Wc8-j1-duV"/>
                                     <constraint firstItem="ifo-nK-Z9p" firstAttribute="top" secondItem="mwe-rR-G0w" secondAttribute="top" id="Ytp-iP-BSi"/>
-                                    <constraint firstAttribute="bottom" secondItem="ME9-RD-3XX" secondAttribute="bottom" id="dPt-VP-lky"/>
                                     <constraint firstAttribute="bottom" secondItem="ifo-nK-Z9p" secondAttribute="bottom" id="nCn-OK-Z5j"/>
                                     <constraint firstItem="ifo-nK-Z9p" firstAttribute="top" secondItem="mwe-rR-G0w" secondAttribute="top" id="obR-oR-Bi6"/>
                                 </constraints>
@@ -1027,6 +1011,102 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6us-rv-m1j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4628" y="-49"/>
+        </scene>
+        <!--Camera Permission-->
+        <scene sceneID="B2F-Qd-VL8">
+            <objects>
+                <viewController storyboardIdentifier="CameraPermission" id="XVg-zW-lMp" customClass="CameraPermission" customModule="Union" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ygt-bL-s7B">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카메라에 접근할 수 있도록 허가해 주세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r8s-Er-jFe">
+                                <rect key="frame" x="16" y="356" width="361" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="카메라 촬영을 하려면 권한 허용이 필요합니다. 프로필 사진 촬영을 위해 카메라 접근 권한을 허용해 주세요." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xY-4j-VS0">
+                                <rect key="frame" x="16" y="406" width="361" height="40.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCq-Oe-n3O">
+                                <rect key="frame" x="16" y="472.66666666666669" width="361" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="카메라 권한 허용"/>
+                                <connections>
+                                    <action selector="openSetting:" destination="XVg-zW-lMp" eventType="touchUpInside" id="QdH-kH-8An"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="9Ob-Ud-FRa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="r8s-Er-jFe" firstAttribute="top" secondItem="9Ob-Ud-FRa" secondAttribute="top" constant="297" id="AuK-dN-b4h"/>
+                            <constraint firstItem="aCq-Oe-n3O" firstAttribute="leading" secondItem="9Ob-Ud-FRa" secondAttribute="leading" constant="16" id="GNz-D5-Gby"/>
+                            <constraint firstItem="9Ob-Ud-FRa" firstAttribute="trailing" secondItem="r8s-Er-jFe" secondAttribute="trailing" constant="16" id="Oz7-kl-zaQ"/>
+                            <constraint firstItem="3xY-4j-VS0" firstAttribute="leading" secondItem="9Ob-Ud-FRa" secondAttribute="leading" constant="16" id="Pqt-o5-dJx"/>
+                            <constraint firstItem="3xY-4j-VS0" firstAttribute="top" secondItem="r8s-Er-jFe" secondAttribute="bottom" constant="26" id="TN1-U2-yqJ"/>
+                            <constraint firstItem="9Ob-Ud-FRa" firstAttribute="trailing" secondItem="3xY-4j-VS0" secondAttribute="trailing" constant="16" id="kxi-Mi-bJV"/>
+                            <constraint firstItem="r8s-Er-jFe" firstAttribute="leading" secondItem="9Ob-Ud-FRa" secondAttribute="leading" constant="16" id="lsf-6b-IiF"/>
+                            <constraint firstItem="aCq-Oe-n3O" firstAttribute="top" secondItem="3xY-4j-VS0" secondAttribute="bottom" constant="26" id="quQ-x9-UeP"/>
+                            <constraint firstItem="9Ob-Ud-FRa" firstAttribute="trailing" secondItem="aCq-Oe-n3O" secondAttribute="trailing" constant="16" id="slW-rE-z3y"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C2T-7t-C01" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5795" y="-50"/>
+        </scene>
+        <!--Gallery Permission-->
+        <scene sceneID="eX8-9A-aP0">
+            <objects>
+                <viewController storyboardIdentifier="GalleryPermission" interactionActivityTrackingBaseName="GalleryPermission" id="kLj-Pc-ydN" customClass="GalleryPermission" customModule="Union" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ole-1y-uda">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사진에 접근할 수 있도록 허가해 주세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBi-EN-Ogk">
+                                <rect key="frame" x="16" y="356" width="361" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNU-XW-6IY">
+                                <rect key="frame" x="16" y="472.66666666666669" width="361" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="라이브러리 권한 허용"/>
+                                <connections>
+                                    <action selector="goSetting:" destination="kLj-Pc-ydN" eventType="touchUpInside" id="loh-Tq-OuN"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="앨범을 표시하려면 권한 허용이 필요합니다. 프로필 사진 저장을 위해 앨범 접근 권한을 허용해 주세요." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgi-Fv-6Bk">
+                                <rect key="frame" x="16" y="406" width="361" height="40.666666666666686"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="NKD-zz-8md"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="wgi-Fv-6Bk" secondAttribute="trailing" constant="16" id="3t2-B1-H6w"/>
+                            <constraint firstItem="pBi-EN-Ogk" firstAttribute="leading" secondItem="NKD-zz-8md" secondAttribute="leading" constant="16" id="6dE-ls-RWp"/>
+                            <constraint firstItem="pBi-EN-Ogk" firstAttribute="top" secondItem="NKD-zz-8md" secondAttribute="top" constant="297" id="FBr-OP-zwG"/>
+                            <constraint firstItem="wgi-Fv-6Bk" firstAttribute="top" secondItem="pBi-EN-Ogk" secondAttribute="bottom" constant="26" id="JUH-EY-uuZ"/>
+                            <constraint firstItem="CNU-XW-6IY" firstAttribute="leading" secondItem="NKD-zz-8md" secondAttribute="leading" constant="16" id="NFp-Q6-AaW"/>
+                            <constraint firstItem="wgi-Fv-6Bk" firstAttribute="leading" secondItem="NKD-zz-8md" secondAttribute="leading" constant="16" id="OQb-Mk-OaT"/>
+                            <constraint firstItem="CNU-XW-6IY" firstAttribute="top" secondItem="wgi-Fv-6Bk" secondAttribute="bottom" constant="26" id="bh6-OH-HZe"/>
+                            <constraint firstItem="NKD-zz-8md" firstAttribute="trailing" secondItem="CNU-XW-6IY" secondAttribute="trailing" constant="16" id="pgh-fc-ENA"/>
+                            <constraint firstItem="NKD-zz-8md" firstAttribute="trailing" secondItem="pBi-EN-Ogk" secondAttribute="trailing" constant="16" id="rID-nU-v4Q"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sWP-kF-97K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6594.6564885496182" y="-50"/>
         </scene>
         <!--비밀번호 변경-->
         <scene sceneID="bbo-JM-bp9">

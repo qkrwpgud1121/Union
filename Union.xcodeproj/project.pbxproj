@@ -35,6 +35,8 @@
 		F8B2B3202A86219900CAD9A7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8B2B31E2A86219900CAD9A7 /* LaunchScreen.storyboard */; };
 		F8BCA1982B74744B00B3AA9E /* SecessionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BCA1972B74744B00B3AA9E /* SecessionModel.swift */; };
 		F8BCA19A2B74AE0D00B3AA9E /* SecessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BCA1992B74AE0D00B3AA9E /* SecessionService.swift */; };
+		F8D909412B79FA1A00951706 /* CameraPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D909402B79FA1A00951706 /* CameraPermission.swift */; };
+		F8D909432B79FA6800951706 /* GalleryPermission.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D909422B79FA6800951706 /* GalleryPermission.swift */; };
 		F8DADACD2A96055300E0A643 /* MyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DADACC2A96055300E0A643 /* MyProfile.swift */; };
 		F8DEC4FE2A8B47FD00820B35 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8DEC4FD2A8B47FD00820B35 /* Register.swift */; };
 		F8E4D0342AEBB23C00468EE0 /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8E4D0332AEBB23C00468EE0 /* ProfileService.swift */; };
@@ -78,6 +80,8 @@
 		F8B2B3212A86219900CAD9A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8BCA1972B74744B00B3AA9E /* SecessionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecessionModel.swift; sourceTree = "<group>"; };
 		F8BCA1992B74AE0D00B3AA9E /* SecessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecessionService.swift; sourceTree = "<group>"; };
+		F8D909402B79FA1A00951706 /* CameraPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPermission.swift; sourceTree = "<group>"; };
+		F8D909422B79FA6800951706 /* GalleryPermission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryPermission.swift; sourceTree = "<group>"; };
 		F8DADACC2A96055300E0A643 /* MyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfile.swift; sourceTree = "<group>"; };
 		F8DEC4FD2A8B47FD00820B35 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		F8E4D0332AEBB23C00468EE0 /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
@@ -213,6 +217,8 @@
 				F8F2496E2A98330000E13B60 /* NewPost.swift */,
 				F86D7E102AE63ED300815638 /* MyPost.swift */,
 				F85BAAFC2B03800F00BCD5C4 /* PasswordChange.swift */,
+				F8D909402B79FA1A00951706 /* CameraPermission.swift */,
+				F8D909422B79FA6800951706 /* GalleryPermission.swift */,
 			);
 			path = Union;
 			sourceTree = "<group>";
@@ -344,6 +350,7 @@
 				F86D7E132AE64A4700815638 /* MyPostModel.swift in Sources */,
 				F8DADACD2A96055300E0A643 /* MyProfile.swift in Sources */,
 				F8BCA19A2B74AE0D00B3AA9E /* SecessionService.swift in Sources */,
+				F8D909432B79FA6800951706 /* GalleryPermission.swift in Sources */,
 				F8B2B3182A86219800CAD9A7 /* ViewController.swift in Sources */,
 				F8FDCEC12AD169BA00B41F2F /* ListDetail.swift in Sources */,
 				F8B2B3142A86219800CAD9A7 /* AppDelegate.swift in Sources */,
@@ -353,6 +360,7 @@
 				F80472812AEA99140079EB38 /* LoginService.swift in Sources */,
 				F8B2B3162A86219800CAD9A7 /* SceneDelegate.swift in Sources */,
 				F863A5C22ADCF7E500B77527 /* ListModel.swift in Sources */,
+				F8D909412B79FA1A00951706 /* CameraPermission.swift in Sources */,
 				F8787BD12AF2A5FF00B4C40F /* CustomSideMenuNavigation.swift in Sources */,
 				F8E4D0342AEBB23C00468EE0 /* ProfileService.swift in Sources */,
 				F85BAB002B03863F00BCD5C4 /* PwdChangeService.swift in Sources */,
@@ -508,13 +516,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AV4C82XPGK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Union/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Camera Permission Request";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Photo Library Permission Request";
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 접근을 위해 권한이 필요합니다.   프로필 사진 저장을 위해 카메라 접근 권한을 허용해 주세요.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "앨범을 표시하려면 권한 허용이 필요합니다. 프로필 사진 저장을 위해 앨범 접근 권한을 허용해 주세요.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -527,6 +536,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = none.Union;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -539,13 +549,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = AV4C82XPGK;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Union/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "Camera Permission Request";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Photo Library Permission Request";
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 접근을 위해 권한이 필요합니다.   프로필 사진 저장을 위해 카메라 접근 권한을 허용해 주세요.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "앨범을 표시하려면 권한 허용이 필요합니다. 프로필 사진 저장을 위해 앨범 접근 권한을 허용해 주세요.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -558,6 +569,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = none.Union;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

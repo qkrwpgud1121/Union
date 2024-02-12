@@ -111,8 +111,44 @@ class MyProfile: UIViewController {
     @IBAction func addBtnClick(_ sender: UIButton) {
         
         let alert =  UIAlertController(title: "Title", message: "message", preferredStyle: .actionSheet)
-        let library =  UIAlertAction(title: "앨범에서 가져오기", style: .default) { (action) in self.openLibrary() }
-        let camera =  UIAlertAction(title: "카메라", style: .default) { (action) in self.openCamera() }
+        let library =  UIAlertAction(title: "앨범에서 가져오기", style: .default) { (action) in
+            PHPhotoLibrary.requestAuthorization( { status in
+                switch status{
+                case .authorized:
+                    self.openLibrary()
+                    print("1")
+                case .denied:
+                    DispatchQueue.main.async {
+                        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                        let mainView = storyboard.instantiateViewController(identifier: "GalleryPermission")
+                        mainView.modalPresentationStyle = .fullScreen
+                        self.navigationController?.show(mainView, sender: nil)
+                    }
+                    
+                case .restricted, .notDetermined:
+                    self.openLibrary()
+                    print("2")
+                default:
+                    self.openLibrary()
+                    print("3")
+                }
+            })
+        }
+        
+        let camera =  UIAlertAction(title: "카메라", style: .default) { (action) in
+            AVCaptureDevice.requestAccess(for: .video, completionHandler: { (granted: Bool) in
+                if granted {
+                    self.openCamera()
+                } else {
+                    DispatchQueue.main.async {
+                        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                        let mainView = storyboard.instantiateViewController(identifier: "CameraPermission")
+                        mainView.modalPresentationStyle = .fullScreen
+                        self.navigationController?.show(mainView, sender: nil)
+                    }
+                }
+            })
+        }
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         
         alert.addAction(library)
@@ -123,13 +159,17 @@ class MyProfile: UIViewController {
     }
     
     func openLibrary(){
-        imgPicker.sourceType = .photoLibrary
-        present(imgPicker, animated: false, completion: nil)
+        DispatchQueue.main.async {
+            self.imgPicker.sourceType = .photoLibrary
+            self.present(self.imgPicker, animated: false, completion: nil)
+        }
     }
     
     func openCamera(){
-        imgPicker.sourceType = .camera
-        present(imgPicker, animated: false, completion: nil)
+        DispatchQueue.main.async {
+            self.imgPicker.sourceType = .camera
+            self.present(self.imgPicker, animated: false, completion: nil)
+        }
     }
     
     func setPosition() {
